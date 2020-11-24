@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.30711.63
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SFGproto", "SFGproto\SFGproto.csproj", "{2F4CEC52-865D-4DC7-93B2-08DA4209982F}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{2F4CEC52-865D-4DC7-93B2-08DA4209982F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2F4CEC52-865D-4DC7-93B2-08DA4209982F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2F4CEC52-865D-4DC7-93B2-08DA4209982F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2F4CEC52-865D-4DC7-93B2-08DA4209982F}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {6995D6A7-1120-45C8-9E2D-69E701570C8C}
+	EndGlobalSection
+EndGlobal
