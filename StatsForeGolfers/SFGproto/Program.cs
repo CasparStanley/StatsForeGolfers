@@ -7,6 +7,7 @@ namespace SFGproto
         static void Main(string[] args)
         {
             Console.WriteLine("Hello World!");
+<<<<<<< HEAD
 // <<<<<<< HEAD
             Console.WriteLine("IT is me GAI");
 // =======
@@ -19,6 +20,9 @@ namespace SFGproto
 
 // NEW CONFLICT TEST WITG PATRICK
 // >>>>>>> 84f04b362bb711e121d8644095f9483e7a2015d2
+=======
+            // SLETTET ALT DET DER LORT
+>>>>>>> 09ade6235e51ad0f1f008df684bcbfafc09ac0fb
         }
     }
 }
