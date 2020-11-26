@@ -48,22 +48,50 @@ namespace SFGproto
         }
         static void InputGameStatistics()
         {
+            // Tee selection
+            WriteWithGolfColors($"\nTee selection\n");
+            Console.WriteLine($"What is your Tee?");
+
+            string currentTee;
+            while(true)
+            {
+                currentTee = Console.ReadLine();
+                if (currentTee.Length > 0)
+                    break;
+                else
+                    WriteError(INPUT_ERROR);
+            }
+
             int currentHole = 1;
 
+            // 18 holes flow!
             while (true)
             {
                 WriteWithGolfColors($"\nHole {currentHole}\n");
-                Console.WriteLine($"What was your Tee on Hole {currentHole}?");
+                Console.WriteLine($"What is the Par of the Hole {currentHole}?");
 
-                string currentTee;
+                int currentPar = 0;
                 bool holeFlow = true;
+                bool parFlow = true;
 
                 while (holeFlow)
                 {
-                    currentTee = Console.ReadLine();
-                    if (currentTee.Length > 0)
+                    while (parFlow)
                     {
-                        CreateHole(currentHole, currentTee);
+                        try
+                        {
+                            currentPar = Convert.ToInt32(Console.ReadLine());
+                            parFlow = false;
+                        }
+                        catch
+                        {
+                            WriteError(INPUT_ERROR);
+                        }
+                    }
+
+                    if (currentPar >= 3 && currentPar <= 5)
+                    {
+                        CreateHole(currentHole, currentPar);
                         holeFlow = false;
                     }
                     else
@@ -77,9 +105,9 @@ namespace SFGproto
             }
         }
 
-        static void CreateHole(int holeNo, string tee)
+        static void CreateHole(int holeNo, int par)
         {
-            WriteWithGolfColors($"\nFAKE CREATION OF HOLE {holeNo} - TEE: {tee}");
+            WriteWithGolfColors($"\nFAKE CREATION OF HOLE {holeNo} - PAR: {par}");
         }
 
         static void WriteWithGolfColors(string line)
