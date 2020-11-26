@@ -6,9 +6,10 @@ namespace SFGproto
 {
     interface IStatistics
     {
-        public double GreenHits(double hits);
-        public double GreenMisses(double misses);
-        public double MissLeft();
-        public double MissRight();
+        public double GreenHits(int hits);
+        public double GreenMisses(int misses);
+        public double GreenMissesLeft(int misses);
+        public double GreenMissesRight(int misses);
+        public double ScrambleIn(int scrambleIn);
     }
 }
