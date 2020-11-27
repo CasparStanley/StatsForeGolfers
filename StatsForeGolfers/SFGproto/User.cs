@@ -19,5 +19,7 @@ namespace SFGproto
         public string Name { get; set; }
         // The "status" of the user - Pro, Amateur, N00b, Senior, etc.
         public string Status { get; set; }
+        // The user's membership number in their main club. Only needs to be filled if they want to.
+        public string MemberNo { get; set; }
     }
 }
