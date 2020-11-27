@@ -117,9 +117,10 @@ namespace SFGproto
             #endregion
         }
 
-        static void CreateHole(int holeNo, int par)
+        static void CreateHole(int holeNo, int par, int length, int hcp)
         {
-            WriteWithGolfColors($"\nFAKE CREATION OF HOLE {holeNo} - PAR: {par}");
+            //WriteWithGolfColors($"\nFAKE CREATION OF HOLE {holeNo} - PAR: {par}");
+            Hole newHole = new Hole(holeNo, par, length, hcp);
         }
 
         static void WriteWithGolfColors(string line)

@@ -9,8 +9,8 @@ namespace SFGproto
         public int FairWayHit { get; set; }
         public bool FairWayMissLeft { get; set; }
         public bool FairWayMissRight { get; set; }
-        public Par5(int par, int length, int handicap)
-            : base(par, length, handicap)
+        public Par5(int holeNo, int par, int length, int handicap)
+            : base(holeNo, par, length, handicap)
         {
 
         }
