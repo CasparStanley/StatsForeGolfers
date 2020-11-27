@@ -15,7 +15,7 @@
         public bool Rough { get; set; }
         public bool French { get; set; }
 
-        public int TotalFairWayStrokes { get; set; }
+        public int TotalFairwayStrokes { get; set; }
         public int FairWayHit { get; set; }
         public int FairWayMissLeft { get; set; }
         public int FairWayMissRight { get; set; }
@@ -39,7 +39,7 @@
             for (int i = 0; i < TotalHits; i++)
             {
                 // Fairway hits
-                output += $"\nFairway Hits: {PercentageCalculator(FairWayHit, TotalFairWayStrokes) * 100}%";
+                output += $"\nFairway Hits: {PercentageCalculator(FairWayHit, TotalFairwayStrokes) * 100}%";
                 // Fairway misses
                 output += $"\nFairway Misses: {PercentageCalculator(FairWayMissLeft, FairWayMissLeft + FairWayMissRight) * 100}%";
                 // Green hits

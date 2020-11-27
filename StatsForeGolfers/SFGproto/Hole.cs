@@ -14,13 +14,13 @@ namespace SFGproto
         public int HoleNo { get; set; }
         public int Par { get; set; }
         public int Length { get; set; }
-        public int Handicap { get; set; }
+        public double Handicap { get; set; } //det er muligt at have et decimal tal som Handicap ;-)
 
         public Hole()
         {
             
         }
-        public Hole(int holeNo, int par, int length, int handicap)
+        public Hole(int holeNo, int par, int length, double handicap)
         {
             HoleNo = holeNo;
             Par = par;
