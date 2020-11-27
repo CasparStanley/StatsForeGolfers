@@ -4,7 +4,7 @@ namespace SFGproto
 {
     class Program
     {
-        private const string INPUT_ERROR = "\nInvalid Input. Please try again.\n";
+        private const string INPUT_ERROR = "\nInvalid Input. Please try again.";
 
         static void Main(string[] args)
         {
@@ -18,38 +18,39 @@ namespace SFGproto
         static void UserCreation()
         {
             Console.WriteLine("\nPlease write your name:");
-
-            string name;
-            while (true)
-            {
-                name = Console.ReadLine();
-
-                if (name.Length > 0)
-                    break;
-                else
-                    WriteError(INPUT_ERROR);
-            }
+            string name = InfoInputLoop();
 
             Console.WriteLine("\nHow good are you at golf? Amateur, Intermediate, Pro?");
+            string skillLvl = InfoInputLoop();
 
-            string skillLevel;
+            Console.WriteLine("\nWhat's your membership number?");
+            string memberNo = InfoInputLoop();
+
+            User newUser = new User() { Name = name, Status = skillLvl, MemberNo = memberNo};
+            Console.WriteLine($"Awesome! Welcome to Stats Fore Golfers, {name}.");
+        }
+
+        static string InfoInputLoop()
+        {
+            string input;
+
             while (true)
             {
-                skillLevel = Console.ReadLine();
+                input = Console.ReadLine();
 
-                if (skillLevel.Length > 0)
+                if (input.Length > 0)
                     break;
                 else
                     WriteError(INPUT_ERROR);
             }
 
-
-            Console.WriteLine($"Awesome! Welcome to Stats Fore Golfers, {name}.");
+            return input;
         }
+
         static void InputGameStatistics()
         {
             // Tee selection
-            WriteWithGolfColors($"\nTee selection\n");
+            WriteWithGolfColors($"\nTee selection");
             Console.WriteLine($"What is your Tee?");
 
             string currentTee;
@@ -64,24 +65,26 @@ namespace SFGproto
 
             int currentHole = 1;
 
-            // 18 holes flow!
+            #region CREATION OF 18 HOLES
             while (true)
             {
-                WriteWithGolfColors($"\nHole {currentHole}\n");
+                WriteWithGolfColors($"\nHole {currentHole}");
                 Console.WriteLine($"What is the Par of the Hole {currentHole}?");
 
                 int currentPar = 0;
                 bool holeFlow = true;
-                bool parFlow = true;
 
                 while (holeFlow)
                 {
-                    while (parFlow)
+                    bool parInputFlow = true;
+                    bool holeCreationFlow = true;
+
+                    while (parInputFlow)
                     {
                         try
                         {
                             currentPar = Convert.ToInt32(Console.ReadLine());
-                            parFlow = false;
+                            parInputFlow = false;
                         }
                         catch
                         {
@@ -89,13 +92,21 @@ namespace SFGproto
                         }
                     }
 
-                    if (currentPar >= 3 && currentPar <= 5)
+                    while (holeCreationFlow)
                     {
-                        CreateHole(currentHole, currentPar);
-                        holeFlow = false;
+                        if (currentPar >= 3 && currentPar <= 5)
+                        {
+                            CreateHole(currentHole, currentPar);
+                            holeCreationFlow = false;
+                            holeFlow = false;
+                        }
+                        else
+                        {
+                            WriteError(INPUT_ERROR);
+                            holeCreationFlow = false;
+                            currentPar = 4;
+                        }
                     }
-                    else
-                        WriteError(INPUT_ERROR);
                 }
 
                 if (currentHole >= 18)
@@ -103,6 +114,7 @@ namespace SFGproto
                 else
                     currentHole++;
             }
+            #endregion
         }
 
         static void CreateHole(int holeNo, int par)
@@ -115,14 +127,18 @@ namespace SFGproto
             Console.BackgroundColor = ConsoleColor.DarkGreen;
             Console.ForegroundColor = ConsoleColor.Yellow;
             Console.WriteLine(line);
+            Console.WriteLine();
             Console.ResetColor();
+            Console.WriteLine();
         }
         static void WriteError(string line)
         {
             Console.BackgroundColor = ConsoleColor.Red;
             Console.ForegroundColor = ConsoleColor.White;
             Console.WriteLine(line);
+            Console.WriteLine();
             Console.ResetColor();
+            Console.WriteLine();
         }
     }
 }
