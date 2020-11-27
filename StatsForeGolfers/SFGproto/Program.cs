@@ -5,6 +5,7 @@ namespace SFGproto
     class Program
     {
         private const string INPUT_ERROR = "\nInvalid Input. Please try again.";
+        static Course currentCourse;
 
         static void Main(string[] args)
         {
@@ -12,7 +13,8 @@ namespace SFGproto
 
             Console.WriteLine("\n\nHello user!");
             UserCreation();
-            InputGameStatistics();
+            CreateNewGame();
+            PlayGame();
         }
 
         static void UserCreation()
@@ -47,12 +49,11 @@ namespace SFGproto
             return input;
         }
 
-        static void InputGameStatistics()
+        static void CreateNewGame()
         {
             // Tee selection
             WriteWithGolfColors($"\nTee selection");
             Console.WriteLine($"What is your Tee?");
-
 
             int currentHole = 1;
 
@@ -78,7 +79,7 @@ namespace SFGproto
                 }
             }
 
-            Course newCourse = new Course(courseName);
+            currentCourse = new Course(courseName);
             #endregion
 
             #region CREATION OF HOLES
@@ -112,7 +113,7 @@ namespace SFGproto
                     {
                         if (currentPar >= 3 && currentPar <= 5)
                         {
-                            newCourse.AddHole(currentHole, CreateHole(currentHole, currentPar, 0, 0));
+                            currentCourse.AddHole(currentHole, CreateHole(currentHole, currentPar, 0, 0));
                             holeCreationFlow = false;
                             holeFlow = false;
                         }
@@ -145,12 +146,46 @@ namespace SFGproto
             #endregion
 
             WriteWithGolfColors("YOU CREATED A GOLF COURSE!");
-            Console.WriteLine(newCourse.ToString());
+            Console.WriteLine(currentCourse.ToString());
+        }
 
+        static void PlayGame()
+        {
             #region INPUT STATS
-            WriteWithGolfColors("Let's now take a look how your game went.");
-
+            WriteWithGolfColors("Let's now play some Golf, and while playing input our stats.");
+            foreach(var h in currentCourse.GetHoles())
+            {
+                Console.WriteLine($"You are now on Hole {h.Key}");
+                switch(h.Value.Par)
+                {
+                    case 3:
+                        HitOrMissGreen();
+                        Console.WriteLine($"Hit or miss on this par 3 hole?");
+                        break;
+                    case 4:
+                        HitOrMissFairway();
+                        HitOrMissGreen();
+                        Console.WriteLine($"Hit or miss on this par 4 hole?");
+                        break;
+                    case 5:
+                        HitOrMissFairway();
+                        HitOrMissGreen();
+                        Console.WriteLine($"Hit or miss on this par 5 hole?");
+                        break;
+                    default:
+                        break;
+                }
+            }
             #endregion
+        }
+
+        static void HitOrMissGreen()
+        {
+
+        }
+        static void HitOrMissFairway()
+        {
+
         }
 
         static Hole CreateHole(int holeNo, int par, int length, int hcp)

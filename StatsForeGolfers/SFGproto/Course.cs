@@ -27,6 +27,11 @@ namespace SFGproto
             holes.Add(nr, hole);
         }
 
+        public Dictionary<int, Hole> GetHoles ()
+        {
+            return holes;
+        }
+
         public override string ToString()
         {
             string output = $"Course: {Name}";
