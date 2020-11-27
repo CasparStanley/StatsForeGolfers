@@ -29,20 +29,11 @@ namespace SFGproto
         {
             
         }
-        public Hole(int par, int length, int handicap, int totalHits, bool greenHit, bool greenMissRight, bool greenMissLeft, bool bunker, bool rough, bool french, bool scramble, int totalMisses)
+        public Hole(int par, int length, int handicap)
         {
             Par = par;
             Length = length;
             Handicap = handicap;
-            TotalHits = totalHits;
-            GreenHit = greenHit;
-            GreenMissRight = greenMissRight;
-            GreenMissLeft = greenMissLeft;
-            Bunker = bunker;
-            Rough = rough;
-            French = french;
-            Scramble = scramble;
-            TotalMisses = totalMisses;
         }
         public double GreenHits(int hits)
         {
