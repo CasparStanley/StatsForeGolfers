@@ -65,6 +65,31 @@ namespace SFGproto
 
             int currentHole = 1;
 
+            #region COURSE CREATION
+            WriteWithGolfColors($"\nCreating a new Course");
+
+            Console.WriteLine($"What is the name of the course?");
+            string courseName = InfoInputLoop();
+
+            Console.WriteLine($"How many holes does the course have?");
+            int amountOfHoles = 0;
+            bool holeAmountFlow = true;
+            while (holeAmountFlow)
+            {
+                try
+                {
+                    amountOfHoles = Convert.ToInt32(InfoInputLoop());
+                    holeAmountFlow = false;
+                }
+                catch
+                {
+                    WriteError(INPUT_ERROR);
+                }
+            }
+
+            Course newCourse = new Course(courseName);
+            #endregion
+
             #region CREATION OF 18 HOLES
             while (true)
             {
@@ -96,7 +121,7 @@ namespace SFGproto
                     {
                         if (currentPar >= 3 && currentPar <= 5)
                         {
-                            CreateHole(currentHole, currentPar);
+                            newCourse.AddHole(currentHole, CreateHole(currentHole, currentPar, 0, 0));
                             holeCreationFlow = false;
                             holeFlow = false;
                         }
@@ -109,17 +134,21 @@ namespace SFGproto
                     }
                 }
 
-                if (currentHole >= 18)
+                if (currentHole >= amountOfHoles)
                     break;
                 else
                     currentHole++;
             }
             #endregion
+
+            WriteWithGolfColors("YOU CREATED A GOLF COURSE!");
+            Console.WriteLine(newCourse.ToString());
         }
 
-        static void CreateHole(int holeNo, int par)
+        static Hole CreateHole(int holeNo, int par, int length, int hcp)
         {
-            WriteWithGolfColors($"\nFAKE CREATION OF HOLE {holeNo} - PAR: {par}");
+            //WriteWithGolfColors($"\nFAKE CREATION OF HOLE {holeNo} - PAR: {par}");
+            return new Hole(holeNo, par, length, hcp);    
         }
 
         static void WriteWithGolfColors(string line)

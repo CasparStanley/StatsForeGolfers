@@ -11,9 +11,19 @@ namespace SFGproto
 
         private Dictionary<int, Hole> holes;
 
-        public Course()
+        public Course(string name)
         {
+            Name = name;
+        }
 
+        public void AddHole(int nr, Hole hole)
+        {
+            if (holes.ContainsKey(nr))
+            {
+                holes.Remove(nr);
+            }
+
+            holes.Add(nr, hole);
         }
     }
 }

@@ -11,6 +11,7 @@ namespace SFGproto
         /// A Course contains 18 Holes which can contain different kind of Par(The amount of shots you have) 
         /// The Hole Class is going to be a super class which Different kind of "Par Hole" Classes are going to inherit from.
         /// </summary>
+        public int HoleNo { get; set; }
         public int Par { get; set; }
         public int Length { get; set; }
         public int Handicap { get; set; }
@@ -19,8 +20,9 @@ namespace SFGproto
         {
             
         }
-        public Hole(int par, int length, int handicap)
+        public Hole(int holeNo, int par, int length, int handicap)
         {
+            HoleNo = holeNo;
             Par = par;
             Length = length;
             Handicap = handicap;
