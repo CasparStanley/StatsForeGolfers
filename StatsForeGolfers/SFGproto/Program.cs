@@ -53,15 +53,6 @@ namespace SFGproto
             WriteWithGolfColors($"\nTee selection");
             Console.WriteLine($"What is your Tee?");
 
-            string currentTee;
-            while(true)
-            {
-                currentTee = Console.ReadLine();
-                if (currentTee.Length > 0)
-                    break;
-                else
-                    WriteError(INPUT_ERROR);
-            }
 
             int currentHole = 1;
 
@@ -90,7 +81,7 @@ namespace SFGproto
             Course newCourse = new Course(courseName);
             #endregion
 
-            #region CREATION OF 18 HOLES
+            #region CREATION OF HOLES
             while (true)
             {
                 WriteWithGolfColors($"\nHole {currentHole}");
@@ -141,8 +132,25 @@ namespace SFGproto
             }
             #endregion
 
+            #region TEE SELECTION
+            string currentTee;
+            while(true)
+            {
+                currentTee = Console.ReadLine();
+                if (currentTee.Length > 0)
+                    break;
+                else
+                    WriteError(INPUT_ERROR);
+            }
+            #endregion
+
             WriteWithGolfColors("YOU CREATED A GOLF COURSE!");
             Console.WriteLine(newCourse.ToString());
+
+            #region INPUT STATS
+            WriteWithGolfColors("Let's now take a look how your game went.");
+
+            #endregion
         }
 
         static Hole CreateHole(int holeNo, int par, int length, int hcp)

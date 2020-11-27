@@ -14,6 +14,7 @@ namespace SFGproto
         public Course(string name)
         {
             Name = name;
+            holes = new Dictionary<int, Hole>();
         }
 
         public void AddHole(int nr, Hole hole)
@@ -24,6 +25,16 @@ namespace SFGproto
             }
 
             holes.Add(nr, hole);
+        }
+
+        public override string ToString()
+        {
+            string output = $"Course: {Name}";
+            foreach (var h in holes.Values)
+            {
+                output += $"\nHole {h.HoleNo} - Par: {h.Par}";
+            }
+            return output;
         }
     }
 }
