@@ -6,8 +6,8 @@ namespace SFGproto
 {
     class Par4 : Hole
     {
-        public Par4(int par, int length, int handicap)
-            : base(par, length, handicap)
+        public Par4(int holeNo,int par, int length, int handicap)
+            : base( holeNo,par, length, handicap)
         {
             
         }

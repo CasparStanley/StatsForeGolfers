@@ -100,7 +100,7 @@ namespace SFGproto
         {
             if (totalMisses != 0 && totalMisses <= 18)
             {
-                scrambleIn = scrambleIn / tot;
+                scrambleIn = scrambleIn / totalMisses;
             }
             return scrambleIn;
         }
