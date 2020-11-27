@@ -27,7 +27,7 @@
             double result = 0;
             if (totalNumber != 0 && number != 0)
             {
-                result = (totalNumber / number);
+                result = (number / totalNumber);
             }
 
             return result;
