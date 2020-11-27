@@ -6,10 +6,12 @@ namespace SFGproto
     {
         private const string INPUT_ERROR = "\nInvalid Input. Please try again.";
         static Course currentCourse;
+        static StatSheet statSheet;
 
         static void Main(string[] args)
         {
             Console.Title = "STATS FORE GOLFERS - PROTOTYPE";
+            statSheet = new StatSheet();
 
             Console.WriteLine("\n\nHello user!");
             UserCreation();
@@ -54,6 +56,7 @@ namespace SFGproto
             // Tee selection
             WriteWithGolfColors($"\nTee selection");
             Console.WriteLine($"What is your Tee?");
+            string currentTee = InfoInputLoop();
 
             int currentHole = 1;
 
@@ -132,19 +135,6 @@ namespace SFGproto
                     currentHole++;
             }
             #endregion
-
-            #region TEE SELECTION
-            string currentTee;
-            while(true)
-            {
-                currentTee = Console.ReadLine();
-                if (currentTee.Length > 0)
-                    break;
-                else
-                    WriteError(INPUT_ERROR);
-            }
-            #endregion
-
             WriteWithGolfColors("YOU CREATED A GOLF COURSE!");
             Console.WriteLine(currentCourse.ToString());
         }
@@ -160,32 +150,76 @@ namespace SFGproto
                 {
                     case 3:
                         HitOrMissGreen();
-                        Console.WriteLine($"Hit or miss on this par 3 hole?");
                         break;
                     case 4:
                         HitOrMissFairway();
                         HitOrMissGreen();
-                        Console.WriteLine($"Hit or miss on this par 4 hole?");
                         break;
                     case 5:
                         HitOrMissFairway();
                         HitOrMissGreen();
-                        Console.WriteLine($"Hit or miss on this par 5 hole?");
                         break;
                     default:
                         break;
                 }
             }
+
+            statSheet.TotalHits = statSheet.TotalGreenStrokes + statSheet.TotalFairWayStrokes;
+            Console.WriteLine(statSheet.ToString());
             #endregion
         }
 
         static void HitOrMissGreen()
         {
+            Console.WriteLine($"Hit or miss on this hole. Green. H) Hit - M) Miss");
+            string hitOrMiss = InfoInputLoop();
+            if (hitOrMiss.ToLower() == "h")
+            {
+                Console.WriteLine($"You hit the green.");
+                statSheet.GreenHit++;
+            }
+            else
+            {
+                Console.WriteLine($"Did you miss left or right? L) Left - R) Right");
+                string missLeft = InfoInputLoop();
+                if (missLeft.ToLower() == "l")
+                {
+                    statSheet.GreenMissLeft++;
+                }
+                else
+                {
+                    statSheet.GreenMissRight++;
+                }
+                // NOW ASK IF YOU MISSED LEFT OR RIGHT
+            }
 
+            statSheet.TotalGreenStrokes++;
         }
         static void HitOrMissFairway()
         {
+            Console.WriteLine($"Hit or miss on this hole. Fair Way. H) Hit - M) Miss");
+            string hitOrMiss = InfoInputLoop();
+            if (hitOrMiss.ToLower() == "h")
+            {
+                Console.WriteLine($"You hit the fairway.");
+                statSheet.FairWayHit++;
+            }
+            else
+            {
+                Console.WriteLine($"Did you miss left or right? L) Left - R) Right");
+                string missLeft = InfoInputLoop();
+                if (missLeft.ToLower() == "l")
+                {
+                    statSheet.FairWayMissLeft++;
+                }
+                else
+                {
+                    statSheet.FairWayMissRight++;
+                }
+                // NOW ASK IF YOU MISSED LEFT OR RIGHT
+            }
 
+            statSheet.TotalFairWayStrokes++;
         }
 
         static Hole CreateHole(int holeNo, int par, int length, int hcp)

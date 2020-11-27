@@ -1,109 +1,53 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace SFGproto
+﻿namespace SFGproto
 {
     class StatSheet : IStatistics
     {
         public int TotalHits { get; set; }
-        public int TotalGreenHits { get; set; }
-        public bool GreenHit { get; set; }
-        public bool GreenMissRight { get; set; }
-        public bool GreenMissLeft { get; set; }
+        public int TotalMisses { get; set; }
+
+        public int TotalGreenStrokes { get; set; }
+        public int GreenHit { get; set; }
+        public int GreenMissRight { get; set; }
+        public int GreenMissLeft { get; set; }
         // If green miss---> did it hit Bunker, rough or French
+
         public bool Bunker { get; set; }
         public bool Rough { get; set; }
         public bool French { get; set; }
+
+        public int TotalFairWayStrokes { get; set; }
         public int FairWayHit { get; set; }
-        public bool FairWayMissLeft { get; set; }
-        public bool FairWayMissRight { get; set; }
+        public int FairWayMissLeft { get; set; }
+        public int FairWayMissRight { get; set; }
+
         public bool Scramble { get; set; }
-        public int TotalMisses { get; set; }
 
-        public double FairWayHits(int hits,int totalFairWayHits)
+        public double PercentageCalculator(int number,int totalNumber)
         {
-            FairWayHit = hits;
-            if (totalFairWayHits != 0 && hits != 0)
+            double result = 0;
+            if (totalNumber != 0 && number != 0)
             {
-                hits = (totalFairWayHits / hits);
+                result = (totalNumber / number);
             }
-            return hits;
-        }
-        public double FairWayMisses(int misses,int totalFairWayHits)
-        {
-             
-            if (totalFairWayHits != 0 && misses != 0)
-            {
-                misses = (misses / totalFairWayHits);
-            }
-            return misses;
+
+            return result;
         }
 
-        public double FairWayMissesLeft(int misses,int totalFairWayHits)
+        public override string ToString()
         {
-            
-            if (totalFairWayHits != 0 && misses != 0)
+            string output = "YOUR STATS";
+            for (int i = 0; i < TotalHits; i++)
             {
-                misses = (misses / TotalHits);
+                // Fairway hits
+                output += $"\nFairway Hits: {PercentageCalculator(FairWayHit, TotalFairWayStrokes) * 100}%";
+                // Fairway misses
+                output += $"\nFairway Misses: {PercentageCalculator(FairWayMissLeft, FairWayMissLeft + FairWayMissRight) * 100}%";
+                // Green hits
+                output += $"\nGreen Hits: {PercentageCalculator(GreenHit, TotalGreenStrokes) * 100}%";
+                // Green misses
+                output += $"\nGreen Misses: {PercentageCalculator(GreenMissLeft, GreenMissLeft + GreenMissRight) * 100}%";
             }
-            return misses;
+            return output;
         }
-
-        public double FairWayMissesRight(int misses, int totalFairWayHits)
-        {
-            if (totalFairWayHits != 0 && misses != 0)
-            {
-                misses = (misses / totalFairWayHits);
-            }
-            return misses;
-        }
-
-        public double GreenHits(int hits, int totalGreenHits)
-        {
-            if (totalGreenHits != 0 && hits != 0)
-            {
-                hits = (totalGreenHits / hits);
-            }
-            return hits;
-        }
-        public double GreenMisses(int misses, int totalGreenHits)
-        {
-           
-            if (totalGreenHits != 0 && misses != 0)
-            {
-                misses = (misses / totalGreenHits);
-            }
-            return misses;
-        }
-
-        public double GreenMissesLeft(int misses, int totalGreenHits)
-        {
-            
-            if (totalGreenHits != 0 && misses != 0)
-            {
-                misses = (misses / totalGreenHits);
-            }
-            return misses;
-        }
-
-        public double GreenMissesRight(int misses, int totalGreenHits)
-        {
-            if (totalGreenHits != 0 && misses != 0)
-            {
-                misses = (misses / totalGreenHits);
-            }
-            return misses;
-        }
-
-        public double ScrambleIn(int scrambleIn,int totalMisses)
-        {
-            if (totalMisses != 0 && totalMisses <= 18)
-            {
-                scrambleIn = scrambleIn / totalMisses;
-            }
-            return scrambleIn;
-        }
-
     }
 }
