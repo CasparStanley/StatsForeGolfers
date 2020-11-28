@@ -164,7 +164,7 @@ namespace SFGproto
                 }
             }
 
-            statSheet.TotalHits = statSheet.TotalGreenStrokes + statSheet.TotalFairWayStrokes;
+            statSheet.TotalHits = statSheet.TotalGreenStrokes + statSheet.TotalFairwayStrokes;
             Console.WriteLine(statSheet.ToString());
             #endregion
         }
@@ -219,7 +219,7 @@ namespace SFGproto
                 // NOW ASK IF YOU MISSED LEFT OR RIGHT
             }
 
-            statSheet.TotalFairWayStrokes++;
+            statSheet.TotalFairwayStrokes++;
         }
 
         static Hole CreateHole(int holeNo, int par, int length, int hcp)

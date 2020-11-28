@@ -6,6 +6,6 @@ namespace SFGproto
 {
     interface IStatistics
     {
-        public double PercentageCalculator(int number, int totalNumber);
+        public double PercentageCalculator(double number, double totalNumber);
     }
 }

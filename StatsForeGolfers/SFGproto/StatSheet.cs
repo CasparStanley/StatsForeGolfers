@@ -22,12 +22,12 @@
 
         public bool Scramble { get; set; }
 
-        public double PercentageCalculator(int number,int totalNumber)
+        public double PercentageCalculator(double number,double totalNumber)
         {
             double result = 0;
             if (totalNumber != 0 && number != 0)
             {
-                result = (number / totalNumber);
+                result = number / totalNumber;
             }
 
             return result;
@@ -36,16 +36,21 @@
         public override string ToString()
         {
             string output = "YOUR STATS";
-            for (int i = 0; i < TotalHits; i++)
+            //for (int i = 0; i < TotalHits; i++) // ForLoop Doesnt make sense since the value would be the same on every hole since FairWayHit is a constant at the moment
+            // We Could make it so it calculate precentege for every hole If we set Number and totalNumber to 0 every time we start a new hole.
             {
                 // Fairway hits
-                output += $"\nFairway Hits: {PercentageCalculator(FairWayHit, TotalFairwayStrokes) * 100}%";
-                // Fairway misses
-                output += $"\nFairway Misses: {PercentageCalculator(FairWayMissLeft, FairWayMissLeft + FairWayMissRight) * 100}%";
+                output += $"\nFairway Hits: {PercentageCalculator(FairWayHit, TotalFairwayStrokes) * 100}%\n";
+                // Fairway misses Left
+                output += $"\nFairway Misses Left: {PercentageCalculator(FairWayMissLeft, TotalFairwayStrokes) * 100}%\n";
+                //FairWay misses Right
+                output += $"\nFairway MissesRight: {PercentageCalculator(FairWayMissRight, TotalFairwayStrokes) * 100}%\n";
                 // Green hits
-                output += $"\nGreen Hits: {PercentageCalculator(GreenHit, TotalGreenStrokes) * 100}%";
-                // Green misses
-                output += $"\nGreen Misses: {PercentageCalculator(GreenMissLeft, GreenMissLeft + GreenMissRight) * 100}%";
+                output += $"\nGreen Hits: {PercentageCalculator(GreenHit, TotalGreenStrokes) * 100}%\n";
+                // Green misses Left
+                output += $"\nGreen Misses Left: {PercentageCalculator(GreenMissLeft, TotalGreenStrokes) * 100}%\n";
+                // Green misses Left
+                output += $"\nGreen Misses Right: {PercentageCalculator(GreenMissRight, TotalGreenStrokes) * 100}%\n";
             }
             return output;
         }
