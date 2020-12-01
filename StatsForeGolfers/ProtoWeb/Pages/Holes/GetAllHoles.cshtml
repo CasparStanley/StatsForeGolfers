@@ -1,0 +1,61 @@
+﻿@page
+@model ProtoWeb.Pages.Holes.GetAllHolesModel
+@{
+    ViewData["Title"] = "GetAllHoles";
+}
+<h1>Jacobs Holes</h1>
+
+<p>
+    <a asp-page="CreateHole">Create New Hole</a>
+</p>
+<form>
+    <p>
+        Search: <input type="text" asp-for="FilterCriteria"/>
+        <input type="submit" value="Filter"/>
+    </p>
+</form>
+
+<table class="table">
+    <thead>
+    <tr>
+        <th>
+            HoleNo
+        </th>
+        <th>
+            Par
+        </th>
+        <th>
+            Length
+        </th>
+        <th>
+            Handicap
+        </th>
+    </tr>
+    </thead>
+    <tbody>
+    @foreach (var item in Model.Holes)
+    {
+        <tr>
+            <td>
+                @item.Value.HoleNo
+            </td>
+            <td>
+                @item.Value.Par
+            </td>
+            <td>
+                @item.Value.Length
+            </td>
+            <td>
+                @item.Value.Handicap
+            </td>
+            <td>
+                <p>
+                    <a asp-page="EditHole" asp-route-holeNo="@item.Key">Edit</a> |
+                    <a asp-page="DeleteHole" asp-route-holeNo="@item.Key">Delete</a>
+                </p>
+            </td>
+          
+        </tr>
+    }
+    </tbody>
+</table>

@@ -1,0 +1,32 @@
+﻿@page "{holeNo}"
+@model ProtoWeb.Pages.Holes.EditHoleModel
+@{
+    ViewData["Title"] = "EditHole";
+}
+<h1>EditPizza</h1>
+
+<form method="post">
+    <div class="form-group">
+        <label asp-for="@Model.Hole.HoleNo" class="control-label"></label>
+        <input asp-for="@Model.Hole.HoleNo" class="form-control" />
+        <span asp-validation-for="@Model.Hole.HoleNo" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="@Model.Hole.Par" class="control-label"></label>
+        <input asp-for="@Model.Hole.Par" class="form-control" />
+        <span asp-validation-for="@Model.Hole.Par" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="@Model.Hole.Length" class="control-label"></label>
+        <input asp-for="@Model.Hole.Length" class="form-control" />
+        <span asp-validation-for="@Model.Hole.Length" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="@Model.Hole.Handicap" class="control-label"></label>
+        <input asp-for="@Model.Hole.Handicap" class="form-control" />
+        <span asp-validation-for="@Model.Hole.Handicap" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <input type="submit" value="Save" class="btn btn-primary" />
+    </div>
+</form>

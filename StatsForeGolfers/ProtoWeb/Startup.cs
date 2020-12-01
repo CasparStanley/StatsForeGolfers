@@ -8,6 +8,8 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using ProtoWeb.Interfaces;
+using ProtoWeb.Services;
 
 namespace ProtoWeb
 {
@@ -24,6 +26,7 @@ namespace ProtoWeb
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddRazorPages();
+            services.AddTransient<IHoleRepository, JsonFileHole>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
