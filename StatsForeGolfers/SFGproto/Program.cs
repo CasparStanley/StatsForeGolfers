@@ -169,6 +169,7 @@ namespace SFGproto
             #endregion
         }
 
+        // THIS WILL BECOME A TOGGLE 
         static void HitOrMissGreen()
         {
             Console.WriteLine($"Hit or miss on this hole. Green. H) Hit - M) Miss");
@@ -195,6 +196,8 @@ namespace SFGproto
 
             statSheet.TotalGreenStrokes++;
         }
+
+        // THIS WILL BECOME A TOGGLE
         static void HitOrMissFairway()
         {
             Console.WriteLine($"Hit or miss on this hole. Fair Way. H) Hit - M) Miss");
