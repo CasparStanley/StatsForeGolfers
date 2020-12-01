@@ -5,6 +5,8 @@ namespace SFGproto
     class Program
     {
         private const string INPUT_ERROR = "\nInvalid Input. Please try again.";
+        private const string CALC_ERROR = "\nSomething went wrong. Please restart the program.";
+
         static Course currentCourse;
         static StatSheet statSheet;
 
@@ -146,18 +148,28 @@ namespace SFGproto
             foreach(var h in currentCourse.GetHoles())
             {
                 Console.WriteLine($"You are now on Hole {h.Key}");
+                bool hit;
                 switch(h.Value.Par)
                 {
                     case 3:
-                        HitOrMissGreen();
+                        hit = HitOrMissShot(ShotType.Green);
+
+                        if (hit == false)
+                            HitOrMissShot(ShotType.Scramble);
                         break;
                     case 4:
-                        HitOrMissFairway();
-                        HitOrMissGreen();
+                        HitOrMissShot(ShotType.Fairway);
+                        hit = HitOrMissShot(ShotType.Green);
+                        // If you miss the Green, go to Scramble
+                        if (hit == false)
+                            HitOrMissShot(ShotType.Scramble);
                         break;
                     case 5:
-                        HitOrMissFairway();
-                        HitOrMissGreen();
+                        HitOrMissShot(ShotType.Fairway);
+                        hit = HitOrMissShot(ShotType.Green);
+                        // If you miss the Green, go to Scramble
+                        if (hit == false)
+                            HitOrMissShot(ShotType.Scramble);
                         break;
                     default:
                         break;
@@ -170,59 +182,123 @@ namespace SFGproto
         }
 
         // THIS WILL BECOME A TOGGLE 
-        static void HitOrMissGreen()
+        static bool HitOrMissShot(ShotType shot)
         {
-            Console.WriteLine($"Hit or miss on this hole. Green. H) Hit - M) Miss");
+            // ADD TO THE TOTAL STROKES IN THIS CATEGORY
+            switch (shot)
+            {
+                case ShotType.Green:
+                    {
+                        statSheet.TotalGreenStrokes++;
+                        break;
+                    }
+                case ShotType.Fairway:
+                    {
+                        statSheet.TotalFairwayStrokes++;
+                        break;
+                    }
+                case ShotType.Scramble:
+                    {
+                        statSheet.TotalScrambleStrokes++;
+                        break;
+                    }
+                default:
+                    {
+                        WriteError(CALC_ERROR);
+                        break;
+                    }
+            }
+
+            // ----------- NOW ASK IF YOU HIT OR MISSED
+            Console.WriteLine($"{shot} Shot! - Did you Hit or miss this? H) Hit - M) Miss");
             string hitOrMiss = InfoInputLoop();
             if (hitOrMiss.ToLower() == "h")
             {
-                Console.WriteLine($"You hit the green.");
-                statSheet.GreenHit++;
+                Console.WriteLine($"You hit the {shot}.");
+                AddHit(shot);
+                return true;
             }
-            else
+            else if (shot != ShotType.Scramble)
             {
-                Console.WriteLine($"Did you miss left or right? L) Left - R) Right");
+                // ----------- IF YOU MISSED LEFT OR RIGHT
+                Console.WriteLine($"Did you miss left or right on the {shot} shot? L) Left - R) Right");
                 string missLeft = InfoInputLoop();
                 if (missLeft.ToLower() == "l")
                 {
-                    statSheet.GreenMissLeft++;
+                    AddMiss(shot, true);
                 }
                 else
                 {
-                    statSheet.GreenMissRight++;
+                    AddMiss(shot, false);
                 }
-                // NOW ASK IF YOU MISSED LEFT OR RIGHT
+                return false;
             }
-
-            statSheet.TotalGreenStrokes++;
+            else
+            {
+                // ----------- IF YOU MISSED A SCRAMBLE
+                AddMiss(shot);
+                Console.WriteLine($"Logged missed {shot} shot.");
+                return false;
+            }
         }
 
-        // THIS WILL BECOME A TOGGLE
-        static void HitOrMissFairway()
+        static void AddHit(ShotType shot) 
         {
-            Console.WriteLine($"Hit or miss on this hole. Fair Way. H) Hit - M) Miss");
-            string hitOrMiss = InfoInputLoop();
-            if (hitOrMiss.ToLower() == "h")
+            switch (shot)
             {
-                Console.WriteLine($"You hit the fairway.");
-                statSheet.FairWayHit++;
+                case ShotType.Green:
+                {
+                    statSheet.GreenHit++;
+                    break;
+                }
+                case ShotType.Fairway:
+                {
+                    statSheet.FairWayHit++;
+                    break;
+                }
+                case ShotType.Scramble:
+                {
+                    statSheet.ScrambleHit++;
+                    break;
+                }
+                default:
+                {
+                    WriteError(CALC_ERROR);
+                    break;
+                }
             }
-            else
+        }
+        static void AddMiss(ShotType shot, bool left = false) // left is set to false, making it an optional parameter.
+        {
+            switch (shot)
             {
-                Console.WriteLine($"Did you miss left or right? L) Left - R) Right");
-                string missLeft = InfoInputLoop();
-                if (missLeft.ToLower() == "l")
-                {
-                    statSheet.FairWayMissLeft++;
-                }
-                else
-                {
-                    statSheet.FairWayMissRight++;
-                }
-                // NOW ASK IF YOU MISSED LEFT OR RIGHT
+                case ShotType.Green:
+                    {
+                        if (left)
+                            statSheet.GreenMissLeft++;
+                        else
+                            statSheet.GreenMissRight++;
+                        break;
+                    }
+                case ShotType.Fairway:
+                    {
+                        if (left)
+                            statSheet.FairWayMissLeft++;
+                        else
+                            statSheet.FairWayMissRight++;
+                        break;
+                    }
+                case ShotType.Scramble:
+                    {
+                        statSheet.ScrambleMiss++;
+                        break;
+                    }
+                default:
+                    {
+                        WriteError(CALC_ERROR);
+                        break;
+                    }
             }
-
-            statSheet.TotalFairwayStrokes++;
         }
 
         static Hole CreateHole(int holeNo, int par, int length, int hcp)

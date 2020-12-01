@@ -20,7 +20,9 @@
         public int FairWayMissLeft { get; set; }
         public int FairWayMissRight { get; set; }
 
-        public bool Scramble { get; set; }
+        public int TotalScrambleStrokes { get; set; }
+        public int ScrambleHit { get; set; }
+        public int ScrambleMiss { get; set; }
 
         public double PercentageCalculator(double number,double totalNumber)
         {
@@ -51,6 +53,10 @@
                 output += $"\nGreen Misses Left: {PercentageCalculator(GreenMissLeft, TotalGreenStrokes) * 100}%\n";
                 // Green misses Left
                 output += $"\nGreen Misses Right: {PercentageCalculator(GreenMissRight, TotalGreenStrokes) * 100}%\n";
+                // Scramble in's
+                output += $"\nScramble in's: {PercentageCalculator(ScrambleHit, TotalScrambleStrokes) * 100}%\n";
+                // Scramble out's
+                output += $"\nScramble out's: {PercentageCalculator(ScrambleMiss, TotalScrambleStrokes) * 100}%\n";
             }
             return output;
         }
