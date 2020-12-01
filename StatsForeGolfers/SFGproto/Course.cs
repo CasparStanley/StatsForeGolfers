@@ -27,7 +27,7 @@ namespace SFGproto
             holes.Add(nr, hole);
         }
 
-        public Dictionary<int, Hole> GetHoles ()
+        public Dictionary<int, Hole> GetHoles()
         {
             return holes;
         }
