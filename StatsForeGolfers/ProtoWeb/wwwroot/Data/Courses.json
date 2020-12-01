@@ -1,0 +1,120 @@
+{
+  "1": {
+    "Id" : 1, 
+    "Name": "Jacobs Golf Course",
+    "holes": [
+      {
+        "1": {
+          "HoleNo": 1,
+          "Par": 4,
+          "Length": 450,
+          "Handicap": 2.0
+        },
+        "2": {
+          "HoleNo": 2,
+          "Par": 3,
+          "Length": 300,
+          "Handicap": 2.0
+        },
+        "3": {
+          "HoleNo": 3,
+          "Par": 4,
+          "Length": 320,
+          "Handicap": 2.0
+        },
+        "4": {
+          "HoleNo": 4,
+          "Par": 4,
+          "Length": 290,
+          "Handicap": 4.0
+        },
+        "5": {
+          "HoleNo": 5,
+          "Par": 3,
+          "Length": 150,
+          "Handicap": 4.0
+        },
+        "6": {
+          "HoleNo": 6,
+          "Par": 4,
+          "Length": 320,
+          "Handicap": 2.0
+        },
+        "7": {
+          "HoleNo": 7,
+          "Par": 3,
+          "Length": 140,
+          "Handicap": 2.0
+        },
+        "8": {
+          "HoleNo": 8,
+          "Par": 4,
+          "Length": 310,
+          "Handicap": 3.0
+        },
+        "9": {
+          "HoleNo": 9,
+          "Par": 4,
+          "Length": 340,
+          "Handicap": 0.0
+        },
+        "10": {
+          "HoleNo": 10,
+          "Par": 4,
+          "Length": 400,
+          "Handicap": 2.0
+        },
+        "11": {
+          "HoleNo": 11,
+          "Par": 4,
+          "Length": 330,
+          "Handicap": 2.0
+        },
+        "12": {
+          "HoleNo": 12,
+          "Par": 4,
+          "Length": 510,
+          "Handicap": 2.0
+        },
+        "13": {
+          "HoleNo": 13,
+          "Par": 3,
+          "Length": 180,
+          "Handicap": 2.0
+        },
+        "14": {
+          "HoleNo": 14,
+          "Par": 4,
+          "Length": 350,
+          "Handicap": 2.0
+        },
+        "15": {
+          "HoleNo": 15,
+          "Par": 4,
+          "Length": 470,
+          "Handicap": 2.0
+        },
+        "16": {
+          "HoleNo": 16,
+          "Par": 4,
+          "Length": 350,
+          "Handicap": 2.0
+        },
+        "17": {
+          "HoleNo": 17,
+          "Par": 3,
+          "Length": 140,
+          "Handicap": 2.0
+        },
+        "18": {
+          "HoleNo": 18,
+          "Par": 4,
+          "Length": 500,
+          "Handicap": 2.0
+        }
+      }
+    ]
+
+
+  }
+}

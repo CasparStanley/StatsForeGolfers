@@ -8,6 +8,7 @@ namespace ProtoWeb.Models
 {
     public class Course
     {
+        public int Id { get; set; }
         [Required]
         [Range(typeof(string), "2", "40", ErrorMessage = "Your course may contain 2  to 40 letters")]
         public string name { get; set; }
