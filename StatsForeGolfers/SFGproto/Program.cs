@@ -331,8 +331,8 @@ namespace SFGproto
                     }
                 case ShotType.Scramble:
                     {
-                        Console.BackgroundColor = ConsoleColor.DarkYellow;
-                        Console.ForegroundColor = ConsoleColor.White;
+                        Console.BackgroundColor = ConsoleColor.Yellow;
+                        Console.ForegroundColor = ConsoleColor.Black;
                         break;
                     }
                 default:
