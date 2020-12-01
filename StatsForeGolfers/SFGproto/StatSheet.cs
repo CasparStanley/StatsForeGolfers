@@ -37,7 +37,7 @@
 
         public override string ToString()
         {
-            string output = "YOUR STATS";
+            string output = "\n\nYOUR STATS";
             //for (int i = 0; i < TotalHits; i++) // ForLoop Doesnt make sense since the value would be the same on every hole since FairWayHit is a constant at the moment
             // We Could make it so it calculate precentege for every hole If we set Number and totalNumber to 0 every time we start a new hole.
             {

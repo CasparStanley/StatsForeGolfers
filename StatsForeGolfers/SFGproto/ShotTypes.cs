@@ -6,5 +6,6 @@ public enum ShotType
 {
     Fairway,
     Green,
-    Scramble
+    Scramble,
+    None
 }

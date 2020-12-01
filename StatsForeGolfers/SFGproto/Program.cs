@@ -15,7 +15,7 @@ namespace SFGproto
             Console.Title = "STATS FORE GOLFERS - PROTOTYPE";
             statSheet = new StatSheet();
 
-            Console.WriteLine("\n\nHello user!");
+            WriteWithGolfColors("\n\nHello user!", ShotType.None);
             UserCreation();
             CreateNewGame();
             PlayGame();
@@ -56,19 +56,19 @@ namespace SFGproto
         static void CreateNewGame()
         {
             // Tee selection
-            WriteWithGolfColors($"\nTee selection");
+            WriteWithGolfColors($"\nTee selection", ShotType.None);
             Console.WriteLine($"What is your Tee?");
             string currentTee = InfoInputLoop();
 
             int currentHole = 1;
 
             #region COURSE CREATION
-            WriteWithGolfColors($"\nCreating a new Course");
+            WriteWithGolfColors($"\nCreating a new Course", ShotType.None);
 
-            Console.WriteLine($"What is the name of the course?");
+            Console.WriteLine($"\nWhat is the name of the course?");
             string courseName = InfoInputLoop();
 
-            Console.WriteLine($"How many holes does the course have?");
+            Console.WriteLine($"\nHow many holes does the course have?");
             int amountOfHoles = 0;
             bool holeAmountFlow = true;
             while (holeAmountFlow)
@@ -90,8 +90,8 @@ namespace SFGproto
             #region CREATION OF HOLES
             while (true)
             {
-                WriteWithGolfColors($"\nHole {currentHole}");
-                Console.WriteLine($"What is the Par of the Hole {currentHole}?");
+                WriteWithGolfColors($"\nHole {currentHole}", ShotType.None);
+                Console.WriteLine($"\nWhat is the Par of the Hole {currentHole}?");
 
                 int currentPar = 0;
                 bool holeFlow = true;
@@ -137,17 +137,17 @@ namespace SFGproto
                     currentHole++;
             }
             #endregion
-            WriteWithGolfColors("YOU CREATED A GOLF COURSE!");
+            WriteWithGolfColors("YOU CREATED A GOLF COURSE!", ShotType.None);
             Console.WriteLine(currentCourse.ToString());
         }
 
         static void PlayGame()
         {
             #region INPUT STATS
-            WriteWithGolfColors("Let's now play some Golf, and while playing input our stats.");
+            WriteWithGolfColors("Let's now play some Golf, and while playing input our stats.", ShotType.None);
             foreach(var h in currentCourse.GetHoles())
             {
-                Console.WriteLine($"You are now on Hole {h.Key}");
+                Console.WriteLine($"\nYou are now on Hole {h.Key}");
                 bool hit;
                 switch(h.Value.Par)
                 {
@@ -177,7 +177,13 @@ namespace SFGproto
             }
 
             statSheet.TotalHits = statSheet.TotalGreenStrokes + statSheet.TotalFairwayStrokes;
+
+            // WRITE YOUR STATS
+            Console.BackgroundColor = ConsoleColor.DarkGray;
+            Console.ForegroundColor = ConsoleColor.Yellow;
             Console.WriteLine(statSheet.ToString());
+            Console.ResetColor();
+            Console.WriteLine();
             #endregion
         }
 
@@ -210,7 +216,7 @@ namespace SFGproto
             }
 
             // ----------- NOW ASK IF YOU HIT OR MISSED
-            Console.WriteLine($"{shot} Shot! - Did you Hit or miss this? H) Hit - M) Miss");
+            WriteWithGolfColors($"{shot} Shot! - Did you Hit or miss this? H) Hit - M) Miss", shot);
             string hitOrMiss = InfoInputLoop();
             if (hitOrMiss.ToLower() == "h")
             {
@@ -221,7 +227,7 @@ namespace SFGproto
             else if (shot != ShotType.Scramble)
             {
                 // ----------- IF YOU MISSED LEFT OR RIGHT
-                Console.WriteLine($"Did you miss left or right on the {shot} shot? L) Left - R) Right");
+                WriteWithGolfColors($"Did you miss left or right on the {shot} shot? L) Left - R) Right", shot);
                 string missLeft = InfoInputLoop();
                 if (missLeft.ToLower() == "l")
                 {
@@ -307,12 +313,37 @@ namespace SFGproto
             return new Hole(holeNo, par, length, hcp);    
         }
 
-        static void WriteWithGolfColors(string line)
+        static void WriteWithGolfColors(string line, ShotType shot)
         {
-            Console.BackgroundColor = ConsoleColor.DarkGreen;
-            Console.ForegroundColor = ConsoleColor.Yellow;
-            Console.WriteLine(line);
-            Console.WriteLine();
+            switch (shot)
+            {
+                case ShotType.Green:
+                    {
+                        Console.BackgroundColor = ConsoleColor.DarkGreen;
+                        Console.ForegroundColor = ConsoleColor.Yellow;
+                        break;
+                    }
+                case ShotType.Fairway:
+                    {
+                        Console.BackgroundColor = ConsoleColor.DarkBlue;
+                        Console.ForegroundColor = ConsoleColor.Yellow;
+                        break;
+                    }
+                case ShotType.Scramble:
+                    {
+                        Console.BackgroundColor = ConsoleColor.DarkYellow;
+                        Console.ForegroundColor = ConsoleColor.White;
+                        break;
+                    }
+                default:
+                    {
+                        Console.BackgroundColor = ConsoleColor.DarkMagenta;
+                        Console.ForegroundColor = ConsoleColor.Yellow;
+                        break;
+                    }
+            }
+
+            Console.WriteLine("\n"+line);
             Console.ResetColor();
             Console.WriteLine();
         }
