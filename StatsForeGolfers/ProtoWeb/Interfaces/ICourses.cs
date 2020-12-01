@@ -8,11 +8,11 @@ namespace ProtoWeb.Interfaces
 {
     public interface ICourses
     {
-        Dictionary<string, Course> AllHoles();
-        Dictionary<string, Courses> FilterHole(string crtieria);
-        void DeleteHole(Course course);
-        void AddHole(Course course);
-        void UpdateHole(Course course);
-        Hole GetHole(string name);
+        Dictionary<string, Course> AllCourses();
+        Dictionary<string, Course> FilterCourse(string crtieria);
+        void DeleteCourse(Course course);
+        void AddCourse(Course course);
+        void UpdateCourse(Course course);
+        Course GetCourse(string name);
     }
 }
