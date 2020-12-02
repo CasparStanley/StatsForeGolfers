@@ -31,7 +31,7 @@ namespace ProtoWeb.Services
             Dictionary<int, Course> courses = AllCourses();
             if (courses.ContainsKey(coursesId))
             {
-                //NewHoles = courses[coursesId].course;
+                NewHoles = courses[coursesId].Holes;
             }
             return NewHoles;
         }

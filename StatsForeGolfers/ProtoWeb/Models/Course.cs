@@ -14,8 +14,9 @@ namespace ProtoWeb.Models
         public string Name { get; set; }
 
         [Required]
-        [Range(typeof(Dictionary<int, Hole>), "18", "18", ErrorMessage = "Your Course has to Contain 18 Holes")]
-        private Dictionary<int, Hole> course;
+        [Range(typeof(Dictionary<int, Hole>), "0", "18", ErrorMessage = "Your Course has to Contain 18 Holes")]
+        public Dictionary<int, Hole> Holes { get; set; }
 
+        
     }
 }
