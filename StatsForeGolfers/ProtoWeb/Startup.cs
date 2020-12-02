@@ -28,6 +28,7 @@ namespace ProtoWeb
             services.AddRazorPages();
             services.AddTransient<IHoleRepository, JsonFileHole>();
             services.AddTransient<ICourses,JsonFileCourses>();
+            services.AddTransient<IStatistics, JsonFileStats>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
