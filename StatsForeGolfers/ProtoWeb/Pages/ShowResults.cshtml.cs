@@ -6,6 +6,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using ProtoWeb.Interfaces;
 using ProtoWeb.Models;
+using ProtoWeb.Helpers;
 
 namespace ProtoWeb.Pages
 {
@@ -32,6 +33,7 @@ namespace ProtoWeb.Pages
             {
                 Holes = course.FilterHole(FilterCriteria);
             }
+            JsonFileWriterStats.WriteToJson(statistics, "Stats.Json");
             return Page();
         }
     }
