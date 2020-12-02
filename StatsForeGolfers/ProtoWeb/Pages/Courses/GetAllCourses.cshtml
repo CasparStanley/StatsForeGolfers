@@ -1,4 +1,43 @@
 ﻿@page
 @model ProtoWeb.Pages.Courses.GetAllCoursesModel
 @{
+    ViewData["Title"] = "GetAllCourses";
 }
+<h1>All Courses</h1>
+
+<p>
+    <a asp-page="CreateHole">Create New Course</a>
+</p>
+<form>
+    <p>
+        Search: <input type="text" asp-for="FilterCriteria" />
+        <input type="submit" value="Filter" />
+    </p>
+</form>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                Name
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model.Courses)
+        {
+            <tr>
+                <td>
+                    @item.Value.Name
+                </td>
+                <td>
+                    <p>
+                        <a asp-page="EditHole" asp-route-id="@item.Key">Edit</a> |
+                        <a asp-page="DeleteHole" asp-route-id="@item.Key">Delete</a>
+                    </p>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+
