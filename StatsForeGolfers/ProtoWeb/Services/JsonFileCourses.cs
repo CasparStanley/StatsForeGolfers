@@ -27,13 +27,13 @@ namespace ProtoWeb.Services
 
         public Dictionary<int, Hole> AllHoles(int coursesId)
         {
-            Dictionary<int, Hole> NewHoles =  new Dictionary<int, Hole>();
+            Dictionary<int, Hole> newHoles =  new Dictionary<int, Hole>();
             Dictionary<int, Course> courses = AllCourses();
             if (courses.ContainsKey(coursesId))
             {
-                NewHoles = courses[coursesId].Holes;
+                newHoles = courses[coursesId].Holes;
             }
-            return NewHoles;
+            return newHoles;
         }
         public Dictionary<int, Course> AllCourses()
         {
