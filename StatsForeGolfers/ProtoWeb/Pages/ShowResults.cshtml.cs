@@ -33,7 +33,7 @@ namespace ProtoWeb.Pages
             {
                 Holes = course.FilterHole(FilterCriteria);
             }
-            JsonFileWriterStats.WriteToJson(statistics, "Stats.Json");
+            //JsonFileWriterStats.WriteToJson(statistics, "Stats.Json");
             return Page();
         }
     }
