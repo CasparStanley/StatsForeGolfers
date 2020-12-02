@@ -7,7 +7,7 @@ using ProtoWeb.Models;
 
 namespace ProtoWeb.Helpers
 {
-    public class JsonFileWritter
+    public class JsonFileWriterHole
     {
         public static void WriteToJson(Dictionary<int, Hole> holes, string JsonFileName)
         {

@@ -1,0 +1,56 @@
+﻿@page
+@model ProtoWeb.Pages.ShowResultsModel
+@{
+    ViewData["Title"] = "ShowResults";
+}
+<div class="text-center">
+    <h1 class="display-4">StatsForeGolfers</h1>
+    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">Golf Stats here</a>.</p>
+</div>
+<!DOCTYPE html>
+<html lang="en">
+<body>
+    <div class="container-fluid">
+        <h1>Here are your results</h1>
+        <p>You can use this to improve your golf game, compare to your friends, or just check out how it went!</p>
+    </div>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>
+                    HoleNo
+                </th>
+                <th>
+                    Par
+                </th>
+                <th>
+                    Length
+                </th>
+                <th>
+                    Handicap
+                </th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model.Holes)
+            {
+                <tr>
+                    <td>
+                        @item.Value.HoleNo
+                    </td>
+                    <td>
+                        @item.Value.Par
+                    </td>
+                    <td>
+                        @item.Value.Length
+                    </td>
+                    <td>
+                        @item.Value.Handicap
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</body>
+</html>

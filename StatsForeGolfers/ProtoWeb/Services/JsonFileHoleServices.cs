@@ -22,18 +22,18 @@ namespace ProtoWeb.Services
 
         private string JsonFileName
         {
-            get { return Path.Combine(WebHostEnvironment.WebRootPath, "Data", "Course.Json"); }
+            get { return Path.Combine(WebHostEnvironment.WebRootPath, "Data", "Hole.Json"); }
         }
 
         public Dictionary<int, Hole> AllHoles()
         {
-            return JsonFileReader.ReadJson(JsonFileName);
+            return JsonFileReaderHole.ReadJson(JsonFileName);
         }
         public void AddHole(Hole hole)
         {
             Dictionary<int, Hole> holes = AllHoles();
             holes.Add(hole.HoleNo, hole);
-            JsonFileWritter.WriteToJson(holes, JsonFileName);
+            JsonFileWriterHole.WriteToJson(holes, JsonFileName);
         }
 
         public Dictionary<int, Hole> FilterHole(string criteria)
@@ -66,7 +66,7 @@ namespace ProtoWeb.Services
             foundHole.Length = hole.Length;
             foundHole.Par = hole.Par;
             foundHole.Handicap = hole.Handicap;
-            JsonFileWritter.WriteToJson(holes, JsonFileName);
+            JsonFileWriterHole.WriteToJson(holes, JsonFileName);
 
         }
 
@@ -74,7 +74,7 @@ namespace ProtoWeb.Services
         {
             Dictionary<int, Hole> holes = AllHoles();
             holes.Remove(hole.HoleNo);
-            JsonFileWritter.WriteToJson(holes, JsonFileName);
+            JsonFileWriterHole.WriteToJson(holes, JsonFileName);
         }
     }
 }
