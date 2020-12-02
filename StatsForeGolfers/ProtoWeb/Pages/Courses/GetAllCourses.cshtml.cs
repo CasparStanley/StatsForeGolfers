@@ -7,7 +7,7 @@ using Microsoft.AspNetCore.Mvc.RazorPages;
 using ProtoWeb.Interfaces;
 using ProtoWeb.Models;
 
-namespace ProtoWeb.Pages.Holes
+namespace ProtoWeb.Pages.Courses
 {
     public class GetAllCoursesModel : PageModel
     {
@@ -15,11 +15,12 @@ namespace ProtoWeb.Pages.Holes
 
         public GetAllCoursesModel(ICourses repository)
         {
-            course = repository;
+            courses = repository;
         }
+
         public Dictionary<int, Course> Courses { get; private set; }
-        [BindProperty(SupportsGet = true)]
-        public string FilterCriteria { get; set; }
+        [BindProperty(SupportsGet = true)] public string FilterCriteria { get; set; }
+
         public IActionResult OnGet()
         {
             Courses = courses.AllCourses();
@@ -29,6 +30,8 @@ namespace ProtoWeb.Pages.Holes
             }
             return Page();
         }
+       
+     
     }
 }
 

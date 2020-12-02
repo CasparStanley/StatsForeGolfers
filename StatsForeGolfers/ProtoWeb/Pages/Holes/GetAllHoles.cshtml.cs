@@ -22,6 +22,7 @@ namespace ProtoWeb.Pages.Holes
         public string FilterCriteria { get; set; }
         public IActionResult OnGet()
         {
+           
             Holes = course.AllHoles();
             if (!string.IsNullOrEmpty(FilterCriteria))
             {

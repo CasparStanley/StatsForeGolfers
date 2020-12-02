@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using System.Reflection;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Hosting;
 using ProtoWeb.Helpers;
@@ -23,6 +24,17 @@ namespace ProtoWeb.Services
         {
             get { return Path.Combine(WebHostEnvironment.WebRootPath, "Data", "Courses.json"); }
         }
+
+        public Dictionary<int, Hole> AllHoles(int coursesId)
+        {
+            Dictionary<int, Hole> NewHoles =  new Dictionary<int, Hole>();
+            Dictionary<int, Course> courses = AllCourses();
+            if (courses.ContainsKey(coursesId))
+            {
+                //NewHoles = courses[coursesId].course;
+            }
+            return NewHoles;
+        }
         public Dictionary<int, Course> AllCourses()
         {
             return JsonFileReaderCourses.ReadJson(JsonFileName);
@@ -34,7 +46,7 @@ namespace ProtoWeb.Services
             Dictionary<int,Course> filteredCourses = new Dictionary<int, Course>();
             foreach (var h in courses.Values)
             {
-                if (h.name.ToLower().Contains(crtieria.ToLower()))
+                if (h.Name.ToLower().Contains(crtieria.ToLower()))
                 {
                     filteredCourses.Add(h.Id,h);
                 }
@@ -54,7 +66,7 @@ namespace ProtoWeb.Services
         {
             Dictionary<int, Course> courses = AllCourses();
             Course foundCourse = courses[course.Id];
-            foundCourse.name = course.name;
+            foundCourse.Name = course.Name;
         }
         public void DeleteCourse(Course course)
         {
