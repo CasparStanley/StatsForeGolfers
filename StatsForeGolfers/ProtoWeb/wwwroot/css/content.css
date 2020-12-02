@@ -3,7 +3,7 @@
 img {
     margin: 0 auto;
 }
-center {
+.center {
     background-color: red;
     height: 50px;
     width: 50px;
