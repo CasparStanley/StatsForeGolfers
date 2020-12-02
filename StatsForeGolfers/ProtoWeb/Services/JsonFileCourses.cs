@@ -77,10 +77,7 @@ namespace ProtoWeb.Services
         {
             Dictionary<int, Course> courses = AllCourses();
             courses.Add(course.Id,course);
-            JsonFileWritterCourses.WriteToJson(courses,JsonFileName);
+            JsonFileWriterCourses.WriteToJson(courses,JsonFileName);
         }
-            
-            
-        
     }
 }

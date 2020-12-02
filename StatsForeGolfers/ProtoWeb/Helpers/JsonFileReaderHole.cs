@@ -1,16 +1,11 @@
-﻿using System;
+﻿using Newtonsoft.Json;
+using ProtoWeb.Models;
 using System.Collections.Generic;
 using System.IO;
-using System.Linq;
-using System.Text.Json.Serialization;
-using System.Threading.Tasks;
-using Newtonsoft.Json;
-using ProtoWeb.Interfaces;
-using ProtoWeb.Models;
 
 namespace ProtoWeb.Helpers
 {
-    public class JsonFileReader
+    public class JsonFileReaderHole
     {
         public static Dictionary<int, Hole> ReadJson(string JsonFileName)
         {
