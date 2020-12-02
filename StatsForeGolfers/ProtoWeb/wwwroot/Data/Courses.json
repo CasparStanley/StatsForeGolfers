@@ -2,7 +2,7 @@
   "1": {
     "Id" : 1, 
     "Name": "Jacobs Golf Course",
-    "holes": [
+    "course": [
       {
         "1": {
           "HoleNo": 1,
