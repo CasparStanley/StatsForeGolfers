@@ -7,27 +7,61 @@ a.navbar-brand {
   word-break: break-all;
 }
 
+.bg {
+    /* The image used */
+    background-image: url("../img/greenbck2.jpg");
+    /* Half height */
+    height: 100%;
+    /* Center and scale the image nicely */
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
 /* Provide sufficient contrast against white background */
 a {
-  color: #0366d6;
+  color: #1A281F;
+}
+
+.link-light {
+    color: #fff4EC;
+}
+
+.text-light {
+    color: #fff4EC;
+}
+
+.text-dark {
+    color: #1A281F;
 }
 
 .btn-primary {
-  color: #fff;
-  background-color: #1b6ec2;
-  border-color: #1861ac;
+    color: #fff4EC;
+    background-color: #09BC8A;
+    border-color: #09BC8A;
+}
+
+.btn-secondary {
+    color: #1A281F;
+    background-color: #fff4EC;
+    border-color: #fff4EC;
 }
 
 .nav-pills .nav-link.active, .nav-pills .show > .nav-link {
-  color: #fff;
-  background-color: #1b6ec2;
-  border-color: #1861ac;
+    color: #fff4EC;
+    background-color: #09BC8A;
+    border-color: #09BC8A;
+}
+
+.navbar-dark {
+    color: #fff4EC;
+    background-color: #1A281F;
 }
 
 /* Sticky footer styles
 -------------------------------------------------- */
 html {
-  font-size: 14px;
+    font-size: 14px;
 }
 @media (min-width: 768px) {
   html {
@@ -36,10 +70,10 @@ html {
 }
 
 .border-top {
-  border-top: 1px solid #e5e5e5;
+    border-top: 5px solid #09BC8A;
 }
 .border-bottom {
-  border-bottom: 1px solid #e5e5e5;
+    border-bottom: 5px solid #09BC8A;
 }
 
 .box-shadow {
@@ -54,18 +88,26 @@ button.accept-policy {
 /* Sticky footer styles
 -------------------------------------------------- */
 html {
-  position: relative;
-  min-height: 100%;
+    /*Full Height*/
+    height: 100%;
+    position: relative;
+    min-height: 100%;
 }
 
 body {
-  /* Margin bottom by footer height */
-  margin-bottom: 60px;
+    /*Full Height*/
+    height: 100%;
+    width: 100%;
+    /* Margin bottom by footer height */
+    margin-bottom: 60px;
 }
 .footer {
-  position: absolute;
-  bottom: 0;
-  width: 100%;
-  white-space: nowrap;
-  line-height: 60px; /* Vertically center the text there */
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    white-space: nowrap;
+    line-height: 60px; /* Vertically center the text there */
+
+    color: #fff4EC;
+    background-color: #1A281F;
 }
