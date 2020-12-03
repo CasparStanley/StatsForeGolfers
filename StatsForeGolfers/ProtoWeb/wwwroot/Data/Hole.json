@@ -1,16 +1,4 @@
 {
-  "1": {
-    "HoleNo": 1,
-    "Par": 4,
-    "Length": 300,
-    "Handicap": 16.0
-  },
-  "2": {
-    "HoleNo": 2,
-    "Par": 4,
-    "Length": 300,
-    "Handicap": 16.0
-  },
   "3": {
     "HoleNo": 3,
     "Par": 4,
@@ -59,12 +47,6 @@
     "Length": 400,
     "Handicap": 3.0
   },
-  "11": {
-    "HoleNo": 11,
-    "Par": 4,
-    "Length": 340,
-    "Handicap": 1.0
-  },
   "12": {
     "HoleNo": 12,
     "Par": 5,
@@ -106,5 +88,11 @@
     "Par": 5,
     "Length": 500,
     "Handicap": 11.0
+  },
+  "1": {
+    "HoleNo": 1,
+    "Par": 4,
+    "Length": 232,
+    "Handicap": 2.0
   }
 }

@@ -6,7 +6,7 @@
 <h1>All Courses</h1>
 
 <p>
-    <a asp-page="CreateHole">Create New Course</a>
+    <a asp-page="CreateCourse">Create New Course</a>
 </p>
 <form>
     <p>
@@ -28,12 +28,12 @@
         {
             <tr>
                 <td>
-                    <a asp-area="" asp-page="..//Holes/GetAllHoles">@item.Value.Name</a> <!--"..@item.Value.Id"-->
+                    <a asp-area="" asp-page="">Id:@item.Value.Id @item.Value.Name</a> <!--"..@item.Value.Id"-->
                 </td>
                 <td>
                     <p>
-                        <a asp-page="EditHole" asp-route-id="@item.Key">Edit</a> |
-                        <a asp-page="DeleteHole" asp-route-id="@item.Key">Delete</a>
+                        <a asp-page="EditCourse" asp-route-id="@item.Key">Edit</a> |
+                        <a asp-page="DeleteCourse" asp-route-id="@item.Key">Delete</a>
                     </p>
                 </td>
             </tr>
