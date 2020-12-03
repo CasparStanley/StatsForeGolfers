@@ -12,13 +12,13 @@ namespace ProtoWeb.Pages.Courses
     public class CreateCourseModel : PageModel
     {
         [BindProperty]
-        public Course Coursen { get; set; }
+        public Course CurrentCourse { get; set; }
         
-        public ICourses course;
+        public ICourses courses;
        
         public CreateCourseModel(ICourses repository)
         {
-            course = repository;
+            courses = repository;
         }
         public IActionResult OnGet()
         {
@@ -31,9 +31,11 @@ namespace ProtoWeb.Pages.Courses
             {
                 return Page();
             }
+
             Dictionary<int, Hole> holes = new Dictionary<int, Hole>();
-            Coursen.Holes = holes;
-            course.AddCourse(Coursen);
+            CurrentCourse.Holes = holes;
+            courses.AddCourse(CurrentCourse);
+
             return RedirectToPage("GetAllCourses");
         }
     }

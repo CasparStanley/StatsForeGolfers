@@ -12,7 +12,7 @@ namespace ProtoWeb.Pages.Holes
     public class CreateHoleModel : PageModel
     {
         [BindProperty]
-        public Hole Hole { get; set; }
+        public Hole CurrentHole { get; set; }
         private IHoleRepository course;
 
         public CreateHoleModel(IHoleRepository repository)
@@ -30,7 +30,7 @@ namespace ProtoWeb.Pages.Holes
             {
                 return Page();
             }
-            course.AddHole(Hole);
+            course.AddHole(CurrentHole);
             return RedirectToPage("../GetAllHoles");
         }
     }
