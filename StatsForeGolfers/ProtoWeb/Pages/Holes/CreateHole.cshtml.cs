@@ -31,7 +31,7 @@ namespace ProtoWeb.Pages.Holes
                 return Page();
             }
             course.AddHole(Hole);
-            return RedirectToPage("GetAllHoles");
+            return RedirectToPage("../GetAllHoles");
         }
     }
 }

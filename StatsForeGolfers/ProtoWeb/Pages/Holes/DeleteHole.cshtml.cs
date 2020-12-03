@@ -30,7 +30,7 @@ namespace ProtoWeb.Pages.Holes
         public IActionResult OnPost(Hole hole)
         {
             course.DeleteHole(hole);
-            return RedirectToPage("GetAllHoles");
+            return RedirectToPage("../GetAllHoles");
         }
     }
 }
