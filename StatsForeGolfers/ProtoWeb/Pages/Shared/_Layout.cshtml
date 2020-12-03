@@ -11,8 +11,8 @@
     @*<link rel="stylesheet" href="~/css/layout.css" />*@
 </head>
 <body>
-    <header>
-        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-dark border-bottom box-shadow mb-3">
+    <header class="header">
+        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light">
             <div class="container">
                 <a class="navbar-brand" asp-area="" asp-page="/Index"><img src="~/img/headIcon_white.png" width="30" class="img-fluid"/></a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".navbar-collapse" aria-controls="navbarSupportedContent"
@@ -22,25 +22,25 @@
                 <div class="navbar-collapse collapse d-sm-inline-flex flex-sm-row-reverse">
                     <ul class="navbar-nav flex-grow-1">
                         <li class="nav-item">
-                            <a class="nav-link text-light" asp-area="" asp-page="/Index">Home</a>
+                            <a class="nav-link" asp-area="" asp-page="/Index">Home</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link text-light" asp-area="" asp-page="Holes/GetAllHoles">Jacobs Holes</a>
+                            <a class="nav-link" asp-area="" asp-page="Holes/GetAllHoles">Jacobs Holes</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link text-light" asp-area="" asp-page="ShowResults">Results</a>
+                            <a class="nav-link" asp-area="" asp-page="ShowResults">Results</a>
                         </li>
                     </ul>
                 </div>
             </div>
         </nav>
     </header>
-    <div class="container">
+    <div class="content bg">
         <main role="main" class="pb-3">
             @RenderBody()
         </main>
     </div>
-    <footer class="border-top footer text-muted">
+    <footer class="footer text-muted">
         <div class="container">
             &copy; 2020 - Stats Fore Golfers - <a class="link-light" asp-area="" asp-page="/Index">Home</a>
         </div>

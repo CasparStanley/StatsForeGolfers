@@ -5,6 +5,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using ProtoWeb.Helpers;
 
 namespace ProtoWeb.Pages
 {
@@ -19,7 +20,11 @@ namespace ProtoWeb.Pages
 
         public void OnGet()
         {
-
+            StatSheet sh = new StatSheet();
+            sh.FairWayHit = 2;
+            sh.Rough = false;
+            sh.ScrambleHit = 1;
+            JsonFileWriterStats.WriteToJson(sh, "testJsonFile.json");
         }
     }
 }
