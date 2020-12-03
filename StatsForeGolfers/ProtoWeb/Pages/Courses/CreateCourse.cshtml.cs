@@ -7,17 +7,18 @@ using Microsoft.AspNetCore.Mvc.RazorPages;
 using ProtoWeb.Interfaces;
 using ProtoWeb.Models;
 
-namespace ProtoWeb.Pages.Holes
+namespace ProtoWeb.Pages.Courses
 {
-    public class CreateHoleModel : PageModel
+    public class CreateCourseModel : PageModel
     {
         [BindProperty]
-        public Hole CurrentHole { get; set; }
-        private IHoleRepository course;
-
-        public CreateHoleModel(IHoleRepository repository)
+        public Course CurrentCourse { get; set; }
+        
+        public ICourses courses;
+       
+        public CreateCourseModel(ICourses repository)
         {
-            course = repository;
+            courses = repository;
         }
         public IActionResult OnGet()
         {
@@ -30,8 +31,12 @@ namespace ProtoWeb.Pages.Holes
             {
                 return Page();
             }
-            course.AddHole(CurrentHole);
-            return RedirectToPage("../GetAllHoles");
+
+            Dictionary<int, Hole> holes = new Dictionary<int, Hole>();
+            CurrentCourse.Holes = holes;
+            courses.AddCourse(CurrentCourse);
+
+            return RedirectToPage("GetAllCourses");
         }
     }
 }

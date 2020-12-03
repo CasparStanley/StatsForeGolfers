@@ -11,6 +11,7 @@ namespace ProtoWeb.Helpers
     {
         public static void WriteToJson(Dictionary<int, Course> courses, string JsonFileName)
         {
+            
             string output = Newtonsoft.Json.JsonConvert.SerializeObject(courses,
                 Newtonsoft.Json.Formatting.Indented);
 
