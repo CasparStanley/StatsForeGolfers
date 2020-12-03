@@ -11,7 +11,7 @@ namespace ProtoWeb.Pages.Courses
 {
     public class CreateCourseModel : PageModel
     {
-        [BindProperty]
+       [BindProperty]
         public Course CurrentCourse { get; set; }
         
         public ICourses courses;
