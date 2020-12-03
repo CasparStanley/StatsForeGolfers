@@ -35,6 +35,12 @@ namespace ProtoWeb.Services
             }
             return newHoles;
         }
+        public Hole GetHole(int id,int courseId)
+        {
+            Dictionary<int, Hole> holes = AllHoles(courseId);
+            Hole foundHole = holes[id];
+            return foundHole;
+        }
         public Dictionary<int, Course> AllCourses()
         {
             return JsonFileReaderCourses.ReadJson(JsonFileName);
