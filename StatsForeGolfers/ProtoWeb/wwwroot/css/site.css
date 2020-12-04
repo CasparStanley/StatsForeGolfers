@@ -7,6 +7,14 @@ a.navbar-brand {
   word-break: break-all;
 }
 
+h1 {
+    color: #fff4EC;
+}
+
+.jumbotron {
+    background-color: #fff4EC;
+}
+
 .bg {
     /* The image used */
     background-image: url("../img/greenbck2.jpg");
@@ -22,8 +30,6 @@ a.navbar-brand {
 a {
   color: #1A281F;
 }
-
-
 
 .text-dark {
     color: #1A281F;
@@ -41,6 +47,18 @@ a {
     border-color: #fff4EC;
 }
 
+.btn-danger {
+    color: #fff4EC;
+    background-color: #592941;
+    border-color: #592941;
+}
+
+.btn-success {
+    color: #fff4EC;
+    background-color: #1A281F;
+    border-color: #1A281F;
+}
+
 .nav-pills .nav-link.active, .nav-pills .show > .nav-link {
     color: #fff4EC;
     background-color: #09BC8A;
@@ -53,12 +71,10 @@ a {
 }
 
 .navbar-light {
-    color: #000000;
-    background-color: white;
+    color: #1A281F !important;
+    background-color: #fff4EC !important;
 }
 
-/* Sticky footer styles
--------------------------------------------------- */
 html {
     font-size: 14px;
 }
@@ -84,13 +100,12 @@ button.accept-policy {
   line-height: inherit;
 }
 
-/* Sticky footer styles
--------------------------------------------------- */
 html {
     /*Full Height*/
     height: 100%;
     position: relative;
     min-height: 100%;
+    background-color: #1A281F;
 }
 
 body {
@@ -99,10 +114,17 @@ body {
     width: 100%;
 }
 
+table {
+    width:100% !important;
+    align-self:center !important;
+    color: #1A281F !important;
+    background-color: #fff4EC !important;
+}
+
 .header {
     width: 100%;
     height: 70px;
-    background-color: white;
+    background-color: #1A281F;
 }
 
 .content {
@@ -114,6 +136,8 @@ body {
     overflow-y: auto;
 }
 
+/* Sticky footer styles
+-------------------------------------------------- */
 .footer {
     position: absolute;
     height: 60px;
@@ -121,6 +145,6 @@ body {
     width: 100%;
     white-space: nowrap;
     line-height: 60px; /* Vertically center the text there */
-    color: #fff4EC;
-    background-color: white;
+    color: #1A281F;
+    background-color: #fff4EC;
 }

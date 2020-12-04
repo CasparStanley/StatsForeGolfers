@@ -3,8 +3,8 @@
 @{
     ViewData["Title"] = "GetAllCourses";
 }
-<h1>All Courses</h1>
 
+<<<<<<< HEAD
 <p>
     <a asp-page="CreateCourse">Create New Course</a>
 
@@ -46,4 +46,45 @@
         }
     </tbody>
 </table>
+=======
+<div class="row justify-content-center p-4">
+    <div class="col-auto">
+        <h1>All Courses</h1>
+        <p>
+            <a asp-page="CreateCourse">Create New Course</a>
+        </p>
+        <form>
+            <p>
+                Search: <input type="text" asp-for="FilterCriteria" />
+                <input type="submit" value="Filter" />
+            </p>
+>>>>>>> eecb80de07e8dcd5451e981a58e73268ed564a3f
 
+        </form>
+        <table class="table table-striped table-responsive shadow-lg p-3">
+            <thead>
+                <tr>
+                    <th>
+                        Name
+                    </th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model.Courses)
+                {
+                    <tr>
+                        <td>
+                            <a asp-area="" asp-page="">Id:@item.Value.Id @item.Value.Name</a> <!--"..@item.Value.Id"-->
+                        </td>
+                        <td>
+                            <p>
+                                <a asp-page="EditCourse" asp-route-id="@item.Key">Edit</a> |
+                                <a asp-page="DeleteCourse" asp-route-id="@item.Key">Delete</a>
+                            </p>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</div>

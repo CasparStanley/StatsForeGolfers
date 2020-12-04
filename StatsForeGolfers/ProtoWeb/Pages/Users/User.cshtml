@@ -1,0 +1,47 @@
+﻿@page
+@model ProtoWeb.Users.UserModel
+@{
+    ViewData["Title"] = "User";
+}
+
+<!DOCTYPE HTML>
+<html lang="en">
+<head>
+    
+</head>
+<body>
+<div class="UserinPuts text-center" >
+    <div class="form-check">
+        <legend><h4>Is Your Status?</h4></legend><br />
+        <input type="radio" class="form-check-input" id="Amature" name="Amature">
+        <label class="form-check-label" for="Amature">Amature</label><br />
+
+        <input type="radio" class="form-check-input" id="Intermidiate" name="Intermidiate">
+        <label class="form-check-label" for="Intermidiate">Intermidiate</label><br/>
+
+        <input type="radio" class="form-check-input" id="Pro" name="Pro">
+        <label class="form-check-label" for="Pro">Pro</label><br/>
+        <input type="submit" value="Submit"/>
+        <br/>
+    </div>
+    <br/>
+    <form name="formUser" action="/noaction" method="post">
+        <legend><h4>User Info:</h4></legend>
+        <label for="fName">Name:</label><br/>
+        <input type="text" id="Name" name="fName" value=" "/><br>
+
+        <label for="HomeClub">Home Club:</label><br/>
+        <input type="text" id="HomeClub" name="Home Club" value=" "/><br>
+
+        <label for="MemberId">Member Id:</label><br/>
+        <input type="text" id="MemberId" name="Member Id" value=" "/><br>
+
+        <label for="Handicap">HCP:</label><br/>
+        <input type="text" id="Handicap" name="HCP" value=" "/><br>
+        <input type="submit" value="Submit">
+    </form>
+
+</div>
+</body>
+
+</html>
