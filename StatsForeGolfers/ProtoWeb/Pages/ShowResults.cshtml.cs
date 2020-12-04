@@ -22,6 +22,7 @@ namespace ProtoWeb.Pages
         }
 
         public Dictionary<int, Hole> Holes { get; private set; }
+        public StatSheet MockSheet { get; private set; }
 
         [BindProperty(SupportsGet = true)]
         public string FilterCriteria { get; set; }
@@ -29,11 +30,32 @@ namespace ProtoWeb.Pages
         public IActionResult OnGet()
         {
             Holes = course.AllHoles();
+
+            // -------------------------------------------------------------------------------------------------------------------
+            // NEEDS TO BE A SPECIFIC STATSHEET CONNECTED TO THE USER
+            // THIS IS ALL MOCK DATA, WE NEED TO USE A REAL SHEET THAT THE USER FILLS
+            MockSheet = new StatSheet()
+            {
+                TotalFairwayStrokes = 35,
+                FairWayHit = 20,
+                FairWayMissLeft = 5,
+                TotalGreenStrokes = 32,
+                GreenHit = 21,
+                GreenMissLeft = 6,
+                TotalScrambleStrokes = 10,
+                ScrambleHit = 8,
+            };
+
+            MockSheet.FairWayMissRight = MockSheet.TotalFairwayStrokes - MockSheet.FairWayHit - MockSheet.FairWayMissLeft;
+            MockSheet.GreenMissRight = MockSheet.TotalGreenStrokes - MockSheet.GreenHit - MockSheet.GreenMissLeft;
+            MockSheet.ScrambleMiss = MockSheet.TotalScrambleStrokes - MockSheet.ScrambleHit;
+            MockSheet.TotalHits = MockSheet.FairWayHit + MockSheet.GreenHit; // Does Scramble count towards this?
+            // -------------------------------------------------------------------------------------------------------------------
+
             if (!string.IsNullOrEmpty(FilterCriteria))
             {
                 Holes = course.FilterHole(FilterCriteria);
             }
-            //JsonFileWriterStats.WriteToJson(statistics, "Stats.Json");
             return Page();
         }
     }

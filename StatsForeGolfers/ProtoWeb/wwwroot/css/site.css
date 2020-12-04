@@ -7,6 +7,14 @@ a.navbar-brand {
   word-break: break-all;
 }
 
+h1 {
+    color: #fff4EC;
+}
+
+.jumbotron {
+    background-color: #fff4EC;
+}
+
 .bg {
     /* The image used */
     background-image: url("../img/greenbck2.jpg");
@@ -67,8 +75,6 @@ a {
     background-color: #fff4EC !important;
 }
 
-/* Sticky footer styles
--------------------------------------------------- */
 html {
     font-size: 14px;
 }
@@ -94,8 +100,6 @@ button.accept-policy {
   line-height: inherit;
 }
 
-/* Sticky footer styles
--------------------------------------------------- */
 html {
     /*Full Height*/
     height: 100%;
@@ -132,6 +136,8 @@ table {
     overflow-y: auto;
 }
 
+/* Sticky footer styles
+-------------------------------------------------- */
 .footer {
     position: absolute;
     height: 60px;
