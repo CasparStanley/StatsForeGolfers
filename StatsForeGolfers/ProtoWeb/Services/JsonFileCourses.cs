@@ -73,10 +73,13 @@ namespace ProtoWeb.Services
             Dictionary<int, Course> courses = AllCourses();
             Course foundCourse = courses[course.Id];
             foundCourse.Name = course.Name;
+            JsonFileWriterCourses.WriteToJson(courses,JsonFileName);
         }
         public void DeleteCourse(Course course)
         {
             Dictionary<int, Course> courses = AllCourses();
+            courses.Remove(course.Id);
+            JsonFileWriterCourses.WriteToJson(courses, JsonFileName);
         }
 
         public void AddCourse(Course course)
