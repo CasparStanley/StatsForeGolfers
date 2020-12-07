@@ -13,6 +13,7 @@ namespace ProtoWeb.Pages.Courses.CoursesHoles
     {
        [BindProperty]
         public Course Course { get; set; }
+        public int courseId { get; set; }
 
         private ICourses courses;
 
@@ -25,7 +26,7 @@ namespace ProtoWeb.Pages.Courses.CoursesHoles
         public void OnGet(int id)
         {
             Holes = courses.AllHoles(id);
-           
+            courseId = id;
         }
 
        

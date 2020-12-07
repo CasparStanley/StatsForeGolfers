@@ -47,7 +47,7 @@ namespace ProtoWeb.Services
             Dictionary<int, Course> courses = AllCourses();
             Dictionary<int, Hole> holes = AllHoles(courseId);
             holes.Add(hole.HoleNo,hole);
-            holes = courses[courseId].Holes;
+            courses[courseId].Holes = holes;
             JsonFileWriterCourses.WriteToJson(courses,JsonFileName);
         }
         public Dictionary<int, Course> AllCourses()
