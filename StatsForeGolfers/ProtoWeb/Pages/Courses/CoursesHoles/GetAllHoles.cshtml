@@ -43,8 +43,7 @@
                 <td>
                     <p>
                         <a asp-page="EditHole" asp-route-holeNo="@item.Key">Edit</a> |
-                        <a asp-page="DeleteHole" asp-route-holeNo="@item.Key">Delete</a>
-                        
+                        <a asp-page="DeleteHole" asp-route-HoleNo="@item.Key" asp-route-id="@Model.courseId">Delete</a>
                     </p>
                 </td>
 

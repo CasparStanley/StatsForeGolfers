@@ -8,8 +8,9 @@ namespace ProtoWeb.Interfaces
 {
     public interface ICourses
     {
+        public void DeleteHole(Hole hole, int courseId);
         public Dictionary<int, Hole> AllHoles(int coursesId);
-        public Hole GetHole(int id, int courseId);
+        public Hole GetHole(int holeNo, int courseId);
         public void AddHole(Hole hole, int courseId);
         Dictionary<int, Course> AllCourses();
         Dictionary<int, Course> FilterCourse(string crtieria);

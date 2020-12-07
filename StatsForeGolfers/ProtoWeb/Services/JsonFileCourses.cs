@@ -35,10 +35,10 @@ namespace ProtoWeb.Services
             }
             return newHoles;
         }
-        public Hole GetHole(int id,int courseId)
+        public Hole GetHole(int holeNo,int courseId)
         {
             Dictionary<int, Hole> holes = AllHoles(courseId);
-            Hole foundHole = holes[id];
+            Hole foundHole = holes[holeNo];
             return foundHole;
         }
 
@@ -49,6 +49,15 @@ namespace ProtoWeb.Services
             holes.Add(hole.HoleNo,hole);
             courses[courseId].Holes = holes;
             JsonFileWriterCourses.WriteToJson(courses,JsonFileName);
+        }
+
+        public void DeleteHole(Hole hole, int courseId)
+        {
+            Dictionary<int, Course> courses = AllCourses();
+            Dictionary<int, Hole> holes = AllHoles(courseId);
+            holes.Remove(hole.HoleNo, out hole);
+            courses[courseId].Holes = holes;
+            JsonFileWriterCourses.WriteToJson(courses, JsonFileName);
         }
         public Dictionary<int, Course> AllCourses()
         {
