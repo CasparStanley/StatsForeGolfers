@@ -116,6 +116,13 @@
   "2": {
     "Id": 2,
     "Name": "dw",
-    "Holes": {}
+    "Holes": {
+      "3": {
+        "HoleNo": 3,
+        "Par": 5,
+        "Length": 5,
+        "Handicap": 5.0
+      }
+    }
   }
 }

@@ -59,6 +59,18 @@ namespace ProtoWeb.Services
             courses[courseId].Holes = holes;
             JsonFileWriterCourses.WriteToJson(courses, JsonFileName);
         }
+        public void UpdateHole(Hole hole,int courseId)
+        {
+            Dictionary<int, Course> courses = AllCourses();
+            Dictionary<int, Hole> holes = AllHoles(courseId);
+            Hole foundCourse = holes[hole.HoleNo];
+            foundCourse.HoleNo = hole.HoleNo;
+            foundCourse.Par = hole.Par;
+            foundCourse.Length = hole.Length;
+            foundCourse.Handicap = hole.Handicap;
+            courses[courseId].Holes = holes;
+            JsonFileWriterCourses.WriteToJson(courses, JsonFileName);
+        }
         public Dictionary<int, Course> AllCourses()
         {
             return JsonFileReaderCourses.ReadJson(JsonFileName);

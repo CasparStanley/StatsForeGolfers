@@ -1,0 +1,41 @@
+﻿@page "{holeNo}/{id}"
+@model ProtoWeb.Pages.Courses.CoursesHoles.EditHoleModel
+@{
+    ViewData["Title"] = "Edit";
+}
+<h1>Edit Hole</h1>
+<div class="row">
+    <div class="col-md-4">
+        <form method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="@Model.Hole.HoleNo" />
+            <div class="form-group">
+                <label asp-for="@Model.Hole.HoleNo" class=""></label>
+                <input asp-for="@Model.Hole.HoleNo" class="" />
+                <span asp-validation-for="@Model.Hole.HoleNo" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="@Model.Hole.Par" class=""></label>
+                <input asp-for="@Model.Hole.Par" class="" />
+                <span asp-validation-for="@Model.Hole.Par" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="@Model.Hole.Length" class=""></label>
+                <input asp-for="@Model.Hole.Length" class="" />
+                <span asp-validation-for="@Model.Hole.Length" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="@Model.Hole.Handicap" class=""></label>
+                <input asp-for="@Model.Hole.Handicap" class="" />
+                <span asp-validation-for="@Model.Hole.Handicap" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Save"
+                       class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+<div>
+    <a asp-page="index">Back to List</a>
+</div>
