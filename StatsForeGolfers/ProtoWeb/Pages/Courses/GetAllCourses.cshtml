@@ -29,12 +29,12 @@
                 {
                     <tr>
                         <td>
-                            <a asp-area="" asp-page="">Id:@item.Value.Id @item.Value.Name</a> <!--"..@item.Value.Id"-->
+                            <a  class="link-dark" asp-page="CoursesHoles/GetAllHoles" asp-route-id="@item.Key">Id:@item.Value.Id @item.Value.Name</a> <!--"..@item.Value.Id"--> <!--"..@item.Value.Id"-->
                         </td>
                         <td>
                             <p>
-                                <a asp-page="EditCourse" asp-route-id="@item.Key">Edit</a> |
-                                <a asp-page="DeleteCourse" asp-route-id="@item.Key">Delete</a>
+                                <a class="link-dark" asp-page="EditCourse" asp-route-id="@item.Key">Edit</a> |
+                                <a class="link-dark" asp-page="DeleteCourse" asp-route-id="@item.Key">Delete</a>
                             </p>
                         </td>
                     </tr>
