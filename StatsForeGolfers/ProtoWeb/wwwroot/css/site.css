@@ -136,6 +136,21 @@ table {
     overflow-y: auto;
 }
 
+/* Stats Input buttons */
+.btn-miss, btn-hit {
+    color: white;
+    font-weight: bold;
+    border: none;
+    border-radius: 10px;
+    padding: 10px;
+}
+.btn-miss {
+    background-color: #AA5E39;
+}
+.btn-hit {
+    background-color: #599532;
+}
+
 /* Sticky footer styles
 -------------------------------------------------- */
 .footer {

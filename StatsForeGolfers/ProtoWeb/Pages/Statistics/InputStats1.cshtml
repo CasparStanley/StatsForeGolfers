@@ -1,0 +1,24 @@
+﻿@page
+@model ProtoWeb.Pages.Statistics.InputStats1Model
+@{
+    ViewData["Title"] = "InputStats1";
+}
+
+<form method="post" ?>
+    <input asp-for="StatSheet.TotalHits" /><br />
+    <input asp-for="StatSheet.TotalMisses" /><br />
+    <input asp-for="StatSheet.TotalGreenStrokes" /><br />
+    <input asp-for="StatSheet.GreenHit" /><br />
+    <input asp-for="StatSheet.GreenMissRight" /><br />
+    <input asp-for="StatSheet.GreenMissLeft" /><br />
+    <input asp-for="StatSheet.Bunker" /><br />
+    <input asp-for="StatSheet.Rough" /><br />
+    <input asp-for="StatSheet.French" /><br />
+    <input asp-for="StatSheet.TotalFairwayStrokes" /><br />
+    <input asp-for="StatSheet.FairWayHit" /><br />
+    <input asp-for="StatSheet.FairWayMissLeft" /><br />
+    <input asp-for="StatSheet.FairWayMissRight" /><br />
+    <input asp-for="StatSheet.TotalScrambleStrokes" /><br />
+    <input asp-for="StatSheet.ScrambleHit" /><br />
+    <input asp-for="StatSheet.ScrambleMiss" /><br />
+</form>

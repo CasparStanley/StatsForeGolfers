@@ -110,6 +110,12 @@
         "Par": 4,
         "Length": 500,
         "Handicap": 2.0
+      },
+      "20": {
+        "HoleNo": 20,
+        "Par": 4,
+        "Length": 400,
+        "Handicap": 8.0
       }
     }
   },
@@ -122,6 +128,12 @@
         "Par": 5,
         "Length": 5,
         "Handicap": 5.0
+      },
+      "16": {
+        "HoleNo": 16,
+        "Par": 4,
+        "Length": 5,
+        "Handicap": 2.0
       }
     }
   }
