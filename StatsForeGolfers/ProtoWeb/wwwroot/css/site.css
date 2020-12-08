@@ -7,9 +7,10 @@ a.navbar-brand {
   word-break: break-all;
 }
 
-h1 {
+h1,h2,h3,h4 {
     color: #fff4EC;
 }
+
 
 p {
     color: #fff4EC;
@@ -17,6 +18,10 @@ p {
 
 a {
     color: #fff4EC;
+}
+
+.link-dark {
+    color: #1A281F;
 }
 
 .jumbotron {
