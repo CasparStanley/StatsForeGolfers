@@ -11,6 +11,14 @@ h1 {
     color: #fff4EC;
 }
 
+p {
+    color: #fff4EC;
+}
+
+a {
+    color: #fff4EC;
+}
+
 .jumbotron {
     background-color: #fff4EC;
 }
@@ -27,9 +35,6 @@ h1 {
 }
 
 /* Provide sufficient contrast against white background */
-a {
-  color: #1A281F;
-}
 
 .text-dark {
     color: #1A281F;
