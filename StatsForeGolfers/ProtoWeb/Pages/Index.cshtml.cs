@@ -20,6 +20,7 @@ namespace ProtoWeb.Pages
 
         public void OnGet()
         {
+            // Test statsheet, I presume
             StatSheet sh = new StatSheet();
             sh.FairWayHit = 2;
             sh.Rough = false;
