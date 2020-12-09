@@ -9,6 +9,8 @@ namespace ProtoWeb.Pages.Statistics
 {
     public class InputStats2Model : PageModel
     {
+        [BindProperty]
+        public StatSheet StatSheet { get; set; }
         public IActionResult OnGet()
         {
             return Page();
