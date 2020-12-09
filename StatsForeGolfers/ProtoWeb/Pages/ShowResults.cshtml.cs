@@ -21,6 +21,8 @@ namespace ProtoWeb.Pages
             courses = courseRepo;
         }
 
+        public User CurrentUser { get; private set; }
+        public Course CurrentCourse { get; private set; }
         public Dictionary<int, Hole> Holes { get; private set; }
         public StatSheet MockSheet { get; private set; }
 
@@ -29,6 +31,8 @@ namespace ProtoWeb.Pages
 
         public IActionResult OnGet()
         {
+            CurrentUser = new User(); { CurrentUser.Name = "Caspar"; } // NEEDS TO BE A REAL USER FED THROUGH USER CREATION FLOW
+            CurrentCourse = courses.GetCourse(1); // NEEDS CORRECT ID
             Holes = courses.AllHoles(1); // NEEDS CORRECT ID
 
             // -------------------------------------------------------------------------------------------------------------------
@@ -53,6 +57,44 @@ namespace ProtoWeb.Pages
             // -------------------------------------------------------------------------------------------------------------------
 
             return Page();
+        }
+
+        public int FairwayHit()
+        {
+            return (int)(MockSheet.PercentageCalculator(MockSheet.FairWayHit, MockSheet.TotalFairwayStrokes) * 100);
+        }
+
+        public int FairwayMiss(bool left)
+        {
+            ///THIS MATH IS WRONG - DIVIDING MISSES LEFT WITH TOTAL FAIRWAY STROKES.
+            ///WE SHOULD BE DIVIDING WITH TOTAL FAIRWAY MISSES
+            if (left)
+                return (int)(MockSheet.PercentageCalculator(MockSheet.FairWayMissLeft, MockSheet.TotalFairwayStrokes) * 100);
+            else
+                return (int)(MockSheet.PercentageCalculator(MockSheet.FairWayMissRight, MockSheet.TotalFairwayStrokes) * 100);
+        }
+
+        public int GreenHit()
+        {
+            return (int)(MockSheet.PercentageCalculator(MockSheet.GreenHit, MockSheet.TotalGreenStrokes) * 100);
+        }
+
+        public int GreenMiss(bool left)
+        {
+            ///THIS MATH IS WRONG - DIVIDING MISSES LEFT WITH TOTAL GREEN STROKES.
+            ///WE SHOULD BE DIVIDING WITH TOTAL GREEN MISSES
+            if (left)
+                return (int)(MockSheet.PercentageCalculator(MockSheet.GreenMissLeft, MockSheet.TotalGreenStrokes) * 100);
+            else
+                return (int)(MockSheet.PercentageCalculator(MockSheet.GreenMissRight, MockSheet.TotalGreenStrokes) * 100);
+        }
+
+        public int Scramble(bool hit)
+        {
+            if (hit)
+                return (int)(MockSheet.PercentageCalculator(MockSheet.ScrambleHit, MockSheet.TotalScrambleStrokes) * 100);
+            else
+                return (int)(MockSheet.PercentageCalculator(MockSheet.ScrambleMiss, MockSheet.TotalScrambleStrokes) * 100);
         }
     }
 }
