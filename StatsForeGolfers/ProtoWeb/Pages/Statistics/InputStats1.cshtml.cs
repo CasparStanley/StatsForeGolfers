@@ -14,5 +14,10 @@ namespace ProtoWeb.Pages.Statistics
         public void OnGet()
         {
         }
+
+        public IActionResult OnPost()
+        {
+
+        }
     }
 }
