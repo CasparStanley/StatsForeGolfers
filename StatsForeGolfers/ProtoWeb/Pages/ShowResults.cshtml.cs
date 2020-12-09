@@ -13,12 +13,12 @@ namespace ProtoWeb.Pages
     public class ShowResultsModel : PageModel
     {
         private IStatistics statistics;
-        private IHoleRepository course;
+        private ICourses courses;
 
-        public ShowResultsModel(IStatistics statsRepo, IHoleRepository courseRepo)
+        public ShowResultsModel(IStatistics statsRepo, ICourses courseRepo)
         {
             statistics = statsRepo;
-            course = courseRepo;
+            courses = courseRepo;
         }
 
         public Dictionary<int, Hole> Holes { get; private set; }
@@ -29,7 +29,7 @@ namespace ProtoWeb.Pages
 
         public IActionResult OnGet()
         {
-            Holes = course.AllHoles();
+            Holes = courses.AllHoles(1); // NEEDS CORRECT ID
 
             // -------------------------------------------------------------------------------------------------------------------
             // NEEDS TO BE A SPECIFIC STATSHEET CONNECTED TO THE USER
@@ -52,10 +52,6 @@ namespace ProtoWeb.Pages
             MockSheet.TotalHits = MockSheet.FairWayHit + MockSheet.GreenHit; // Does Scramble count towards this?
             // -------------------------------------------------------------------------------------------------------------------
 
-            if (!string.IsNullOrEmpty(FilterCriteria))
-            {
-                Holes = course.FilterHole(FilterCriteria);
-            }
             return Page();
         }
     }
