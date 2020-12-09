@@ -5,6 +5,74 @@
 }
 <!DOCTYPE html>
 <html lang="en">
+<head>
+    <script>
+            window.onload = function ()
+            {
+                var chart = new CanvasJS.Chart("fwChart", {
+                    animationEnabled: true,
+                    backgroundColor: "#FFF4EC",
+                    title: {
+                        text: "Fairway Hit and Miss Percentage"
+                    },
+                    data: [{
+                        type: "pie",
+                        startAngle: 240,
+                        yValueFormatString: "##0.00\"%\"",
+                        indexLabel: "{label} {y}",
+                        dataPoints: [
+                            { y: @Model.FairwayHit(), label: "Hit" },
+                            { y: @Model.FairwayMiss(true), label: "Miss Left" },
+                            { y: @Model.FairwayMiss(false), label: "Miss Right" },
+                        ]
+                    }]
+                });
+                chart.render();
+                var chart = new CanvasJS.Chart("grChart", {
+                    animationEnabled: true,
+                    backgroundColor: "#FFF4EC",
+                    title: {
+                        text: "Green Hit and Miss Percentage"
+                    },
+                    data: [{
+                        type: "pie",
+                        startAngle: 240,
+                        yValueFormatString: "##0.00\"%\"",
+                        indexLabel: "{label} {y}",
+                        dataPoints: [
+                            { y: @Model.GreenHit(), label: "Hit" },
+                            { y: @Model.GreenMiss(true), label: "Miss Left" },
+                            { y: @Model.GreenMiss(false), label: "Miss Right" },
+                        ]
+                    }]
+                });
+                chart.render();
+                var chart = new CanvasJS.Chart("scChart", {
+                    animationEnabled: true,
+                    backgroundColor: "#FFF4EC",
+                    title:
+                    {
+                        text: "Scramble In and Out Percentage"
+                    },
+                    data:
+                    [
+                        {
+                            type: "pie",
+                            startAngle: 240,
+                            yValueFormatString: "##0.00\"%\"",
+                            indexLabel: "{label} {y}",
+                            dataPoints:
+                            [
+                                { y: @Model.Scramble(true), label: "In" },
+                                { y: @Model.Scramble(false), label: "Out" }
+                            ]
+                        }
+                    ]
+                });
+                chart.render();
+            }
+    </script>
+</head>
     <body>
         <div class="row justify-content-center p-4">
             <div class="col-auto">
@@ -17,14 +85,15 @@
                     <thead>
                         <tr>
                             <th>
-                                HoleNo
+                                @Model.CurrentUser.Name
                             </th>
                             <th>
-                                Par
+                                @Model.CurrentCourse.Name
                             </th>
-                            <th>
-                                Length
-                            </th>
+                        </tr>
+                    </thead>
+                    <thead>
+                        <tr>
                             <th>
                                 Handicap
                             </th>
@@ -46,42 +115,49 @@
                         </tr>
                     </thead>
                     <tbody>
-                        @foreach (var hole in Model.Holes.Values)
-                        {
                         <tr>
                             <td>
-                                @hole.HoleNo
+                                @Model.CurrentUser.Handicap
                             </td>
                             <td>
-                                @hole.Par
+                                @Model.FairwayHit()%
                             </td>
                             <td>
-                                @hole.Length
+                                @Model.FairwayMiss(true)%/@Model.FairwayMiss(false)%
                             </td>
                             <td>
-                                @hole.Handicap
+                                @Model.GreenHit()%
                             </td>
                             <td>
-                                @Math.Round(Model.MockSheet.PercentageCalculator(Model.MockSheet.FairWayHit, Model.MockSheet.TotalFairwayStrokes) * 100)%
+                                @Model.GreenMiss(true)%/@Model.GreenMiss(false)%
                             </td>
                             <td>
-                                @* THIS MATH IS WRONG - DIVIDING MISSES LEFT WITH TOTAL FAIRWAY STROKES.
-                                    WE SHOULD BE DIVIDING WITH TOTAL FAIRWAY MISSES*@
-                                @Math.Round(Model.MockSheet.PercentageCalculator(Model.MockSheet.FairWayMissLeft, Model.MockSheet.TotalFairwayStrokes) * 100)%/@Math.Round(Model.MockSheet.PercentageCalculator(Model.MockSheet.FairWayMissRight, Model.MockSheet.TotalFairwayStrokes) * 100)%
-                            </td>
-                            <td>
-                                @Math.Round(Model.MockSheet.PercentageCalculator(Model.MockSheet.GreenHit, Model.MockSheet.TotalGreenStrokes) * 100)%
-                            </td>
-                            <td>
-                                @* THIS MATH IS WRONG - DIVIDING MISSES LEFT WITH TOTAL GREEN STROKES.
-                                    WE SHOULD BE DIVIDING WITH TOTAL GREEN MISSES*@
-                                @Math.Round(Model.MockSheet.PercentageCalculator(Model.MockSheet.GreenMissLeft, Model.MockSheet.TotalGreenStrokes) * 100)%/@Math.Round(Model.MockSheet.PercentageCalculator(Model.MockSheet.GreenMissRight, Model.MockSheet.TotalGreenStrokes) * 100)%
-                            </td>
-                            <td>
-                                @Math.Round(Model.MockSheet.PercentageCalculator(Model.MockSheet.ScrambleHit, Model.MockSheet.TotalScrambleStrokes) * 100)%/@Math.Round(Model.MockSheet.PercentageCalculator(Model.MockSheet.GreenMissRight, Model.MockSheet.TotalScrambleStrokes) * 100)%
+                                @Model.Scramble(true)%/@Model.Scramble(false)%
                             </td>
                         </tr>
-                        }
+                        <tr>
+                            <td>
+                                
+                            </td>
+                            <td>
+                                <div id="fwChart" style="height: 300px; width: 150px;"></div>
+                                <script src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>
+                            </td>
+                            <td>
+                                
+                            </td>
+                            <td>
+                                <div id="grChart" style="height: 300px; width: 150px;"></div>
+                                <script src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>
+                            </td>
+                            <td>
+                                
+                            </td>
+                            <td>
+                                <div id="scChart" style="height: 300px; width: 150px;"></div>
+                                <script src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>
+                            </td>
+                        </tr>
                     </tbody>
                 </table>
             </div>
