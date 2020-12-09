@@ -7,7 +7,7 @@ using Microsoft.AspNetCore.Mvc.RazorPages;
 
 namespace ProtoWeb.Pages.ProStats
 {
-    public class IndexModel : PageModel
+    public class ProStatisticsModel : PageModel
     {
         public double ScoringAverage { get; set; }
         public double DrivingDistance { get; set; }
@@ -15,14 +15,15 @@ namespace ProtoWeb.Pages.ProStats
         public double GreenInRegAverage { get; set; }
         public double ScramblingAverage { get; set; }
 
-        public IndexModel(double scoringAverage, double drivingDistance, double fairwayAverage, double greenInRegAverage, double scramblingAverage)
-        {
-            ScoringAverage = scoringAverage;
-            DrivingDistance = drivingDistance;
-            FairwayAverage = fairwayAverage;
-            GreenInRegAverage = greenInRegAverage;
-            ScramblingAverage = scramblingAverage;
-        }
+        // Should not be using a constructor
+        //public ProStatisticsModel(double scoringAverage, double drivingDistance, double fairwayAverage, double greenInRegAverage, double scramblingAverage)
+        //{
+        //    ScoringAverage = scoringAverage;
+        //    DrivingDistance = drivingDistance;
+        //    FairwayAverage = fairwayAverage;
+        //    GreenInRegAverage = greenInRegAverage;
+        //    ScramblingAverage = scramblingAverage;
+        //}
 
         public override string ToString()
         {
@@ -31,6 +32,7 @@ namespace ProtoWeb.Pages.ProStats
 
         public void OnGet()
         {
+
         }
     }
 }
