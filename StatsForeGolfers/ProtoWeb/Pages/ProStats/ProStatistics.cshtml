@@ -4,10 +4,13 @@
     ViewData["Title"] = "ProStatistics";
 }
 
-<h1>List of ProStats</h1>
+<h1>Pro Stats</h1>
 <table class="table">
     <thead>
     <tr>
+        <th>
+            Tour
+        </th>
         <th>
             Scoring Average
         </th>
@@ -26,9 +29,12 @@
     </tr>
     </thead>
     <tbody>
-    @foreach (var item in Model.PSAverages)
+    @foreach (var item in Model.ProStatses)
     {
         <tr>
+            <td>
+                @item.Name
+            </td>
             <td>
                 @item.ScoringAverage
             </td>
@@ -48,5 +54,6 @@
     }
     </tbody>
 </table>
+
 
 

@@ -9,17 +9,17 @@ namespace ProtoWeb.Models
     
     public class ProStatsRepository
     {
-        private List<ProStatisticsModel> PSAverages { get; }
+        private List<ProStats> proStats { get; }
 
         public ProStatsRepository()
         {
-            PSAverages = new List<ProStatisticsModel>();
-            PSAverages.Add(new ProStatisticsModel(){ScoringAverage = 71.3, DrivingDistance = 295.4, FairwayAverage = 58.9, GreenInRegAverage = 66.6, ScramblingAverage = 57.1});
+            proStats = new List<ProStats>();
+            proStats.Add(new ProStats(){Name = "PGA Tour", ScoringAverage = 71.3, DrivingDistance = 295, FairwayAverage = 58.9, GreenInRegAverage = 66.6, ScramblingAverage = 57.1});
         }
 
-        public IEnumerable<ProStatisticsModel> GetAllPSAverages()
+        public IEnumerable<ProStats> GetAllProStats()
         {
-            return PSAverages.ToList();
+            return proStats.ToList();
         }
     }
 }
