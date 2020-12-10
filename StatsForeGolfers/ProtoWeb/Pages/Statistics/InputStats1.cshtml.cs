@@ -28,7 +28,6 @@ namespace ProtoWeb.Pages.Statistics
         public Course CurrentCourse { get; private set; }
         public Dictionary<int, Hole> Holes { get; private set; }
 
-
         public IActionResult OnGet()
         {
             CurrentCourse = courses.GetCourse(1);

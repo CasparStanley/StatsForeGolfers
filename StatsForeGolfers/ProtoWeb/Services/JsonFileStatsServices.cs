@@ -26,6 +26,7 @@ namespace ProtoWeb.Services
         public void CreateSheet(StatSheet sheet)
         {
             Sheet = sheet;
+            JsonHelper.WriteStat(Sheet, JsonFileName);
         }
 
         public void UpdateSheet(StatSheet sheet)
@@ -35,7 +36,7 @@ namespace ProtoWeb.Services
 
         public StatSheet GetSheet()
         {
-            return JsonFileReaderStats.ReadJson(JsonFileName);
+            return JsonHelper.ReadStat(JsonFileName);
         }
 
         public double PercentageCalculator(double number, double totalNumber)

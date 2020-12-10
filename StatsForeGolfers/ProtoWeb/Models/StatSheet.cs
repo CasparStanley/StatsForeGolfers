@@ -3,6 +3,26 @@ using ProtoWeb.Interfaces;
 
 namespace ProtoWeb
 {
+    public enum Stroke
+    {
+        TotalHits,
+        TotalMisses,
+        TotalGreenStrokes,
+        GreenHit,
+        GreenMissRight,
+        GreenMissLeft,
+        Bunker,
+        Rough,
+        French,
+        TotalFairwayStrokes,
+        FairWayHit,
+        FairWayMissLeft,
+        FairWayMissRight,
+        TotalScrambleStrokes,
+        ScrambleHit,
+        ScrambleMiss,
+        None
+    }
     public class StatSheet
     {
         public int TotalHits { get; set; }
@@ -36,6 +56,94 @@ namespace ProtoWeb
             }
 
             return result;
+        }
+
+        public Stroke Increase(Stroke stroke)
+        {
+            switch(stroke)
+            {
+                case Stroke.TotalHits:
+                    {
+                        TotalHits++;
+                        return Stroke.TotalHits;
+                    }
+                case Stroke.TotalMisses:
+                    {
+                        TotalMisses++;
+                        return Stroke.TotalMisses;
+                    }
+                case Stroke.TotalGreenStrokes:
+                    {
+                        TotalGreenStrokes++;
+                        return Stroke.TotalGreenStrokes;
+                    }
+                case Stroke.GreenHit:
+                    {
+                        GreenHit++;
+                        return Stroke.GreenHit;
+                    }
+                case Stroke.GreenMissRight:
+                    {
+                        GreenMissRight++;
+                        return Stroke.GreenMissRight;
+                    }
+                case Stroke.GreenMissLeft:
+                    {
+                        GreenMissLeft++;
+                        return Stroke.GreenMissLeft;
+                    }
+                //case Stroke.Bunker:
+                //    {
+                //        break;
+                //    }
+                //case Stroke.Rough:
+                //    {
+                //        break;
+                //    }
+                //case Stroke.French:
+                //    {
+                //        break;
+                //    }
+                case Stroke.TotalFairwayStrokes:
+                    {
+                        TotalFairwayStrokes++;
+                        return Stroke.TotalFairwayStrokes;
+                    }
+                case Stroke.FairWayHit:
+                    {
+                        FairWayHit++;
+                        return Stroke.FairWayHit;
+                    }
+                case Stroke.FairWayMissLeft:
+                    {
+                        FairWayMissLeft++;
+                        return Stroke.FairWayMissLeft;
+                    }
+                case Stroke.FairWayMissRight:
+                    {
+                        FairWayMissRight++;
+                        return Stroke.FairWayMissRight;
+                    }
+                case Stroke.TotalScrambleStrokes:
+                    {
+                        TotalScrambleStrokes++;
+                        return Stroke.TotalScrambleStrokes;
+                    }
+                case Stroke.ScrambleHit:
+                    {
+                        ScrambleHit++;
+                        return Stroke.ScrambleHit;
+                    }
+                case Stroke.ScrambleMiss:
+                    {
+                        ScrambleMiss++;
+                        return Stroke.ScrambleMiss;
+                    }
+                default:
+                    {
+                        return Stroke.None;
+                    }
+            }
         }
     }
 }
