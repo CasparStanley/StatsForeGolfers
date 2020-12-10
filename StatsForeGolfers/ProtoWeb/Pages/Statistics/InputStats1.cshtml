@@ -6,19 +6,31 @@
 
 <h1> Hole 2</h1>
 <div class="my-auto container frame">
-    <table class="text-center">
-        <tr>
-            <td colspan="3">Fairway</td>
-        </tr>
-        <tr>
-            <td>Left</td>
-            <td></td>
-            <td>Right</td>
-        </tr>
-        <tr>
-            <td><input type="button" value="Miss" class="btn-miss"/></td>
-            <td><input type="button" value="Hit" class="btn-hit" /></td>
-            <td><input type="button" value="Miss" class="btn-miss" /></td>
-        </tr>
-    </table>
+        <table class="text-center">
+            <tr>
+                <td colspan="3">Fairway</td>
+            </tr>
+            <tr>
+                <td>Left</td>
+                <td></td>
+                <td>Right</td>
+            </tr>
+            <tr>
+                <td>
+                    <form asp-page="/Statistics/InputStats2" method="post" class="text-center">
+                        <button asp-for="@(Model.StatSheet.FairWayMissLeft++)" class="btn-miss">Miss</button>
+                    </form>
+                </td>
+                <td>
+                    <form asp-page="/Statistics/InputStats2" method="post" class="text-center">
+                        <button class="btn-hit">Hit</button>
+                    </form>
+                </td>
+                <td>
+                    <form asp-page="/Statistics/InputStats2" method="post" class="text-center">
+                        <button class="btn-miss">Miss</button>
+                    </form>
+                </td>
+            </tr>
+        </table>
 </div>

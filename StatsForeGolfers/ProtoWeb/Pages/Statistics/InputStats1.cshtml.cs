@@ -16,9 +16,8 @@ namespace ProtoWeb.Pages.Statistics
             return Page();
         }
 
-        public IActionResult OnPost()
+        public void OnPost()
         {
-            return Page();
         }
     }
 }
