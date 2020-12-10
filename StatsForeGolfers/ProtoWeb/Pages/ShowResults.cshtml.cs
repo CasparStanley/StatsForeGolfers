@@ -66,8 +66,6 @@ namespace ProtoWeb.Pages
 
         public int FairwayMiss(bool left)
         {
-            ///THIS MATH IS WRONG - DIVIDING MISSES LEFT WITH TOTAL FAIRWAY STROKES.
-            ///WE SHOULD BE DIVIDING WITH TOTAL FAIRWAY MISSES
             if (left)
                 return (int)(MockSheet.PercentageCalculator(MockSheet.FairWayMissLeft, MockSheet.TotalFairwayStrokes) * 100);
             else
@@ -81,8 +79,6 @@ namespace ProtoWeb.Pages
 
         public int GreenMiss(bool left)
         {
-            ///THIS MATH IS WRONG - DIVIDING MISSES LEFT WITH TOTAL GREEN STROKES.
-            ///WE SHOULD BE DIVIDING WITH TOTAL GREEN MISSES
             if (left)
                 return (int)(MockSheet.PercentageCalculator(MockSheet.GreenMissLeft, MockSheet.TotalGreenStrokes) * 100);
             else
