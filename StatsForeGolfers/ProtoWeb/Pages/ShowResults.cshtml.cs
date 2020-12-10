@@ -38,17 +38,17 @@ namespace ProtoWeb.Pages
             // -------------------------------------------------------------------------------------------------------------------
             // NEEDS TO BE A SPECIFIC STATSHEET CONNECTED TO THE USER
             // THIS IS ALL MOCK DATA, WE NEED TO USE A REAL SHEET THAT THE USER FILLS
-            MockSheet = statistics.Sheet();
-            
-            MockSheet.TotalFairwayStrokes = 35;
-            MockSheet.FairWayHit = 20;
-            MockSheet.FairWayMissLeft = 5;
-            MockSheet.TotalGreenStrokes = 32;
-            MockSheet.GreenHit = 21;
-            MockSheet.GreenMissLeft = 6;
-            MockSheet.TotalScrambleStrokes = 10;
-            MockSheet.ScrambleHit = 8;
-            
+            MockSheet = new StatSheet()
+            {
+                TotalFairwayStrokes = 35,
+                FairWayHit = 20,
+                FairWayMissLeft = 5,
+                TotalGreenStrokes = 32,
+                GreenHit = 21,
+                GreenMissLeft = 6,
+                TotalScrambleStrokes = 10,
+                ScrambleHit = 8,
+            };
 
             MockSheet.FairWayMissRight = MockSheet.TotalFairwayStrokes - MockSheet.FairWayHit - MockSheet.FairWayMissLeft;
             MockSheet.GreenMissRight = MockSheet.TotalGreenStrokes - MockSheet.GreenHit - MockSheet.GreenMissLeft;
