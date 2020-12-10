@@ -22,7 +22,7 @@ namespace ProtoWeb.Services
             get { return Path.Combine(WebHostEnvironment.WebRootPath, "Data", "Stats.Json"); }
         }
 
-        public StatSheet AllStats()
+        public StatSheet Sheet()
         {
             return JsonFileReaderStats.ReadJson(JsonFileName);
         }

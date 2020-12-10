@@ -6,6 +6,7 @@ namespace ProtoWeb.Interfaces
 {
     public interface IStatistics
     {
+        public StatSheet Sheet();
         public double PercentageCalculator(double number, double totalNumber);
     }
 }
