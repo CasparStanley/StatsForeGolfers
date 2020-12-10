@@ -28,8 +28,5 @@ namespace ProtoWeb.Pages.Courses.CoursesHoles
             Holes = courses.AllHoles(id);
             courseId = id;
         }
-
-       
-
     }
 }

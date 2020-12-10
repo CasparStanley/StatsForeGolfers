@@ -18,6 +18,7 @@ namespace ProtoWeb.Pages.Statistics
 
         public IActionResult OnPost()
         {
+            //statistics.UpdateSheet(MockSheet);
             return Page();
         }
     }

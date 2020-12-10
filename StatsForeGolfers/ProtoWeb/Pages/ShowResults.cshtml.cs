@@ -15,16 +15,19 @@ namespace ProtoWeb.Pages
         private IStatistics statistics;
         private ICourses courses;
 
+        public StatSheet MockSheet { get; private set; }
+
         public ShowResultsModel(IStatistics statsRepo, ICourses courseRepo)
         {
             statistics = statsRepo;
             courses = courseRepo;
+
+            MockSheet = statistics.GetSheet();
         }
 
         public User CurrentUser { get; private set; }
         public Course CurrentCourse { get; private set; }
         public Dictionary<int, Hole> Holes { get; private set; }
-        public StatSheet MockSheet { get; private set; }
 
         [BindProperty(SupportsGet = true)]
         public string FilterCriteria { get; set; }
@@ -34,27 +37,6 @@ namespace ProtoWeb.Pages
             CurrentUser = new User(); { CurrentUser.Name = "Caspar"; } // NEEDS TO BE A REAL USER FED THROUGH USER CREATION FLOW
             CurrentCourse = courses.GetCourse(1); // NEEDS CORRECT ID
             Holes = courses.AllHoles(1); // NEEDS CORRECT ID
-
-            // -------------------------------------------------------------------------------------------------------------------
-            // NEEDS TO BE A SPECIFIC STATSHEET CONNECTED TO THE USER
-            // THIS IS ALL MOCK DATA, WE NEED TO USE A REAL SHEET THAT THE USER FILLS
-            MockSheet = new StatSheet()
-            {
-                TotalFairwayStrokes = 35,
-                FairWayHit = 20,
-                FairWayMissLeft = 5,
-                TotalGreenStrokes = 32,
-                GreenHit = 21,
-                GreenMissLeft = 6,
-                TotalScrambleStrokes = 10,
-                ScrambleHit = 8,
-            };
-
-            MockSheet.FairWayMissRight = MockSheet.TotalFairwayStrokes - MockSheet.FairWayHit - MockSheet.FairWayMissLeft;
-            MockSheet.GreenMissRight = MockSheet.TotalGreenStrokes - MockSheet.GreenHit - MockSheet.GreenMissLeft;
-            MockSheet.ScrambleMiss = MockSheet.TotalScrambleStrokes - MockSheet.ScrambleHit;
-            MockSheet.TotalHits = MockSheet.FairWayHit + MockSheet.GreenHit; // Does Scramble count towards this?
-            // -------------------------------------------------------------------------------------------------------------------
 
             return Page();
         }

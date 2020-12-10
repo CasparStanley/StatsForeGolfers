@@ -5,32 +5,37 @@
 }
 
 <h1 class="text-center"> Hole 2</h1>
-<div class="my-auto container frame">
-        <table class="text-center">
-            <tr>
-                <td colspan="3">Fairway</td>
-            </tr>
-            <tr>
-                <td>Left</td>
-                <td></td>
-                <td>Right</td>
-            </tr>
-            <tr>
-                <td>
-                    <form asp-page="/Statistics/InputStats2" method="post" class="text-center">
-                        <button asp-for="@(Model.MockSheet.FairWayMissLeft++)" class="btn-miss">Miss</button>
-                    </form>
-                </td>
-                <td>
-                    <form asp-page="/Statistics/InputStats2" method="post" class="text-center">
-                        <button class="btn-hit">Hit</button>
-                    </form>
-                </td>
-                <td>
-                    <form asp-page="/Statistics/InputStats2" method="post" class="text-center">
-                        <button class="btn-miss">Miss</button>
-                    </form>
-                </td>
-            </tr>
-        </table>
+
+<div class="row justify-content-center p-4">
+    <div class="col-auto">
+        <div class="my-auto container frame">
+            <table class="text-center">
+                <tr>
+                    <td colspan="3">Fairway</td>
+                </tr>
+                <tr>
+                    <td>Left</td>
+                    <td></td>
+                    <td>Right</td>
+                </tr>
+                <tr>
+                    <td>
+                        <form asp-page="/Statistics/InputStats2" method="post" class="text-center">
+                            <button asp-for="@(Model.MockSheet.FairWayMissLeft++)" class="btn-miss">Miss</button>
+                        </form>
+                    </td>
+                    <td>
+                        <form asp-page="/Statistics/InputStats2" method="post" class="text-center">
+                            <button asp-for="@(Model.MockSheet.FairWayHit++)" class="btn-hit">Hit</button>
+                        </form>
+                    </td>
+                    <td>
+                        <form asp-page="/Statistics/InputStats2" method="post" class="text-center">
+                            <button asp-for="@(Model.MockSheet.FairWayMissRight++)" class="btn-miss">Miss</button>
+                        </form>
+                    </td>
+                </tr>
+            </table>
+        </div>
+    </div>
 </div>

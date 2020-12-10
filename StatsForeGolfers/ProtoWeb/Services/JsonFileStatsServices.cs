@@ -11,6 +11,7 @@ namespace ProtoWeb.Services
     public class JsonFileStats : IStatistics
     {
         public IWebHostEnvironment WebHostEnvironment { get; }
+        public StatSheet Sheet { get; private set; }
 
         public JsonFileStats(IWebHostEnvironment webHostEnvironment)
         {
@@ -22,7 +23,17 @@ namespace ProtoWeb.Services
             get { return Path.Combine(WebHostEnvironment.WebRootPath, "Data", "Stats.Json"); }
         }
 
-        public StatSheet Sheet()
+        public void CreateSheet(StatSheet sheet)
+        {
+            Sheet = sheet;
+        }
+
+        public void UpdateSheet(StatSheet sheet)
+        {
+            Sheet = sheet;
+        }
+
+        public StatSheet GetSheet()
         {
             return JsonFileReaderStats.ReadJson(JsonFileName);
         }

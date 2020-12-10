@@ -49,8 +49,8 @@ namespace ProtoWeb.Helpers
         {
             try
             {
-                string jsonString = Newtonsoft.Json.JsonConvert.SerializeObject(courses,
-                    Newtonsoft.Json.Formatting.Indented);
+                string jsonString = JsonConvert.SerializeObject(courses,
+                    Formatting.Indented);
 
                 File.WriteAllText(filename, jsonString);
 
@@ -66,8 +66,8 @@ namespace ProtoWeb.Helpers
         {
             try
             {
-                string jsonString = Newtonsoft.Json.JsonConvert.SerializeObject(stats,
-                    Newtonsoft.Json.Formatting.Indented);
+                string jsonString = JsonConvert.SerializeObject(stats,
+                    Formatting.Indented);
 
                 File.WriteAllText(filename, jsonString);
 

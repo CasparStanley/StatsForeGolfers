@@ -25,7 +25,7 @@ namespace ProtoWeb.Pages
             sh.FairWayHit = 2;
             sh.Rough = false;
             sh.ScrambleHit = 1;
-            JsonFileWriterStats.WriteToJson(sh, "testJsonFile.json");
+            JsonHelper.WriteStat(sh, "testJsonFile.json");
         }
     }
 }
