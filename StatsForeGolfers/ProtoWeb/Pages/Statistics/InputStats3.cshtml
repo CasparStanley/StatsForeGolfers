@@ -4,21 +4,43 @@
     ViewData["Title"] = "InputStats3";
 }
 
-<h1> Hole 2</h1>
-<div class="my-auto container frame">
-    <table class="text-center">
-        <tr>
-            <td colspan="3">Scramble</td>
-        </tr>
-        <tr>
-            <td>Left</td>
-            <td></td>
-            <td>Right</td>
-        </tr>
-        <tr>
-            <td><input type="button" value="Miss" class="btn-miss"/></td>
-            <td><input type="button" value="Hit" class="btn-hit"/></td>
-            <td><input type="button" value="Miss" class="btn-miss"/></td>
-        </tr>
-    </table>
+<div class="row justify-content-center p-4">
+    <div class="col-auto">
+        <h1> Hole 1</h1>
+        <div class="my-auto container frame">
+            <table class="text-center">
+                <tr>
+                    <td colspan="3">Scramble</td>
+                </tr>
+                <tr>
+                    <td>Out</td>
+                    <td></td>
+                    <td>In</td>
+                </tr>
+                <tr>
+                    <td>
+                        <form asp-page="/ShowResults" method="post" class="text-center">
+                            <button asp-for="@(Model.MockSheet.ScrambleMiss++)" class="btn-miss">
+                                Out
+                            </button>
+                        </form>
+                    </td>
+                    <td>
+                    </td>
+                    <td>
+                        <form asp-page="/ShowResults" method="post" class="text-center">
+                            <button asp-for="@(Model.MockSheet.ScrambleHit++)" class="btn-hit">
+                                In
+                            </button>
+                        </form>
+                    </td>
+                </tr>
+            </table>
+        </div>
+        <div>
+            <p>
+                @Model.MockSheet.FairWayMissLeft
+            </p>
+        </div>
+    </div>
 </div>

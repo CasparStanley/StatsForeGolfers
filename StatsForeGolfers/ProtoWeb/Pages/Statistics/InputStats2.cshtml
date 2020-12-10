@@ -4,10 +4,10 @@
     ViewData["Title"] = "InputStats2";
 }
 
-<h1> Hole 2</h1>
 
 <div class="row justify-content-center p-4">
     <div class="col-auto">
+        <h1> Hole 1</h1>
         <div class="my-auto container frame">
             <table class="text-center">
                 <tr>
@@ -21,17 +21,23 @@
                 <tr>
                     <td>
                         <form asp-page="/Statistics/InputStats3" method="post" class="text-center">
-                            <button asp-for="@(Model.MockSheet.GreenMissLeft++)" class="btn-miss">Miss</button>
+                            <button asp-for="@(Model.MockSheet.GreenMissLeft++)" class="btn-miss">
+                                Miss
+                            </button>
                         </form>
                     </td>
                     <td>
                         <form asp-page="/ShowResults" method="post" class="text-center">
-                            <button asp-for="@(Model.MockSheet.GreenHit++)" class="btn-hit">Hit</button>
+                            <button asp-for="@(Model.MockSheet.GreenHit++)" class="btn-hit">
+                                Hit
+                            </button>
                         </form>
                     </td>
                     <td>
                         <form asp-page="/Statistics/InputStats3" method="post" class="text-center">
-                            <button asp-for="@(Model.MockSheet.GreenMissRight++)" class="btn-miss">Miss</button>
+                            <button asp-for="@(Model.MockSheet.GreenMissRight++)" class="btn-miss">
+                                Miss
+                            </button>
                         </form>
                     </td>
                 </tr>
