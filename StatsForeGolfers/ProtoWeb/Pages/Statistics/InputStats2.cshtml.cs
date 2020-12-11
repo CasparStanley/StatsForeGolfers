@@ -28,16 +28,35 @@ namespace ProtoWeb.Pages.Statistics
         public Course CurrentCourse { get; private set; }
         public Dictionary<int, Hole> Holes { get; private set; }
 
-        public IActionResult OnGet()
+        public void OnGet(int btnId)
         {
             CurrentCourse = courses.GetCourse(1);
             Holes = courses.AllHoles(1);
-            
-            return Page();
-        }
 
-        public void OnPost()
-        {
+            switch (btnId)
+            {
+                case 0:
+                    {
+                        MockSheet.FairWayMissLeft++;
+                        break;
+                    }
+                case 1:
+                    {
+                        MockSheet.FairWayHit++;
+                        break;
+                    }
+                case 2:
+                    {
+                        MockSheet.FairWayMissRight++;
+                        break;
+                    }
+                default:
+                    {
+                        // Error
+                        break;
+                    }
+            }
+
             statistics.UpdateSheet(MockSheet);
         }
     }

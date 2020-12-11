@@ -9,7 +9,7 @@
     <script>
             window.onload = function ()
             {
-                var chart = new CanvasJS.Chart("fwChart", {
+                var chart1 = new CanvasJS.Chart("fwChart", {
                     animationEnabled: true,
                     backgroundColor: "#FFF4EC",
                     title: {
@@ -27,8 +27,8 @@
                         ]
                     }]
                 });
-                chart.render();
-                var chart = new CanvasJS.Chart("grChart", {
+                chart1.render();
+                var chart2 = new CanvasJS.Chart("grChart", {
                     animationEnabled: true,
                     backgroundColor: "#FFF4EC",
                     title: {
@@ -46,8 +46,8 @@
                         ]
                     }]
                 });
-                chart.render();
-                var chart = new CanvasJS.Chart("scChart", {
+                chart2.render();
+                var chart3 = new CanvasJS.Chart("scChart", {
                     animationEnabled: true,
                     backgroundColor: "#FFF4EC",
                     title:
@@ -69,7 +69,7 @@
                         }
                     ]
                 });
-                chart.render();
+                chart3.render();
             }
     </script>
 </head>

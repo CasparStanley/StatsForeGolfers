@@ -3,37 +3,40 @@
 @{
     ViewData["Title"] = "Delete";
 }
-<h1>Delete Confirmation</h1>
-<h5>Are you sure you want to delete Event - @Model.Hole.HoleNo</h5>
-<form method="post">
-    <dl class="row">
-        <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.Hole.HoleNo)
-        </dt>
-        <dd class="col-sm-2">
-            @Html.DisplayFor(model => model.Hole.HoleNo)
-        </dd>
-        <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.Hole.Par)
-        </dt>
-        <dd class="col-sm-2">
-            @Html.DisplayFor(model => model.Hole.Par)
-        </dd>
-        <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.Hole.Length)
-        </dt>
-        <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.Hole.Length)
-        </dt>
-        <dd class="col-sm-2">
-            @Html.DisplayFor(model => model.Hole.Handicap)
-        </dd>
-        <dd class="col-sm-2">
-            @Html.DisplayFor(model => model.Hole.Handicap)
-        </dd>
-    </dl>
-    <button type="submit" class="btn btn-danger">Yes</button>
-    <a class="btn btn-primary" asp-page="../GetAllCourses">No</a>
-</form>
 
-
+<div class="row justify-content-center p-4">
+    <div class="col-auto">
+        <h1>Delete Confirmation</h1>
+        <h5>Are you sure you want to delete Event - @Model.Hole.HoleNo</h5>
+        <form method="post">
+            <dl class="row">
+                <dt class="col-sm-2">
+                    @Html.DisplayNameFor(model => model.Hole.HoleNo)
+                </dt>
+                <dd class="col-sm-2">
+                    @Html.DisplayFor(model => model.Hole.HoleNo)
+                </dd>
+                <dt class="col-sm-2">
+                    @Html.DisplayNameFor(model => model.Hole.Par)
+                </dt>
+                <dd class="col-sm-2">
+                    @Html.DisplayFor(model => model.Hole.Par)
+                </dd>
+                <dt class="col-sm-2">
+                    @Html.DisplayNameFor(model => model.Hole.Length)
+                </dt>
+                <dt class="col-sm-2">
+                    @Html.DisplayNameFor(model => model.Hole.Length)
+                </dt>
+                <dd class="col-sm-2">
+                    @Html.DisplayFor(model => model.Hole.Handicap)
+                </dd>
+                <dd class="col-sm-2">
+                    @Html.DisplayFor(model => model.Hole.Handicap)
+                </dd>
+            </dl>
+            <button type="submit" class="btn btn-danger">Yes</button>
+            <a class="btn btn-primary" asp-page="../GetAllCourses">No</a>
+        </form>
+    </div>
+</div>

@@ -48,7 +48,7 @@ namespace ProtoWeb.Services
             Dictionary<int, Hole> holes = AllHoles(courseId);
             holes.Add(hole.HoleNo,hole);
             courses[courseId].Holes = holes;
-            JsonFileWriterCourses.WriteToJson(courses,JsonFileName);
+            JsonHelper.WriteCourse(courses,JsonFileName);
         }
 
         public void DeleteHole(Hole hole, int courseId)
@@ -57,7 +57,7 @@ namespace ProtoWeb.Services
             Dictionary<int, Hole> holes = AllHoles(courseId);
             holes.Remove(hole.HoleNo, out hole);
             courses[courseId].Holes = holes;
-            JsonFileWriterCourses.WriteToJson(courses, JsonFileName);
+            JsonHelper.WriteCourse(courses, JsonFileName);
         }
         public void UpdateHole(Hole hole,int courseId)
         {
@@ -69,11 +69,12 @@ namespace ProtoWeb.Services
             foundCourse.Length = hole.Length;
             foundCourse.Handicap = hole.Handicap;
             courses[courseId].Holes = holes;
-            JsonFileWriterCourses.WriteToJson(courses, JsonFileName);
+            JsonHelper.WriteCourse(courses, JsonFileName);
         }
         public Dictionary<int, Course> AllCourses()
         {
-            return JsonFileReaderCourses.ReadJson(JsonFileName);
+            try { return JsonHelper.ReadCourse(JsonFileName); }
+            catch (ArgumentException aExc) { Console.WriteLine(aExc); return null; }
         }
 
         public Dictionary<int, Course> FilterCourse(string crtieria)
@@ -103,20 +104,20 @@ namespace ProtoWeb.Services
             Dictionary<int, Course> courses = AllCourses();
             Course foundCourse = courses[course.Id];
             foundCourse.Name = course.Name;
-            JsonFileWriterCourses.WriteToJson(courses,JsonFileName);
+            JsonHelper.WriteCourse(courses,JsonFileName);
         }
         public void DeleteCourse(Course course)
         {
             Dictionary<int, Course> courses = AllCourses();
             courses.Remove(course.Id);
-            JsonFileWriterCourses.WriteToJson(courses, JsonFileName);
+            JsonHelper.WriteCourse(courses, JsonFileName);
         }
 
         public void AddCourse(Course course)
         {
             Dictionary<int, Course> courses = AllCourses();
             courses.Add(course.Id,course);
-            JsonFileWriterCourses.WriteToJson(courses,JsonFileName);
+            JsonHelper.WriteCourse(courses,JsonFileName);
         }
     }
 }

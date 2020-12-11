@@ -22,7 +22,7 @@ namespace ProtoWeb.Helpers
                     string jsonString = File.ReadAllText(filename);
                     jsonObject = JsonConvert.DeserializeObject<Dictionary<int, Course>>(jsonString);
                 }
-                catch { }
+                catch { throw new ArgumentException($"FILE WITH NAME '{filename}' DOESN'T EXIST"); }
             }
 
             return jsonObject;
@@ -39,7 +39,7 @@ namespace ProtoWeb.Helpers
                     string jsonString = File.ReadAllText(filename);
                     jsonObject = JsonConvert.DeserializeObject<StatSheet>(jsonString);
                 }
-                catch { }
+                catch { throw new ArgumentException($"FILE WITH NAME '{filename}' DOESN'T EXIST"); }
             }
 
             return jsonObject;

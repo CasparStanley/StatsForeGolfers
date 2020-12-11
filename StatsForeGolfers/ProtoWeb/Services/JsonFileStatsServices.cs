@@ -11,7 +11,6 @@ namespace ProtoWeb.Services
     public class JsonFileStats : IStatistics
     {
         public IWebHostEnvironment WebHostEnvironment { get; }
-        public StatSheet Sheet { get; private set; }
 
         public JsonFileStats(IWebHostEnvironment webHostEnvironment)
         {
@@ -20,23 +19,23 @@ namespace ProtoWeb.Services
 
         private string JsonFileName
         {
-            get { return Path.Combine(WebHostEnvironment.WebRootPath, "Data", "Stats.Json"); }
+            get { return Path.Combine(WebHostEnvironment.WebRootPath, "Data", "Stats.json"); }
         }
 
         public void CreateSheet(StatSheet sheet)
         {
-            Sheet = sheet;
-            JsonHelper.WriteStat(Sheet, JsonFileName);
+            JsonHelper.WriteStat(sheet, JsonFileName);
         }
 
         public void UpdateSheet(StatSheet sheet)
         {
-            Sheet = sheet;
+            JsonHelper.WriteStat(sheet, JsonFileName);
         }
 
         public StatSheet GetSheet()
         {
-            return JsonHelper.ReadStat(JsonFileName);
+            try { return JsonHelper.ReadStat(JsonFileName); }
+            catch (ArgumentException aExc) { Console.WriteLine(aExc); return null; }
         }
 
         public double PercentageCalculator(double number, double totalNumber)
