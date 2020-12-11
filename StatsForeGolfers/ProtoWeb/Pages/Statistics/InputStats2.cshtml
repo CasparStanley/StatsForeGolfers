@@ -20,21 +20,31 @@
                     </tr>
                     <tr>
                         <td>
-                            <input asp-page="InputStats3" asp-route-btnId="0" type="submit" class="btn-miss" value="Miss" />
+                            <input asp-for="@Model.MockSheet" asp-page="InputStats3" asp-route-btnId="0" type="submit" class="btn-miss" value="Miss" />
                         </td>
                         <td>
-                            <input asp-page="InputStats3" asp-route-btnId="1" type="submit" class="btn-hit" value="Hit" />
+                            <input asp-for="@Model.MockSheet" asp-page="InputStats3" asp-route-btnId="1" type="submit" class="btn-hit" value="Hit" />
                         </td>
                         <td>
-                            <input asp-page="InputStats3" asp-route-btnId="2" type="submit" class="btn-miss" value="Miss" />
+                            <input asp-for="@Model.MockSheet" asp-page="InputStats3" asp-route-btnId="2" type="submit" class="btn-miss" value="Miss" />
                         </td>
                     </tr>
                 </table>
             </form>
         </div>
         <div>
+            <br />
+            <p>
+                Debug:
+            </p>
             <p>
                 Fairway misses left: @Model.MockSheet.FairWayMissLeft
+            </p>
+            <p>
+                Fairway hits: @Model.MockSheet.FairWayHit
+            </p>
+            <p>
+                Fairway misses right: @Model.MockSheet.FairWayMissRight
             </p>
         </div>
     </div>
