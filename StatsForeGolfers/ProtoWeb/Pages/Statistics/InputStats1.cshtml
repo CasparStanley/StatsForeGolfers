@@ -1,4 +1,4 @@
-﻿@page "{page}{btnID}"
+﻿@page
 @model ProtoWeb.Pages.Statistics.InputStats1Model
 @{
     ViewData["Title"] = "InputStats1";
@@ -9,7 +9,7 @@
     <div class="col-auto">
         <h1> Hole 1</h1>
         <div class="my-auto container frame">
-            <div class="form-group">
+            <form method="post">
                 <table class="text-center">
                     <tr>
                         <td colspan="3">Fairway</td>
@@ -21,23 +21,17 @@
                     </tr>
                     <tr>
                         <td>
-                            <form method="post" class="text-center">
-                                <input type="submit" asp-route-page="/Statistics/InputStats2" asp-route-btnID="0" class="btn-miss" value="Miss" />
-                            </form>
+                            <input type="submit" asp-route-id="0" class="btn-miss" value="Miss" />
                         </td>
                         <td>
-                            <form method="post" class="text-center">
-                                <input type="submit" asp-route-page="/Statistics/InputStats2" asp-route-btnID="1" class="btn-hit" value="Hit" />
-                            </form>
+                            <input type="submit" asp-route-id="1" class="btn-hit" value="Hit" />
                         </td>
                         <td>
-                            <form method="post" class="text-center">
-                                <input type="submit" asp-route-page="/Statistics/InputStats2" asp-route-btnID="2" class="btn-miss" value="Miss" />
-                            </form>
+                            <input type="submit" asp-route-id="2" class="btn-miss" value="Miss" />
                         </td>
                     </tr>
                 </table>
-            </div>
+            </form>
         </div>
     </div>
 </div>

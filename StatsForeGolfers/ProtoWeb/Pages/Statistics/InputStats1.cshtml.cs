@@ -23,6 +23,7 @@ namespace ProtoWeb.Pages.Statistics
             courses = courseRepo;
 
             statistics.CreateSheet(new StatSheet());
+            MockSheet = statistics.GetSheet();
         }
 
         public Course CurrentCourse { get; private set; }
@@ -33,19 +34,19 @@ namespace ProtoWeb.Pages.Statistics
             CurrentCourse = courses.GetCourse(1);
             Holes = courses.AllHoles(1);
 
-            MockSheet = statistics.GetSheet();
+            //MockSheet = statistics.GetSheet();
 
             return Page();
         }
 
-        public IActionResult OnPost(string page, int btnID)
+        public IActionResult OnPost(int id)
         {
             if (!ModelState.IsValid)
             {
                 return Page();
             }
 
-            switch(btnID)
+            switch(id)
             {
                 case 0:
                     {
@@ -70,7 +71,7 @@ namespace ProtoWeb.Pages.Statistics
             }
 
             statistics.UpdateSheet(MockSheet);
-            return RedirectToPage(page);
+            return RedirectToPage("/Statistics/InputStats2");
         }
     }
 }
