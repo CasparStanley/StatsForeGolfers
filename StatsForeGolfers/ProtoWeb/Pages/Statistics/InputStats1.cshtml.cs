@@ -38,9 +38,39 @@ namespace ProtoWeb.Pages.Statistics
             return Page();
         }
 
-        public void OnPost()
+        public IActionResult OnPost(string page, int btnID)
         {
+            if (!ModelState.IsValid)
+            {
+                return Page();
+            }
+
+            switch(btnID)
+            {
+                case 0:
+                    {
+                        MockSheet.FairWayMissLeft++;
+                        break;
+                    }
+                case 1:
+                    {
+                        MockSheet.FairWayHit++;
+                        break;
+                    }
+                case 2:
+                    {
+                        MockSheet.FairWayMissRight++;
+                        break;
+                    }
+                default:
+                    {
+                        // Error
+                        break;
+                    }
+            }
+
             statistics.UpdateSheet(MockSheet);
+            return RedirectToPage(page);
         }
     }
 }

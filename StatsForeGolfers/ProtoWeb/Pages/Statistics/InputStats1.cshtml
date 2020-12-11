@@ -1,5 +1,4 @@
-﻿@page
-@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+﻿@page "{page}{btnID}"
 @model ProtoWeb.Pages.Statistics.InputStats1Model
 @{
     ViewData["Title"] = "InputStats1";
@@ -22,18 +21,18 @@
                     </tr>
                     <tr>
                         <td>
-                            <form asp-page="/Statistics/InputStats2" method="post" class="text-center">
-                                <input type="submit" id="fwMissL" class="btn-miss" value="Miss" asp-for="@Model.MockSheet.FairWayMissLeft" />
+                            <form method="post" class="text-center">
+                                <input type="submit" asp-route-page="/Statistics/InputStats2" asp-route-btnID="0" class="btn-miss" value="Miss" />
                             </form>
                         </td>
                         <td>
-                            <form asp-page="/Statistics/InputStats2" method="post" class="text-center">
-                                <input type="submit" class="btn-hit" value="Hit" asp-for="@Model.MockSheet.FairWayHit" />
+                            <form method="post" class="text-center">
+                                <input type="submit" asp-route-page="/Statistics/InputStats2" asp-route-btnID="1" class="btn-hit" value="Hit" />
                             </form>
                         </td>
                         <td>
-                            <form asp-page="/Statistics/InputStats2" method="post" class="text-center">
-                                <input type="submit" class="btn-miss" value="Miss" asp-for="@Model.MockSheet.FairWayMissRight" />
+                            <form method="post" class="text-center">
+                                <input type="submit" asp-route-page="/Statistics/InputStats2" asp-route-btnID="2" class="btn-miss" value="Miss" />
                             </form>
                         </td>
                     </tr>
@@ -42,14 +41,3 @@
         </div>
     </div>
 </div>
-
-@section Scripts{
-    <script>
-    $(document).ready(function () {
-        $("#fwMissL").click(function () {
-            $@Model.MockSheet.Increase(Stroke.FairWayMissLeft);
-        });
-
-    });
-    </script>
-}
