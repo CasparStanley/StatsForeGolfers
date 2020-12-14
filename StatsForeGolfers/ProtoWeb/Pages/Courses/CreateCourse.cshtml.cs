@@ -32,8 +32,7 @@ namespace ProtoWeb.Pages.Courses
                 return Page();
             }
 
-            Dictionary<int, Hole> holes = new Dictionary<int, Hole>();
-            CurrentCourse.Holes = holes;
+           
             courses.AddCourse(CurrentCourse);
 
             return RedirectToPage("GetAllCourses");
