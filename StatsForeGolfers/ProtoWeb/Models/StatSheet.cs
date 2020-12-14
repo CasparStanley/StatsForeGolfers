@@ -1,10 +1,13 @@
 ﻿using System;
 using ProtoWeb.Interfaces;
+using ProtoWeb.Models;
 
 namespace ProtoWeb
 {
     public class StatSheet
     {
+        public User GolfPlayer { get; set; }
+
         public int TotalHits { get; set; }
         public int TotalMisses { get; set; }
 
@@ -26,6 +29,11 @@ namespace ProtoWeb
         public int TotalScrambleStrokes { get; set; }
         public int ScrambleHit { get; set; }
         public int ScrambleMiss { get; set; }
+
+        public StatSheet (User user)
+        {
+            GolfPlayer = user;
+        }
 
         public double PercentageCalculator(double number,double totalNumber)
         {

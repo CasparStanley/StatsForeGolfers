@@ -19,10 +19,10 @@
                     </tr>
                     <tr>
                         <td>
-                            <input asp-page="../ShowResults" asp-route-btnId="0" type="submit" class="btn-miss" value="Out" />
+                            <input asp-page="../ShowResults" asp-route-btnId="0" type="submit" class="btn btn-danger btn-miss" value="Out" />
                         </td>
                         <td>
-                            <input asp-page="../ShowResults" asp-route-btnId="1" type="submit" class="btn-hit" value="In" />
+                            <input asp-page="../ShowResults" asp-route-btnId="1" type="submit" class="btn btn-success btn-hit" value="In" />
                         </td>
                     </tr>
                 </table>
@@ -34,23 +34,23 @@
                 Debug:
             </p>
             <p class="text-dark">
-                Fairway misses left: @Model.MockSheet.FairWayMissLeft
+                Fairway misses left: @Model.MyStatSheet.FairWayMissLeft
             </p>
             <p class="text-dark">
-                Fairway hits: @Model.MockSheet.FairWayHit
+                Fairway hits: @Model.MyStatSheet.FairWayHit
             </p>
             <p class="text-dark">
-                Fairway misses right: @Model.MockSheet.FairWayMissRight
+                Fairway misses right: @Model.MyStatSheet.FairWayMissRight
             </p>
             <br />
             <p class="text-dark">
-                Green misses left: @Model.MockSheet.GreenMissLeft
+                Green misses left: @Model.MyStatSheet.GreenMissLeft
             </p>
             <p class="text-dark">
-                Green hits: @Model.MockSheet.GreenHit
+                Green hits: @Model.MyStatSheet.GreenHit
             </p>
             <p class="text-dark">
-                Green misses right: @Model.MockSheet.GreenMissRight
+                Green misses right: @Model.MyStatSheet.GreenMissRight
             </p>
         </div>
     </div>

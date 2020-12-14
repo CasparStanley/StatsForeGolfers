@@ -55,6 +55,7 @@ a {
     color: #1A281F;
     background-color: #fff4EC;
     border-color: #fff4EC;
+    box-shadow: 5px 5px 5px 2px rgba(0,0,0,0.4);
 }
 
 .btn-danger {
@@ -161,12 +162,6 @@ table {
     border: none;
     border-radius: 10px;
     padding: 10px;
-}
-.btn-miss {
-    background-color: #AA5E39;
-}
-.btn-hit {
-    background-color: #599532;
 }
 
 /* Sticky footer styles

@@ -30,7 +30,7 @@ namespace ProtoWeb.Helpers
 
         public static StatSheet ReadStat(string filename)
         {
-            StatSheet jsonObject = new StatSheet();
+            StatSheet jsonObject = new StatSheet(null);
 
             if (File.Exists(filename))
             {

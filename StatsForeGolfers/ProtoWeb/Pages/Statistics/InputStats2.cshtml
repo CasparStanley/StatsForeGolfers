@@ -20,13 +20,13 @@
                     </tr>
                     <tr>
                         <td>
-                            <input asp-for="@Model.MockSheet" asp-page="InputStats3" asp-route-btnId="0" type="submit" class="btn-miss" value="Miss" />
+                            <input asp-for="@Model.MyStatSheet" asp-page="InputStats3" asp-route-btnId="0" type="submit" class="btn btn-danger btn-miss" value="Miss" />
                         </td>
                         <td>
-                            <input asp-for="@Model.MockSheet" asp-page="InputStats3" asp-route-btnId="1" type="submit" class="btn-hit" value="Hit" />
+                            <input asp-for="@Model.MyStatSheet" asp-page="InputStats3" asp-route-btnId="1" type="submit" class="btn btn-success btn-hit" value="Hit" />
                         </td>
                         <td>
-                            <input asp-for="@Model.MockSheet" asp-page="InputStats3" asp-route-btnId="2" type="submit" class="btn-miss" value="Miss" />
+                            <input asp-for="@Model.MyStatSheet" asp-page="InputStats3" asp-route-btnId="2" type="submit" class="btn btn-danger btn-miss" value="Miss" />
                         </td>
                     </tr>
                 </table>
@@ -40,13 +40,13 @@
                     Debug:
                 </p>
                 <p class="text-dark">
-                    Fairway misses left: @Model.MockSheet.FairWayMissLeft
+                    Fairway misses left: @Model.MyStatSheet.FairWayMissLeft
                 </p>
                 <p class="text-dark">
-                    Fairway hits: @Model.MockSheet.FairWayHit
+                    Fairway hits: @Model.MyStatSheet.FairWayHit
                 </p>
                 <p class="text-dark">
-                    Fairway misses right: @Model.MockSheet.FairWayMissRight
+                    Fairway misses right: @Model.MyStatSheet.FairWayMissRight
                 </p>
             </div>
         </div>

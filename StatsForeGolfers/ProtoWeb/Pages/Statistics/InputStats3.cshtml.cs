@@ -15,14 +15,14 @@ namespace ProtoWeb.Pages.Statistics
         private ICourses courses;
 
         [BindProperty]
-        public StatSheet MockSheet { get; private set; }
+        public StatSheet MyStatSheet { get; private set; }
 
         public InputStats3Model(IStatistics statsRepo, ICourses courseRepo)
         {
             statistics = statsRepo;
             courses = courseRepo;
 
-            MockSheet = statistics.GetSheet();
+            MyStatSheet = statistics.GetSheet();
         }
 
         public Course CurrentCourse { get; private set; }
@@ -45,17 +45,17 @@ namespace ProtoWeb.Pages.Statistics
             {
                 case 0:
                     {
-                        MockSheet.GreenMissLeft++;
+                        MyStatSheet.GreenMissLeft++;
                         break;
                     }
                 case 1:
                     {
-                        MockSheet.GreenHit++;
+                        MyStatSheet.GreenHit++;
                         break;
                     }
                 case 2:
                     {
-                        MockSheet.GreenMissRight++;
+                        MyStatSheet.GreenMissRight++;
                         break;
                     }
                 default:
@@ -65,9 +65,9 @@ namespace ProtoWeb.Pages.Statistics
                     }
             }
 
-            MockSheet.TotalGreenStrokes++;
+            MyStatSheet.TotalGreenStrokes++;
 
-            statistics.UpdateSheet(MockSheet);
+            statistics.UpdateSheet(MyStatSheet, statistics.GetSheet().GolfPlayer);
         }
     }
 }

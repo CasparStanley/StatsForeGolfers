@@ -27,8 +27,9 @@ namespace ProtoWeb.Services
             JsonHelper.WriteStat(sheet, JsonFileName);
         }
 
-        public void UpdateSheet(StatSheet sheet)
+        public void UpdateSheet(StatSheet sheet, User user)
         {
+            sheet.GolfPlayer = user;
             JsonHelper.WriteStat(sheet, JsonFileName);
         }
 

@@ -154,5 +154,40 @@
         "Handicap": 2.0
       }
     }
+  },
+  "3": {
+    "Id": 3,
+    "Name": "c",
+    "Holes": {}
+  },
+  "4": {
+    "Id": 4,
+    "Name": "t",
+    "Holes": {}
+  },
+  "5": {
+    "Id": 5,
+    "Name": "r",
+    "Holes": {}
+  },
+  "6": {
+    "Id": 6,
+    "Name": "y",
+    "Holes": {}
+  },
+  "8": {
+    "Id": 8,
+    "Name": "Otte",
+    "Holes": {}
+  },
+  "9": {
+    "Id": 9,
+    "Name": "Ni",
+    "Holes": {}
+  },
+  "0": {
+    "Id": 0,
+    "Name": null,
+    "Holes": {}
   }
 }

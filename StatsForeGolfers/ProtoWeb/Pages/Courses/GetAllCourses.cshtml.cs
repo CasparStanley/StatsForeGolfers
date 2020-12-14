@@ -30,8 +30,6 @@ namespace ProtoWeb.Pages.Courses
             }
             return Page();
         }
-       
-     
     }
 }
 

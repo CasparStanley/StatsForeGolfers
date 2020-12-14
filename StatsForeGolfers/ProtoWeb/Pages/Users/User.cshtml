@@ -1,93 +1,58 @@
 ﻿@page
+@addTagHelper*, Microsoft.AspNetCore.Mvc.TagHelpers
 @model ProtoWeb.Users.UserModel
 @{
     ViewData["Title"] = "User";
 }
 
-<!DOCTYPE HTML>
-<html lang="en">
-<head>
-    
-</head>
-<body>
-    <div class="row justify-content-center p-4">
-        <div class="col-auto">
-            <div class="form-check">
-                <div class="container-fluid">
-                    <h4>What is Your Status?</h4>
+<div class="row justify-content-center p-4">
+    <div class="col-auto">
+        <h1 class="text-light">Create a User</h1>
+        <div class="my-auto container frame pl-lg-5 pr-lg-5">
+            <form method="post" asp-page="../Courses/CreateCourse">
+                <p colspan="3">User Info:</p>
+
+                <div class="form-group input-group mb-3">
+                    <input asp-for="@Model.CurrentUser.Status" type="radio" name="statusAnswer" class="form-control" value="Amateur" />
+                    <label asp-for="@Model.CurrentUser.Status" class="form-check-label">Amateur</label>
+                    <span asp-validation-for="@Model.CurrentUser.Status" class="text-danger"></span>
                 </div>
-                <form name="formUser" action="/noaction" method="post">
-                    <div class="container-fluid jumbotron">
-                        <input asp-for="@Model.CurrentUser.Status" type="radio" name="statusAnswer" class="form-check-input" value="Amateur" />
-                        <label asp-for="@Model.CurrentUser.Status" class="control-label">
-                        Amateur
-                        </label>
-                        <span asp-validation-for="@Model.CurrentUser.Status" class="text-danger"></span>
-
-                        <br />
-
-                        <input asp-for="@Model.CurrentUser.Status" type="radio" name="statusAnswer" class="form-check-input" value="Intermediate" />
-                        <label asp-for="@Model.CurrentUser.Status" class="control-label">
-                        Intermediate
-                        </label>
-                        <span asp-validation-for="@Model.CurrentUser.Status" class="text-danger"></span>
-
-                        <br />
-
-                        <input asp-for="@Model.CurrentUser.Status" type="radio" name="statusAnswer" class="form-check-input" value="Pro" />
-                        <label asp-for="@Model.CurrentUser.Status" class="control-label">
-                        Pro
-                        </label>
-                        <span asp-validation-for="@Model.CurrentUser.Status" class="text-danger"></span>
-
-                    </div>
-
-                    <br />
-
-                    <div class="container-fluid">
-                        <h4>User Info:</h4>
-                    </div>
-                    <div class="container-fluid jumbotron">
-                        <h4 class="text-dark">Name</h4>
-                        <input asp-for="@Model.CurrentUser.Name" type="text" name="nameAnswer" class="form-check-input" value="Name" />
-                        <label asp-for="@Model.CurrentUser.Name" class="control-label">
-                            Name
-                        </label>
-                        <span asp-validation-for="@Model.CurrentUser.Name" class="text-danger"></span>
-
-                        <br />
-                        <h4 class="text-dark">Home Club</h4>
-                        <input asp-for="@Model.CurrentUser.HomeClub" type="text" name="clubAnswer" class="form-check-input" value="Home Club" />
-                        <label asp-for="@Model.CurrentUser.HomeClub" class="control-label">
-                            Home Club
-                        </label>
-                        <span asp-validation-for="@Model.CurrentUser.HomeClub" class="text-danger"></span>
-
-                        <br />
-                        <h4 class="text-dark">Member Id</h4>
-                        <input asp-for="@Model.CurrentUser.MemberId" type="text" name="idAnswer" class="form-check-input" value="Member Id" />
-                        <label asp-for="@Model.CurrentUser.MemberId" class="control-label">
-                            Member Id
-                        </label>
-                        <span asp-validation-for="@Model.CurrentUser.MemberId" class="text-danger"></span>
-
-                        <br />
-                        <h4 class="text-dark">HCP</h4>
-                        <input asp-for="@Model.CurrentUser.Handicap" type="text" name="hcpAnswer" class="form-check-input" value="HCP" />
-                        <label asp-for="@Model.CurrentUser.Handicap" class="control-label">
-                            HCP
-                        </label>
-                        <span asp-validation-for="@Model.CurrentUser.Handicap" class="text-danger"></span>
-
-                        <br />
-
-                        <div class="form-group">
-                            <input type="submit" value="Create" class="btn btn-success" />
-                        </div>
-                    </div>
-                </form>
-            </div>
+                <div class="form-group input-group mb-3">
+                    <input asp-for="@Model.CurrentUser.Status" type="radio" name="statusAnswer" class="form-control" value="Intermediate" />
+                    <label asp-for="@Model.CurrentUser.Status" class="form-check-label">Intermediate</label>
+                    <span asp-validation-for="@Model.CurrentUser.Status" class="text-danger"></span>
+                </div>
+                <div class="fform-group input-group mb-3">
+                    <input asp-for="@Model.CurrentUser.Status" type="radio" name="statusAnswer" class="form-control" value="Pro" />
+                    <label asp-for="@Model.CurrentUser.Status" class="form-check-label">Pro</label>
+                    <span asp-validation-for="@Model.CurrentUser.Status" class="text-danger"></span>
+                </div>
+                <div class="form-group input-group mb-3">
+                    <input asp-for="@Model.CurrentUser.Name" type="text" name="nameAnswer" class="form-control" placeholder="Username" />
+                    <span asp-validation-for="@Model.CurrentUser.Name" class="text-danger"></span>
+                </div>
+                <div class="form-group input-group mb-3">
+                    <input asp-for="@Model.CurrentUser.HomeClub" type="text" name="clubAnswer" class="form-control" placeholder="Your Club" />
+                    <span asp-validation-for="@Model.CurrentUser.HomeClub" class="text-danger"></span>
+                </div>
+                <div class="form-group input-group mb-3">
+                    <input asp-for="@Model.CurrentUser.MemberId" type="number" name="idAnswer" class="form-control" placeholder="Member ID" />
+                    <span asp-validation-for="@Model.CurrentUser.MemberId" class="text-danger"></span>
+                </div>
+                <div class="form-group input-group mb-3">
+                    <input asp-for="@Model.CurrentUser.Handicap" type="number" name="hcpAnswer" class="form-control" placeholder="Handicap" />
+                    <span asp-validation-for="@Model.CurrentUser.Handicap" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <input type="submit"
+                           asp-route-status="@Model.CurrentUser.Status"
+                           asp-route-name="@Model.CurrentUser.Name"
+                           asp-route-club="@Model.CurrentUser.HomeClub"
+                           asp-route-memberId="@Model.CurrentUser.MemberId"
+                           asp-route-hcp="@Model.CurrentUser.Handicap"
+                           value="Create" class="btn btn-success" />
+                </div>
+            </form>
         </div>
     </div>
-</body>
-</html>
+</div>

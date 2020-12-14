@@ -6,37 +6,50 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using ProtoWeb.Interfaces;
 using ProtoWeb.Models;
+using ProtoWeb.Helpers;
 
 namespace ProtoWeb.Pages.Courses
 {
     public class CreateCourseModel : PageModel
     {
-       [BindProperty]
+        [BindProperty]
         public Course CurrentCourse { get; set; }
-        
+        [BindProperty(SupportsGet = true)]
+        public User CurrentUser { get; private set; }
+
         public ICourses courses;
-       
-        public CreateCourseModel(ICourses repository)
+        private IStatistics statistics;
+
+        public CreateCourseModel(ICourses courseRepo, IStatistics statsRepo)
         {
-            courses = repository;
+            courses = courseRepo;
+            statistics = statsRepo;
+
+            CurrentUser = statistics.GetSheet().GolfPlayer;
         }
         public IActionResult OnGet()
         {
             return Page();
         }
 
-        public IActionResult OnPost()
+        public void OnPost(string status, string name, string club, int memberId, double hcp)
         {
-            if (!ModelState.IsValid)
+            // Save sheet with new user data
+            CurrentUser = new User()
             {
-                return Page();
-            }
+                Status = status,
+                Name = name,
+                HomeClub = club,
+                MemberId = memberId,
+                Handicap = hcp
+            };
+
+            statistics.UpdateSheet(statistics.GetSheet(), CurrentUser);
 
             Dictionary<int, Hole> holes = new Dictionary<int, Hole>();
             CurrentCourse.Holes = holes;
-            courses.AddCourse(CurrentCourse);
-
-            return RedirectToPage("GetAllCourses");
+            try { courses.AddCourse(CurrentCourse); }
+            catch { /*throw new ArgumentException("Couldn't add new course.");*/ }
         }
     }
 }
