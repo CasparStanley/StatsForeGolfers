@@ -15,11 +15,15 @@ namespace ProtoWeb.Users
 
         public IActionResult OnPost()
         {
+            // ADD INPUT TO A NEW USER OBJECT HERE
+            //User newUser = new User();
+            //CurrentUser = newUser;
+
             if (!ModelState.IsValid)
             {
                 return Page();
             }
-            // ADD INPUT TO A NEW USER OBJECT HERE
+
             //return RedirectToPage("../Courses/CreateCourse");
             return Page();
         }

@@ -1,4 +1,4 @@
-﻿@page
+﻿@page "{btnId}"
 @model ProtoWeb.Pages.Statistics.InputStats3Model
 @{
     ViewData["Title"] = "InputStats3";
@@ -8,38 +8,49 @@
     <div class="col-auto">
         <h1> Hole 1</h1>
         <div class="my-auto container frame">
-            <table class="text-center">
-                <tr>
-                    <td colspan="3">Scramble</td>
-                </tr>
-                <tr>
-                    <td>Out</td>
-                    <td></td>
-                    <td>In</td>
-                </tr>
-                <tr>
-                    <td>
-                        <form asp-page="/ShowResults" method="post" class="text-center">
-                            <button asp-for="@(Model.MockSheet.ScrambleMiss++)" class="btn-miss">
-                                Out
-                            </button>
-                        </form>
-                    </td>
-                    <td>
-                    </td>
-                    <td>
-                        <form asp-page="/ShowResults" method="post" class="text-center">
-                            <button asp-for="@(Model.MockSheet.ScrambleHit++)" class="btn-hit">
-                                In
-                            </button>
-                        </form>
-                    </td>
-                </tr>
-            </table>
+            <form method="post">
+                <table class="text-center">
+                    <tr>
+                        <td colspan="3">Scramble</td>
+                    </tr>
+                    <tr>
+                        <td>Out</td>
+                        <td>In</td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <input asp-page="../ShowResults" asp-route-btnId="0" type="submit" class="btn-miss" value="Out" />
+                        </td>
+                        <td>
+                            <input asp-page="../ShowResults" asp-route-btnId="1" type="submit" class="btn-hit" value="In" />
+                        </td>
+                    </tr>
+                </table>
+            </form>
         </div>
         <div>
+            <br />
             <p>
-                @Model.MockSheet.FairWayMissLeft
+                Debug:
+            </p>
+            <p>
+                Fairway misses left: @Model.MockSheet.FairWayMissLeft
+            </p>
+            <p>
+                Fairway hits: @Model.MockSheet.FairWayHit
+            </p>
+            <p>
+                Fairway misses right: @Model.MockSheet.FairWayMissRight
+            </p>
+            <br />
+            <p>
+                Green misses left: @Model.MockSheet.GreenMissLeft
+            </p>
+            <p>
+                Green hits: @Model.MockSheet.GreenHit
+            </p>
+            <p>
+                Green misses right: @Model.MockSheet.GreenMissRight
             </p>
         </div>
     </div>

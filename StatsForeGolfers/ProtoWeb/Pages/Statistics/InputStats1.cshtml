@@ -9,39 +9,29 @@
     <div class="col-auto">
         <h1> Hole 1</h1>
         <div class="my-auto container frame">
-            <table class="text-center">
-                <tr>
-                    <td colspan="3">Fairway</td>
-                </tr>
-                <tr>
-                    <td>Left</td>
-                    <td></td>
-                    <td>Right</td>
-                </tr>
-                <tr>
-                    <td>
-                        <form asp-page="/Statistics/InputStats2" method="post" class="text-center">
-                            <button asp-for="@(Model.MockSheet.FairWayMissLeft++)" class="btn-miss">
-                                Miss
-                            </button>
-                        </form>
-                    </td>
-                    <td>
-                        <form asp-page="/Statistics/InputStats2" method="post" class="text-center">
-                            <button asp-for="@(Model.MockSheet.FairWayHit++)" class="btn-hit">
-                                Hit
-                            </button>
-                        </form>
-                    </td>
-                    <td>
-                        <form asp-page="/Statistics/InputStats2" method="post" class="text-center">
-                            <button asp-for="@(Model.MockSheet.FairWayMissRight++)" class="btn-miss">
-                                Miss
-                            </button>
-                        </form>
-                    </td>
-                </tr>
-            </table>
+            <form method="post">
+                <table class="text-center">
+                    <tr>
+                        <td colspan="3">Fairway</td>
+                    </tr>
+                    <tr>
+                        <td>Left</td>
+                        <td></td>
+                        <td>Right</td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <input asp-for="@Model.MockSheet.FairWayMissLeft" asp-page="InputStats2" asp-route-btnId="0" type="submit" class="btn-miss" value="Miss" />
+                        </td>
+                        <td>
+                            <input asp-for="@Model.MockSheet.FairWayHit" asp-page="InputStats2" asp-route-btnId="1" type="submit" class="btn-hit" value="Hit" />
+                        </td>
+                        <td>
+                            <input asp-for="@Model.MockSheet.FairWayMissRight" asp-page="InputStats2" asp-route-btnId="2" type="submit"class="btn-miss" value="Miss" />
+                        </td>
+                    </tr>
+                </table>
+            </form>
         </div>
     </div>
 </div>

@@ -3,50 +3,55 @@
 @{
     ViewData["Title"] = "GetAllHoles";
 }
-<p>
-    <a asp-page="CreateHoles" asp-route-id="@Model.courseId">Create Hole</a>
-</p>
 
-<table class="table">
-    <thead>
-        <tr>
-            <th>
-                HoleNo
-            </th>
-            <th>
-                Par
-            </th>
-            <th>
-                Length
-            </th>
-            <th>
-                Handicap
-            </th>
-        </tr>
-    </thead>
-    <tbody>
-        @foreach (var item in Model.Holes)
-        {
-            <tr>
-                <td>
-                    @item.Value.HoleNo
-                </td>
-                <td>
-                    @item.Value.Par
-                </td>
-                <td>
-                    @item.Value.Length
-                </td>
-                <td>
-                    @item.Value.Handicap
-                </td>
-                <td>
-                    <p>
-                        <a class="link-dark" asp-page="EditHole" asp-route-holeNo="@item.Key" asp-route-id="@Model.courseId">Edit</a> |
-                        <a class="link-dark"  asp-page="DeleteHole" asp-route-HoleNo="@item.Key" asp-route-id="@Model.courseId">Delete</a>
-                    </p>
-                </td>
-            </tr>
-        }
-    </tbody>
-</table>
+<div class="row justify-content-center p-4">
+    <div class="col-auto">
+        <p>
+            <a asp-page="CreateHoles" asp-route-id="@Model.courseId">Create Hole</a>
+        </p>
+
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>
+                        HoleNo
+                    </th>
+                    <th>
+                        Par
+                    </th>
+                    <th>
+                        Length
+                    </th>
+                    <th>
+                        Handicap
+                    </th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model.Holes)
+                {
+                    <tr>
+                        <td>
+                            @item.Value.HoleNo
+                        </td>
+                        <td>
+                            @item.Value.Par
+                        </td>
+                        <td>
+                            @item.Value.Length
+                        </td>
+                        <td>
+                            @item.Value.Handicap
+                        </td>
+                        <td>
+                            <p>
+                                <a class="link-dark" asp-page="EditHole" asp-route-holeNo="@item.Key" asp-route-id="@Model.courseId">Edit</a> |
+                                <a class="link-dark" asp-page="DeleteHole" asp-route-HoleNo="@item.Key" asp-route-id="@Model.courseId">Delete</a>
+                            </p>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</div>

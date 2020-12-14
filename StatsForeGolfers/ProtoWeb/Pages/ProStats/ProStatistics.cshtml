@@ -4,56 +4,57 @@
     ViewData["Title"] = "ProStatistics";
 }
 
-<h1>Pro Stats</h1>
-<table class="table table-bordered">
-    <thead>
-    <tr class="text-center">
-        <th>
-            Tour
-        </th>
-        <th>
-            Scoring Average
-        </th>
-        <th>
-            DrivingDistance
-        </th>
-        <th>
-            Fairway Average
-        </th>
-        <th>
-            Green In Reg Average
-        </th>
-        <th>
-            Scrambling Average
-        </th>
-    </tr>
-    </thead>
-    <tbody>
-    @foreach (var item in Model.ProStatses)
-    {
-        <tr class="text-center">
-            <td>
-                @item.Name
-            </td>
-            <td>
-                @item.ScoringAverage
-            </td>
-            <td>
-                @item.DrivingDistance
-            </td>
-            <td>
-                @item.FairwayAverage
-            </td>
-            <td>
-                @item.GreenInRegAverage
-            </td>
-            <td>
-                @item.ScramblingAverage
-            </td>
-        </tr>
-    }
-    </tbody>
-</table>
-
-
-
+<div class="row justify-content-center p-4">
+    <div class="col-auto">
+        <h1>Pro Stats</h1>
+        <table class="table table-bordered">
+            <thead>
+                <tr class="text-center">
+                    <th>
+                        Tour
+                    </th>
+                    <th>
+                        Scoring Average
+                    </th>
+                    <th>
+                        DrivingDistance
+                    </th>
+                    <th>
+                        Fairway Average
+                    </th>
+                    <th>
+                        Green In Reg Average
+                    </th>
+                    <th>
+                        Scrambling Average
+                    </th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model.ProStatses)
+                {
+                    <tr class="text-center">
+                        <td>
+                            @item.Name
+                        </td>
+                        <td>
+                            @item.ScoringAverage
+                        </td>
+                        <td>
+                            @item.DrivingDistance
+                        </td>
+                        <td>
+                            @item.FairwayAverage
+                        </td>
+                        <td>
+                            @item.GreenInRegAverage
+                        </td>
+                        <td>
+                            @item.ScramblingAverage
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</div>

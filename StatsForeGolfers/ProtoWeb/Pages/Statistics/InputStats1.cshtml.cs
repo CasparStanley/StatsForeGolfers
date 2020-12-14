@@ -22,26 +22,19 @@ namespace ProtoWeb.Pages.Statistics
             statistics = statsRepo;
             courses = courseRepo;
 
-            statistics.CreateSheet(new StatSheet());
+            //statistics.CreateSheet(new StatSheet());
+            MockSheet = statistics.GetSheet();
         }
 
         public Course CurrentCourse { get; private set; }
         public Dictionary<int, Hole> Holes { get; private set; }
-
 
         public IActionResult OnGet()
         {
             CurrentCourse = courses.GetCourse(1);
             Holes = courses.AllHoles(1);
 
-            MockSheet = statistics.GetSheet();
-
             return Page();
-        }
-
-        public void OnPost()
-        {
-            statistics.UpdateSheet(MockSheet);
         }
     }
 }
