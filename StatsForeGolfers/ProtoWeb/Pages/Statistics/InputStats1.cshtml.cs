@@ -22,7 +22,10 @@ namespace ProtoWeb.Pages.Statistics
             statistics = statsRepo;
             courses = courseRepo;
 
-            //statistics.CreateSheet(new StatSheet());
+            // TO CREATE A NEW SHEET EVERY TIME WE START THE PROGRAM.
+            statistics.CreateSheet(new StatSheet());
+
+            // TO USE A SHEET THAT IS SAVED BETWEEN RESTARTING PROGRAM. DELETE ABOVE TO DO THIS^^
             MockSheet = statistics.GetSheet();
         }
 

@@ -65,6 +65,8 @@ namespace ProtoWeb.Pages.Statistics
                     }
             }
 
+            MockSheet.TotalGreenStrokes++;
+
             statistics.UpdateSheet(MockSheet);
         }
     }
