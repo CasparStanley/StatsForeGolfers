@@ -57,6 +57,8 @@ namespace ProtoWeb.Pages.Statistics
                     }
             }
 
+            MockSheet.TotalFairwayStrokes++;
+
             statistics.UpdateSheet(MockSheet);
         }
     }

@@ -22,7 +22,7 @@ namespace ProtoWeb.Pages
             statistics = statsRepo;
             courses = courseRepo;
 
-            MockSheet = statistics.GetSheet();
+            //MockSheet = statistics.GetSheet();
         }
 
         public User CurrentUser { get; private set; }
@@ -45,6 +45,7 @@ namespace ProtoWeb.Pages
         {
             CurrentCourse = courses.GetCourse(1);
             Holes = courses.AllHoles(1);
+            MockSheet = statistics.GetSheet();
 
             switch (btnId)
             {
@@ -65,8 +66,9 @@ namespace ProtoWeb.Pages
                     }
             }
 
+            MockSheet.TotalScrambleStrokes++;
+
             statistics.UpdateSheet(MockSheet);
-            MockSheet = statistics.GetSheet();
         }
 
         public int FairwayHit()
