@@ -27,7 +27,7 @@ namespace ProtoWeb.Pages.Courses
             return Page();
         }
 
-        public IActionResult OnPost(Hole hole)
+        public IActionResult OnPost()
         {
             courses.DeleteCourse(CurrentCourses);
             return RedirectToPage("GetAllCourses");
