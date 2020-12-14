@@ -36,10 +36,36 @@ namespace ProtoWeb.Pages.Statistics
             return Page();
         }
 
-        public void OnPost()
+        public void OnPost(int btnId)
         {
+            CurrentCourse = courses.GetCourse(1);
+            Holes = courses.AllHoles(1);
+
+            switch (btnId)
+            {
+                case 0:
+                    {
+                        MockSheet.GreenMissLeft++;
+                        break;
+                    }
+                case 1:
+                    {
+                        MockSheet.GreenHit++;
+                        break;
+                    }
+                case 2:
+                    {
+                        MockSheet.GreenMissRight++;
+                        break;
+                    }
+                default:
+                    {
+                        // Error
+                        break;
+                    }
+            }
+
             statistics.UpdateSheet(MockSheet);
-            //return Page();
         }
     }
 }

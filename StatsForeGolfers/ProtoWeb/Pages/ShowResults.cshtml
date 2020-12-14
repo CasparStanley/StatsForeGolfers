@@ -140,21 +140,18 @@
                         </tr>
                         <tr>
                             <td>
-                                
                             </td>
                             <td>
                                 <div id="fwChart" style="height: 300px; width: 150px;"></div>
                                 <script src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>
                             </td>
                             <td>
-                                
                             </td>
                             <td>
                                 <div id="grChart" style="height: 300px; width: 150px;"></div>
                                 <script src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>
                             </td>
                             <td>
-                                
                             </td>
                             <td>
                                 <div id="scChart" style="height: 300px; width: 150px;"></div>
@@ -163,6 +160,38 @@
                         </tr>
                     </tbody>
                 </table>
+                <br />
+                <div class="my-auto container frame">
+                    <p class="text-dark">
+                        Debug:
+                    </p>
+                    <p class="text-dark">
+                        Fairway misses left: @Model.MockSheet.FairWayMissLeft
+                    </p>
+                    <p class="text-dark">
+                        Fairway hits: @Model.MockSheet.FairWayHit
+                    </p>
+                    <p class="text-dark">
+                        Fairway misses right: @Model.MockSheet.FairWayMissRight
+                    </p>
+                    <br />
+                    <p class="text-dark">
+                        Green misses left: @Model.MockSheet.GreenMissLeft
+                    </p>
+                    <p class="text-dark">
+                        Green hits: @Model.MockSheet.GreenHit
+                    </p>
+                    <p class="text-dark">
+                        Green misses right: @Model.MockSheet.GreenMissRight
+                    </p>
+                    <br />
+                    <p class="text-dark">
+                        Scramble in: @Model.MockSheet.ScrambleHit
+                    </p>
+                    <p class="text-dark">
+                        Scramble out: @Model.MockSheet.ScrambleMiss
+                    </p>
+                </div>
             </div>
         </div>
     </body>

@@ -41,6 +41,34 @@ namespace ProtoWeb.Pages
             return Page();
         }
 
+        public void OnPost(int btnId)
+        {
+            CurrentCourse = courses.GetCourse(1);
+            Holes = courses.AllHoles(1);
+
+            switch (btnId)
+            {
+                case 0:
+                    {
+                        MockSheet.ScrambleMiss++;
+                        break;
+                    }
+                case 1:
+                    {
+                        MockSheet.ScrambleHit++;
+                        break;
+                    }
+                default:
+                    {
+                        // Error
+                        break;
+                    }
+            }
+
+            statistics.UpdateSheet(MockSheet);
+            MockSheet = statistics.GetSheet();
+        }
+
         public int FairwayHit()
         {
             return (int)(MockSheet.PercentageCalculator(MockSheet.FairWayHit, MockSheet.TotalFairwayStrokes) * 100);

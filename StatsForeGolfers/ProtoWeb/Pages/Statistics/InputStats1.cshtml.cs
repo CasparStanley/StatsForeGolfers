@@ -36,5 +36,9 @@ namespace ProtoWeb.Pages.Statistics
 
             return Page();
         }
+        public void OnPost()
+        {
+            statistics.UpdateSheet(MockSheet);
+        }
     }
 }
