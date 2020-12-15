@@ -63,11 +63,11 @@ namespace ProtoWeb.Services
         {
             Dictionary<int, Course> courses = AllCourses();
             Dictionary<int, Hole> holes = AllHoles(courseId);
-            Hole foundCourse = holes[hole.HoleNo];
-            foundCourse.HoleNo = hole.HoleNo;
-            foundCourse.Par = hole.Par;
-            foundCourse.Length = hole.Length;
-            foundCourse.Handicap = hole.Handicap;
+            Hole foundHole = holes[hole.HoleNo];
+            foundHole.HoleNo = hole.HoleNo;
+            foundHole.Par = hole.Par;
+            foundHole.Length = hole.Length;
+            foundHole.Handicap = hole.Handicap;
             courses[courseId].Holes = holes;
             JsonHelper.WriteCourse(courses, JsonFileName);
         }
