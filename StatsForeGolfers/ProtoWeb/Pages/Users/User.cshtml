@@ -16,9 +16,9 @@
                 <div class="container-fluid">
                     <h4>What is Your Status?</h4>
                 </div>
-                <form name="formUser" action="/noaction" method="post">
+                <form name="formUser"  method="post">
                     <div class="container-fluid jumbotron">
-                        <input asp-for="@Model.CurrentUser.Status" type="radio" name="statusAnswer" class="form-check-input" value="Amateur" />
+                        <input asp-for="@Model.CurrentUser.Status" type="radio" name="Status" class="form-check-input" value="Amateur" />
                         <label asp-for="@Model.CurrentUser.Status" class="control-label">
                         Amateur
                         </label>
@@ -26,7 +26,7 @@
 
                         <br />
 
-                        <input asp-for="@Model.CurrentUser.Status" type="radio" name="statusAnswer" class="form-check-input" value="Intermediate" />
+                        <input asp-for="@Model.CurrentUser.Status" type="radio" name="Status" class="form-check-input" value="Intermediate" />
                         <label asp-for="@Model.CurrentUser.Status" class="control-label">
                         Intermediate
                         </label>
@@ -34,7 +34,7 @@
 
                         <br />
 
-                        <input asp-for="@Model.CurrentUser.Status" type="radio" name="statusAnswer" class="form-check-input" value="Pro" />
+                        <input asp-for="@Model.CurrentUser.Status" type="radio" name="Status" class="form-check-input" value="Pro" />
                         <label asp-for="@Model.CurrentUser.Status" class="control-label">
                         Pro
                         </label>
@@ -49,7 +49,7 @@
                     </div>
                     <div class="container-fluid jumbotron">
                         <h4 class="text-dark">Name</h4>
-                        <input asp-for="@Model.CurrentUser.Name" type="text" name="nameAnswer" class="form-check-input" value="Name" />
+                        <input asp-for="@Model.CurrentUser.Name" type="text" name="Name" class="form-check-input" value="Name" />
                         <label asp-for="@Model.CurrentUser.Name" class="control-label">
                             Name
                         </label>
@@ -57,7 +57,7 @@
 
                         <br />
                         <h4 class="text-dark">Home Club</h4>
-                        <input asp-for="@Model.CurrentUser.HomeClub" type="text" name="clubAnswer" class="form-check-input" value="Home Club" />
+                        <input asp-for="@Model.CurrentUser.HomeClub" type="text" name="HomeClub" class="form-check-input" value="Home Club" />
                         <label asp-for="@Model.CurrentUser.HomeClub" class="control-label">
                             Home Club
                         </label>
@@ -65,7 +65,7 @@
 
                         <br />
                         <h4 class="text-dark">Member Id</h4>
-                        <input asp-for="@Model.CurrentUser.MemberId" type="text" name="idAnswer" class="form-check-input" value="Member Id" />
+                        <input asp-for="@Model.CurrentUser.MemberId" type="text" name="MemberId" class="form-check-input" value="Member Id" />
                         <label asp-for="@Model.CurrentUser.MemberId" class="control-label">
                             Member Id
                         </label>
@@ -73,7 +73,7 @@
 
                         <br />
                         <h4 class="text-dark">HCP</h4>
-                        <input asp-for="@Model.CurrentUser.Handicap" type="text" name="hcpAnswer" class="form-check-input" value="HCP" />
+                        <input asp-for="@Model.CurrentUser.Handicap" type="text" name="Handicap" class="form-check-input" value="HCP" />
                         <label asp-for="@Model.CurrentUser.Handicap" class="control-label">
                             HCP
                         </label>

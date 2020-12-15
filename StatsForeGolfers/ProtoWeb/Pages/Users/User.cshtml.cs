@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
@@ -15,6 +16,11 @@ namespace ProtoWeb.Users
 
         public IActionResult OnPost()
         {
+            Debug.WriteLine(CurrentUser.Name);
+            Debug.WriteLine(CurrentUser.HomeClub);
+            Debug.WriteLine(CurrentUser.Handicap);
+            Debug.WriteLine(CurrentUser.MemberId);
+            Debug.WriteLine(CurrentUser.Status);
             // ADD INPUT TO A NEW USER OBJECT HERE
             //User newUser = new User();
             //CurrentUser = newUser;
