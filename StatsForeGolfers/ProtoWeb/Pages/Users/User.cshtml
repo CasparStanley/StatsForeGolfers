@@ -18,27 +18,27 @@
                 </div>
                 <form name="formUser"  method="post">
                     <div class="container-fluid jumbotron">
-                        <input asp-for="@Model.CurrentUser.Status" type="radio" name="Status" class="form-check-input" value="Amateur" />
-                        <label asp-for="@Model.CurrentUser.Status" class="control-label">
+                        <input asp-for="@Model.UserData.Status" type="radio" name="Status" class="form-check-input" value="Amateur" />
+                        <label asp-for="@Model.UserData.Status" class="control-label">
                         Amateur
                         </label>
-                        <span asp-validation-for="@Model.CurrentUser.Status" class="text-danger"></span>
+                        <span asp-validation-for="@Model.UserData.Status" class="text-danger"></span>
 
                         <br />
 
-                        <input asp-for="@Model.CurrentUser.Status" type="radio" name="Status" class="form-check-input" value="Intermediate" />
-                        <label asp-for="@Model.CurrentUser.Status" class="control-label">
+                        <input asp-for="@Model.UserData.Status" type="radio" name="Status" class="form-check-input" value="Intermediate" />
+                        <label asp-for="@Model.UserData.Status" class="control-label">
                         Intermediate
                         </label>
-                        <span asp-validation-for="@Model.CurrentUser.Status" class="text-danger"></span>
+                        <span asp-validation-for="@Model.UserData.Status" class="text-danger"></span>
 
                         <br />
 
-                        <input asp-for="@Model.CurrentUser.Status" type="radio" name="Status" class="form-check-input" value="Pro" />
-                        <label asp-for="@Model.CurrentUser.Status" class="control-label">
+                        <input asp-for="@Model.UserData.Status" type="radio" name="Status" class="form-check-input" value="Pro" />
+                        <label asp-for="@Model.UserData.Status" class="control-label">
                         Pro
                         </label>
-                        <span asp-validation-for="@Model.CurrentUser.Status" class="text-danger"></span>
+                        <span asp-validation-for="@Model.UserData.Status" class="text-danger"></span>
 
                     </div>
 
@@ -49,35 +49,35 @@
                     </div>
                     <div class="container-fluid jumbotron">
                         <h4 class="text-dark">Name</h4>
-                        <input asp-for="@Model.CurrentUser.Name" type="text" name="Name" class="form-check-input" value="Name" />
-                        <label asp-for="@Model.CurrentUser.Name" class="control-label">
+                        <input asp-for="@Model.UserData.Name" type="text" name="Name" class="form-check-input" value="Name" />
+                        <label asp-for="@Model.UserData.Name" class="control-label">
                             Name
                         </label>
-                        <span asp-validation-for="@Model.CurrentUser.Name" class="text-danger"></span>
+                        <span asp-validation-for="@Model.UserData.Name" class="text-danger"></span>
 
                         <br />
                         <h4 class="text-dark">Home Club</h4>
-                        <input asp-for="@Model.CurrentUser.HomeClub" type="text" name="HomeClub" class="form-check-input" value="Home Club" />
-                        <label asp-for="@Model.CurrentUser.HomeClub" class="control-label">
+                        <input asp-for="@Model.UserData.HomeClub" type="text" name="HomeClub" class="form-check-input" value="Home Club" />
+                        <label asp-for="@Model.UserData.HomeClub" class="control-label">
                             Home Club
                         </label>
-                        <span asp-validation-for="@Model.CurrentUser.HomeClub" class="text-danger"></span>
+                        <span asp-validation-for="@Model.UserData.HomeClub" class="text-danger"></span>
 
                         <br />
                         <h4 class="text-dark">Member Id</h4>
-                        <input asp-for="@Model.CurrentUser.MemberId" type="text" name="MemberId" class="form-check-input" value="Member Id" />
-                        <label asp-for="@Model.CurrentUser.MemberId" class="control-label">
+                        <input asp-for="@Model.UserData.MemberId" type="text" name="MemberId" class="form-check-input" value="Member Id" />
+                        <label asp-for="@Model.UserData.MemberId" class="control-label">
                             Member Id
                         </label>
-                        <span asp-validation-for="@Model.CurrentUser.MemberId" class="text-danger"></span>
+                        <span asp-validation-for="@Model.UserData.MemberId" class="text-danger"></span>
 
                         <br />
                         <h4 class="text-dark">HCP</h4>
-                        <input asp-for="@Model.CurrentUser.Handicap" type="text" name="Handicap" class="form-check-input" value="HCP" />
-                        <label asp-for="@Model.CurrentUser.Handicap" class="control-label">
+                        <input asp-for="@Model.UserData.Handicap" type="text" name="Handicap" class="form-check-input" value="HCP" />
+                        <label asp-for="@Model.UserData.Handicap" class="control-label">
                             HCP
                         </label>
-                        <span asp-validation-for="@Model.CurrentUser.Handicap" class="text-danger"></span>
+                        <span asp-validation-for="@Model.UserData.Handicap" class="text-danger"></span>
 
                         <br />
 
