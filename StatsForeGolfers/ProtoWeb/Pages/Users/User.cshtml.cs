@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
@@ -11,13 +12,17 @@ namespace ProtoWeb.Users
     public class UserModel : PageModel
     {
         [BindProperty]
-        public User CurrentUser { get; set; }
+        public User UserData { get; set; }
 
         public IActionResult OnPost()
         {
-            // ADD INPUT TO A NEW USER OBJECT HERE
-            //User newUser = new User();
-            //CurrentUser = newUser;
+            UserRepository.Instance.Add(UserData);
+            
+            if (UserRepository.Instance.Get() != null)
+            {
+                Debug.WriteLine(UserRepository.Instance.Get().Name);
+                Debug.WriteLine(UserRepository.Instance.Get().HomeClub);
+            }
 
             if (!ModelState.IsValid)
             {
