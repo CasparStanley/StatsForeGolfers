@@ -1,4 +1,5 @@
 ﻿@page
+@using ProtoWeb.Models
 @model ProtoWeb.Pages.ProStats.ProStatisticsModel
 @{
     ViewData["Title"] = "ProStatistics";
@@ -56,6 +57,9 @@
                         <td>
                             @item.ScramblingAverage
                         </td>
+                            <td>
+                                <a asp-page="EditProStats" asp-route-id="@item.Id">Update Stats</a>
+                            </td>
                     </tr>
                 }
             </tbody>
