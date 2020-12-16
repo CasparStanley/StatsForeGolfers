@@ -17,7 +17,7 @@ namespace ProtoWeb.Pages.ProStats
 
         public CreateProStatsModel()
         {
-            repo = ProStatsRepository.Instance;
+            
         }
         public IActionResult OnGet()
         {
@@ -29,7 +29,7 @@ namespace ProtoWeb.Pages.ProStats
             if (!ModelState.IsValid) {
                 return Page();
             }
-            repo.AddProStats(ProStats);
+            ProStatsRepository.Instance.AddProStats(ProStats);
             return RedirectToPage("ProStatistics");
         }
     }
