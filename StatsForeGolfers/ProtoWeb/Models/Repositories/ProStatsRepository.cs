@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Security.Cryptography.X509Certificates;
 using System.Threading.Tasks;
+using ProtoWeb.Helpers;
 using ProtoWeb.Pages.Courses.CoursesHoles;
 using ProtoWeb.Pages.ProStats;
 
@@ -22,6 +23,7 @@ namespace ProtoWeb.Models
                 if (_instance == null)
                 {
                     _instance = new ProStatsRepository();
+                    _instance.proStats = JsonHelper.ReadProStat("ProStatsData.json"); // Hent gemte data
                 }
                 return _instance;
             }
@@ -29,8 +31,6 @@ namespace ProtoWeb.Models
 
         private ProStatsRepository()
         {
-            proStats = new List<ProStats>();
-            proStats.Add(new ProStats(){Id = 1, Name = "PGA Tour", ScoringAverage = 71.1, DrivingDistance = 295, FairwayAverage = 57, GreenInRegAverage = 56, ScramblingAverage = 59});
         }
 
         public void AddProStats(ProStats pr)
@@ -55,6 +55,8 @@ namespace ProtoWeb.Models
                 }
 
                 proStats.Add(pr);
+
+                JsonHelper.WriteProStat(proStats, "ProStatsData.json");
             }
         }
 
@@ -83,6 +85,8 @@ namespace ProtoWeb.Models
                         e.ScramblingAverage = eProStats.ScramblingAverage;
                     }
                 }
+
+                JsonHelper.WriteProStat(proStats, "ProStatsData.json");
             }
         }
 
@@ -104,6 +108,7 @@ namespace ProtoWeb.Models
                 edStats.Id = 1;
             }
             proStats.Add(edStats);
+            JsonHelper.WriteProStat(proStats, "ProStatsData.json");
         }
         public List<ProStats> GetAllProStats() {
             return proStats.ToList();

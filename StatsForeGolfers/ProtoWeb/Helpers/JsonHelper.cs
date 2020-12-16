@@ -45,6 +45,23 @@ namespace ProtoWeb.Helpers
             return jsonObject;
         }
 
+        public static List<ProStats> ReadProStat(string filename)
+        {
+            List<ProStats> jsonObject = new List<ProStats>();
+
+            if (File.Exists(filename))
+            {
+                try
+                {
+                    string jsonString = File.ReadAllText(filename);
+                    jsonObject = JsonConvert.DeserializeObject<List<ProStats>>(jsonString);
+                }
+                catch { throw new ArgumentException($"FILE WITH NAME '{filename}' DOESN'T EXIST"); }
+            }
+
+            return jsonObject;
+        }
+
         public static bool WriteCourse(Dictionary<int, Course> courses, string filename)
         {
             try
@@ -67,6 +84,23 @@ namespace ProtoWeb.Helpers
             try
             {
                 string jsonString = JsonConvert.SerializeObject(stats,
+                    Formatting.Indented);
+
+                File.WriteAllText(filename, jsonString);
+
+                return true;
+            }
+            catch
+            {
+                return false;
+            }
+        }
+
+        public static bool WriteProStat(List<ProStats> pStats, string filename)
+        {
+            try
+            {
+                string jsonString = JsonConvert.SerializeObject(pStats,
                     Formatting.Indented);
 
                 File.WriteAllText(filename, jsonString);
