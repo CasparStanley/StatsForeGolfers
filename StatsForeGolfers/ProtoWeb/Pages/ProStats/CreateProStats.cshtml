@@ -1,0 +1,47 @@
+﻿@page
+@model ProtoWeb.Pages.ProStats.CreateProStatsModel
+@{
+    ViewData["Title"] = "CreateProStats";
+}
+<h1>Create ProStats</h1>
+
+<div class="row">
+    <div class="col-md-4">
+        <form method="post">
+            <div class="form-group">
+                <label asp-for="@Model.ProStats.Id" class="control-label"></label>
+                <input asp-for="@Model.ProStats.Id" class="form-group" />
+            </div>
+            <div class="form-group">
+                <label asp-for="@Model.ProStats.Name" class="control-label"></label>
+                <input asp-for="@Model.ProStats.Name" class="form-group" />
+            </div>
+            <div class="form-group">
+                <label asp-for="@Model.ProStats.ScoringAverage" class="control-label"></label>
+                <input asp-for="@Model.ProStats.ScoringAverage" class="form-group" />
+            </div>
+            <div class="form-group">
+                <label asp-for="@Model.ProStats.DrivingDistance" class="control-label"></label>
+                <input asp-for="@Model.ProStats.DrivingDistance" class="form-group" />
+            </div>
+            <div class="form-group">
+                <label asp-for="@Model.ProStats.FairwayAverage" class="control-label"></label>
+                <input asp-for="@Model.ProStats.FairwayAverage" class="form-group" />
+            </div>
+            <div class="form-group">
+                <label asp-for="@Model.ProStats.GreenInRegAverage" class="control-label"></label>
+                <input asp-for="@Model.ProStats.GreenInRegAverage" class="form-group" />
+            </div>
+            <div class="form-group">
+                <label asp-for="@Model.ProStats.ScramblingAverage" class="control-label"></label>
+                <input asp-for="@Model.ProStats.ScramblingAverage" class="form-group" />
+            </div>
+            <div>
+                <input type="submit" value="Create" class="btn btn-primary"/>
+            </div>
+        </form>
+    </div>
+</div>
+<div>
+    <a asp-page="ProStatistics">Back to List</a>
+</div>

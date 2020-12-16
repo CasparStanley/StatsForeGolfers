@@ -7,6 +7,7 @@ namespace ProtoWeb.Models
 {
     public class ProStats
     {
+        public int Id { get; set; }
         public string Name  { get; set; }
         public double ScoringAverage { get; set; }
         public double DrivingDistance { get; set; }

@@ -11,17 +11,16 @@ namespace ProtoWeb.Pages.ProStats
     public class ProStatisticsModel : PageModel
     {
 
-        private ProStatsRepository repo;
-        public List<Models.ProStats> ProStatses { get; private set; }
+        public List<Models.ProStats> ProStatses { get; set; }
 
         public ProStatisticsModel()
         {
-            repo = new ProStatsRepository();
+            ProStatses = ProStatsRepository.Instance.GetAllProStats();
         }
         
         public void OnGet()
         {
-            ProStatses = (List<Models.ProStats>)repo.GetAllProStats();
+            
         }
     }
 }

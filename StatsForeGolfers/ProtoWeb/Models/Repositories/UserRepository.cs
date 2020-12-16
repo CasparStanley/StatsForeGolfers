@@ -43,7 +43,7 @@ namespace ProtoWeb.Models
                 if (_instance == null)
                 {
                     _instance = new UserRepository();
-                    ;
+                    
                 }
                 return _instance;
             }
