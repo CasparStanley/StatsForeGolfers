@@ -26,6 +26,7 @@ namespace ProtoWeb
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddRazorPages();
+            
            
             services.AddTransient<ICourses,JsonFileCourses>();
             services.AddTransient<IStatistics, JsonFileStats>();

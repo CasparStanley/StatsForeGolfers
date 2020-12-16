@@ -12,7 +12,7 @@ namespace ProtoWeb.Pages.ProStats
     {
 
         private ProStatsRepository repo;
-        public List<Models.ProStats> ProStatses { get; private set; }
+        public List<Models.ProStats> ProStatses { get; set; }
 
         public ProStatisticsModel()
         {
@@ -21,7 +21,7 @@ namespace ProtoWeb.Pages.ProStats
         
         public void OnGet()
         {
-            ProStatses = (List<Models.ProStats>)repo.GetAllProStats();
+            ProStatses = ProStatsRepository.Instance.GetAllProStats();
         }
     }
 }
