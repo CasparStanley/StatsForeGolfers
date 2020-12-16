@@ -9,33 +9,29 @@ namespace ProtoWeb.Models
     
     public class ProStatsRepository
     {
-        
-        private List<ProStats> proStats = new List<ProStats>();
         private static ProStatsRepository _instance;
-        
+
+        private List<ProStats> proStats = new List<ProStats>();
+
         public static ProStatsRepository Instance
         {
             get
             {
                 if (_instance == null)
                 {
-                    return new ProStatsRepository();
+                    _instance = new ProStatsRepository();
                 }
-
                 return _instance;
             }
         }
 
-
         private ProStatsRepository()
         {
-            //proStats = new List<ProStats>();
-            //proStats.Add(new ProStats(){Id = 1,Name = "PGA Tour", ScoringAverage = 71.3, DrivingDistance = 295, FairwayAverage = 58.9, GreenInRegAverage = 66.6, ScramblingAverage = 57.1});
         }
 
         public void AddProStats(ProStats pr)
         {
-            if (!(proStats.Count >2))//begrænser listen til 2 
+            if (!(proStats.Count >= 2))//begrænser listen til 2 
             {
                 List<int> proStatsIds = new List<int>();
 

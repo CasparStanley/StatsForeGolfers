@@ -15,12 +15,12 @@ namespace ProtoWeb.Pages.ProStats
 
         public ProStatisticsModel()
         {
-            
+            ProStatses = ProStatsRepository.Instance.GetAllProStats();
         }
         
         public void OnGet()
         {
-            ProStatses = ProStatsRepository.Instance.GetAllProStats();
+            
         }
     }
 }
