@@ -1,11 +1,20 @@
 [
   {
     "Id": 1,
-    "Name": "Moten",
-    "ScoringAverage": 123.0,
-    "DrivingDistance": 234.0,
-    "FairwayAverage": 12.0,
-    "GreenInRegAverage": 5.0,
-    "ScramblingAverage": 45.0
+    "Name": "PGA TOUR",
+    "ScoringAverage": 71.1,
+    "DrivingDistance": 295.0,
+    "FairwayAverage": 53.0,
+    "GreenInRegAverage": 56.0,
+    "ScramblingAverage": 59.0
+  },
+  {
+    "Id": 2,
+    "Name": "European TOUR",
+    "ScoringAverage": 716.0,
+    "DrivingDistance": 293.0,
+    "FairwayAverage": 54.0,
+    "GreenInRegAverage": 50.0,
+    "ScramblingAverage": 59.0
   }
 ]

@@ -16,12 +16,13 @@ namespace ProtoWeb.Models
 
         private List<ProStats> proStats = new List<ProStats>();
 
+      
+
         public static ProStatsRepository Instance
         {
             get
             {
-                if (_instance == null)
-                {
+                if (_instance == null) {
                     _instance = new ProStatsRepository();
                     _instance.proStats = JsonHelper.ReadProStat("ProStatsData.json"); // Hent gemte data
                 }
@@ -29,9 +30,12 @@ namespace ProtoWeb.Models
             }
         }
 
-        private ProStatsRepository()
+        private ProStatsRepository() 
         {
+
         }
+
+
 
         public void AddProStats(ProStats pr)
         {
