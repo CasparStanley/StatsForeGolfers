@@ -3,10 +3,10 @@
 @{
     ViewData["Title"] = "CreateProStats";
 }
-<h1>Create ProStats</h1>
 
-<div class="row">
+<div class="row justify-content-center p-4">
     <div class="col-md-4">
+        <h1>Create ProStats</h1>
         <form method="post">
             <div class="form-group">
                 <label asp-for="@Model.ProStats.Id" class="control-label"></label>
@@ -37,11 +37,11 @@
                 <input asp-for="@Model.ProStats.ScramblingAverage" class="form-group" />
             </div>
             <div>
-                <input type="submit" value="Create" class="btn btn-primary"/>
+                <input type="submit" value="Create" class="btn btn-primary" />
             </div>
         </form>
+        <div>
+            <a asp-page="ProStatistics">Back to List</a>
+        </div>
     </div>
-</div>
-<div>
-    <a asp-page="ProStatistics">Back to List</a>
 </div>

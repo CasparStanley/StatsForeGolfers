@@ -22,7 +22,7 @@ namespace ProtoWeb.Pages
             statistics = statsRepo;
             courses = courseRepo;
 
-            //MockSheet = statistics.GetSheet();
+            MockSheet = statistics.GetSheet();
         }
 
         public User CurrentUser { get; private set; }
