@@ -8,13 +8,14 @@
     <div class="col-auto">
         <div class="form-check">
             <div class="container-fluid">
-                <h4>Hole @Model.CurrentHoleId - Total Score</h4>
+                <h4>Hole @Model.CurrentHoleId</h4>
             </div>
             <div class="img-fluid text-center">
                 <img src="../img/course_icon.png" height="120" />
             </div>
             <form method="post">
                 <div class="my-auto container frame">
+                    <h5 class="text-dark">What is your Total Score?</h5>
                     <div style="padding-left: 1.25rem">
                         @*<h4 class="text-dark">Total Score</h4>*@
                         <input asp-for="@Model.TotalScoreValue" type="number" name="TotalScoreValue" class="form-check-input textField" value="Your Total Score" />

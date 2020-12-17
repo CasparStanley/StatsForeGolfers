@@ -14,78 +14,73 @@
         <div class="col-auto">
             <div class="form-check">
                 <div class="container-fluid">
-                    <h4>What is Your Status?</h4>
+                    <h1>User Info:</h1>
                 </div>
                 <form name="formUser" method="post">
-                    <div class="my-auto container frame">
+                    <div class="my-auto container frame pl-4 pr-4">
+                        <h5 class="text-dark">What is Your Status?</h5>
                         <div style="padding-left: 1.25rem">
-                            <input asp-for="@Model.UserData.Status" type="radio" name="Status" class="form-check-input" value="Amateur"/>
+                            <input asp-for="@Model.UserData.Status" type="radio" name="Status" class="form-check-input" value="Amateur" />
                             <label asp-for="@Model.UserData.Status" class="control-label">
                                 Amateur
                             </label>
                             <span asp-validation-for="@Model.UserData.Status" class="text-danger"></span>
 
-                            <br/>
+                            <br />
 
-                            <input asp-for="@Model.UserData.Status" type="radio" name="Status" class="form-check-input" value="Intermediate"/>
+                            <input asp-for="@Model.UserData.Status" type="radio" name="Status" class="form-check-input" value="Intermediate" />
                             <label asp-for="@Model.UserData.Status" class="control-label">
                                 Intermediate
                             </label>
                             <span asp-validation-for="@Model.UserData.Status" class="text-danger"></span>
 
-                            <br/>
+                            <br />
 
-                            <input asp-for="@Model.UserData.Status" type="radio" name="Status" class="form-check-input" value="Pro"/>
+                            <input asp-for="@Model.UserData.Status" type="radio" name="Status" class="form-check-input" value="Pro" />
                             <label asp-for="@Model.UserData.Status" class="control-label">
                                 Pro
                             </label>
                             <span asp-validation-for="@Model.UserData.Status" class="text-danger"></span>
                         </div>
-                    </div>
-
-                    <br />
-
-                    <div class="container-fluid">
-                        <h4>User Info:</h4>
-                    </div>
-                    <div class="my-auto container frame">
+                        <br />
+                        <h5 class="text-dark">Name</h5>
                         <div style="padding-left: 1.25rem">
-                            <h4 class="text-dark">Name</h4>
-                            <input asp-for="@Model.UserData.Name" type="text" name="Name" class="form-check-input textField" value="Name"/>
+                            <input asp-for="@Model.UserData.Name" type="text" name="Name" class="form-check-input textField" value="Name" />
                             <label asp-for="@Model.UserData.Name" class="control-label">
                                 Name
                             </label>
                             <span asp-validation-for="@Model.UserData.Name" class="text-danger"></span>
-
-                            <br/>
-                            <h4 class="text-dark">Home Club</h4>
-                            <input asp-for="@Model.UserData.HomeClub" type="text" name="HomeClub" class="form-check-input textField" value="Home Club"/>
+                        </div>
+                        <br />
+                        <h5 class="text-dark">Home Club</h5>
+                        <div style="padding-left: 1.25rem">
+                            <input asp-for="@Model.UserData.HomeClub" type="text" name="HomeClub" class="form-check-input textField" value="Home Club" />
                             <label asp-for="@Model.UserData.HomeClub" class="control-label">
                                 Home Club
                             </label>
                             <span asp-validation-for="@Model.UserData.HomeClub" class="text-danger"></span>
-
-                            <br/>
-                            <h4 class="text-dark">Member Id</h4>
-                            <input asp-for="@Model.UserData.MemberId" type="text" name="MemberId" class="form-check-input textField" value="Member Id"/>
+                        </div>
+                        <br />
+                        <h5 class="text-dark">Member Id</h5>
+                        <div style="padding-left: 1.25rem">
+                            <input asp-for="@Model.UserData.MemberId" type="number" name="MemberId" class="form-check-input textField" value="Member Id" />
                             <label asp-for="@Model.UserData.MemberId" class="control-label">
                                 Member Id
                             </label>
                             <span asp-validation-for="@Model.UserData.MemberId" class="text-danger"></span>
-
-                            <br/>
-                            <h4 class="text-dark">HCP</h4>
-                            <input asp-for="@Model.UserData.Handicap" type="text" name="Handicap" class="form-check-input textField" value="HCP"/>
+                        </div>
+                        <br />
+                        <h5 class="text-dark">HCP</h5>
+                        <div style="padding-left: 1.25rem">
+                            <input asp-for="@Model.UserData.Handicap" type="number" name="Handicap" class="form-check-input textField" value="HCP" />
                             <label asp-for="@Model.UserData.Handicap" class="control-label">
                                 HCP
                             </label>
                             <span asp-validation-for="@Model.UserData.Handicap" class="text-danger"></span>
-
-                            <br/>
-
-                            <div class="form-group pt-4">
-                                <input type="submit" value="Create" class="btn btn-primary" asp-page-handler="UserCreate"/>
-                            </div>
+                        </div>
+                        <br />
+                        <div class="form-group">
+                            <input type="submit" value="Create" class="btn btn-primary" asp-page-handler="UserCreate" />
                         </div>
                     </div>
                 </form>
