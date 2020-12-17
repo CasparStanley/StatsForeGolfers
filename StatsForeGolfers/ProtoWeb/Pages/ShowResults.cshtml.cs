@@ -15,14 +15,21 @@ namespace ProtoWeb.Pages
         private IStatistics statistics;
         private ICourses courses;
 
-        public StatSheet MockSheet { get; private set; }
+        public StatSheet MyStatSheet { get; private set; }
+        public List<Models.ProStats> ProStatses { get; set; }
+        public Models.ProStats CurrentProStatsShown { get; set; }
 
         public ShowResultsModel(IStatistics statsRepo, ICourses courseRepo)
         {
             statistics = statsRepo;
             courses = courseRepo;
 
-            MockSheet = statistics.GetSheet();
+            MyStatSheet = statistics.GetSheet();
+
+            ProStatses = ProStatsRepository.Instance.GetAllProStats();
+
+            // Simply show the first one in the list for now.
+            CurrentProStatsShown = ProStatses[0];
         }
 
         public User CurrentUser { get; private set; }
@@ -47,41 +54,41 @@ namespace ProtoWeb.Pages
             CurrentCourse = courses.GetCourse(UserRepository.Instance.Get().CurrentCourseId);
             Holes = courses.AllHoles(UserRepository.Instance.Get().CurrentCourseId);
 
-            statistics.UpdateSheet(MockSheet);
+            statistics.UpdateSheet(MyStatSheet);
         }
 
         public int FairwayHit()
         {
-            return (int)(MockSheet.PercentageCalculator(MockSheet.FairWayHit, MockSheet.TotalFairwayStrokes) * 100);
+            return (int)(MyStatSheet.PercentageCalculator(MyStatSheet.FairWayHit, MyStatSheet.TotalFairwayStrokes) * 100);
         }
 
         public int FairwayMiss(bool left)
         {
             if (left)
-                return (int)(MockSheet.PercentageCalculator(MockSheet.FairWayMissLeft, MockSheet.TotalFairwayStrokes) * 100);
+                return (int)(MyStatSheet.PercentageCalculator(MyStatSheet.FairWayMissLeft, MyStatSheet.TotalFairwayStrokes) * 100);
             else
-                return (int)(MockSheet.PercentageCalculator(MockSheet.FairWayMissRight, MockSheet.TotalFairwayStrokes) * 100);
+                return (int)(MyStatSheet.PercentageCalculator(MyStatSheet.FairWayMissRight, MyStatSheet.TotalFairwayStrokes) * 100);
         }
 
         public int GreenHit()
         {
-            return (int)(MockSheet.PercentageCalculator(MockSheet.GreenHit, MockSheet.TotalGreenStrokes) * 100);
+            return (int)(MyStatSheet.PercentageCalculator(MyStatSheet.GreenHit, MyStatSheet.TotalGreenStrokes) * 100);
         }
 
         public int GreenMiss(bool left)
         {
             if (left)
-                return (int)(MockSheet.PercentageCalculator(MockSheet.GreenMissLeft, MockSheet.TotalGreenStrokes) * 100);
+                return (int)(MyStatSheet.PercentageCalculator(MyStatSheet.GreenMissLeft, MyStatSheet.TotalGreenStrokes) * 100);
             else
-                return (int)(MockSheet.PercentageCalculator(MockSheet.GreenMissRight, MockSheet.TotalGreenStrokes) * 100);
+                return (int)(MyStatSheet.PercentageCalculator(MyStatSheet.GreenMissRight, MyStatSheet.TotalGreenStrokes) * 100);
         }
 
         public int Scramble(bool hit)
         {
             if (hit)
-                return (int)(MockSheet.PercentageCalculator(MockSheet.ScrambleHit, MockSheet.TotalScrambleStrokes) * 100);
+                return (int)(MyStatSheet.PercentageCalculator(MyStatSheet.ScrambleHit, MyStatSheet.TotalScrambleStrokes) * 100);
             else
-                return (int)(MockSheet.PercentageCalculator(MockSheet.ScrambleMiss, MockSheet.TotalScrambleStrokes) * 100);
+                return (int)(MyStatSheet.PercentageCalculator(MyStatSheet.ScrambleMiss, MyStatSheet.TotalScrambleStrokes) * 100);
         }
     }
 }

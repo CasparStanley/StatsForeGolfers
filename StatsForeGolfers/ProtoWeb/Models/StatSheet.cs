@@ -5,6 +5,7 @@ namespace ProtoWeb
 {
     public class StatSheet
     {
+        public int TotalScore { get; set; }
         public int TotalHits { get; set; }
         public int TotalMisses { get; set; }
 

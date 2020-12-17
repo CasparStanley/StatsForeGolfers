@@ -15,7 +15,7 @@ namespace ProtoWeb.Pages.Statistics
         private ICourses courses;
 
         [BindProperty]
-        public StatSheet MockSheet { get; private set; }
+        public StatSheet MyStatSheet { get; private set; }
 
         public int CurrentHoleId { get; private set; }
 
@@ -24,7 +24,7 @@ namespace ProtoWeb.Pages.Statistics
             statistics = statsRepo;
             courses = courseRepo;
 
-            MockSheet = statistics.GetSheet();
+            MyStatSheet = statistics.GetSheet();
 
             CurrentHoleId = UserRepository.Instance.Get().CurrentHolesFilled;
         }
@@ -42,9 +42,9 @@ namespace ProtoWeb.Pages.Statistics
 
         public IActionResult OnPostScrambleIn()
         {
-            MockSheet.ScrambleHit++;
-            MockSheet.TotalScrambleStrokes++;
-            statistics.UpdateSheet(MockSheet);
+            MyStatSheet.ScrambleHit++;
+            MyStatSheet.TotalScrambleStrokes++;
+            statistics.UpdateSheet(MyStatSheet);
 
             int id = UserRepository.Instance.Get().CurrentCourseId;
             if (courses.GetCourse(id).Holes.Count > UserRepository.Instance.Get().CurrentHolesFilled)
@@ -55,19 +55,19 @@ namespace ProtoWeb.Pages.Statistics
                 if (courses.GetCourse(id).Holes[UserRepository.Instance.Get().CurrentHolesFilled].Par > 3)
                     return RedirectToPage("InputStats1");
                 else
-                    return RedirectToPage("/Statistics/InputStats2");
+                    return RedirectToPage("InputStats2");
             }
             else
             {
-                return RedirectToPage("../ShowResults");
+                return RedirectToPage("InputStats4");
             }
         }
 
         public IActionResult OnPostScrambleOut()
         {
-            MockSheet.ScrambleMiss++;
-            MockSheet.TotalScrambleStrokes++;
-            statistics.UpdateSheet(MockSheet);
+            MyStatSheet.ScrambleMiss++;
+            MyStatSheet.TotalScrambleStrokes++;
+            statistics.UpdateSheet(MyStatSheet);
 
             int id = UserRepository.Instance.Get().CurrentCourseId;
             if (courses.GetCourse(id).Holes.Count > UserRepository.Instance.Get().CurrentHolesFilled)
@@ -78,11 +78,11 @@ namespace ProtoWeb.Pages.Statistics
                 if (courses.GetCourse(id).Holes[UserRepository.Instance.Get().CurrentHolesFilled].Par > 3)
                     return RedirectToPage("InputStats1");
                 else
-                    return RedirectToPage("/Statistics/InputStats2");
+                    return RedirectToPage("InputStats2");
             }
             else
             {
-                return RedirectToPage("../ShowResults");
+                return RedirectToPage("InputStats4");
             }
         }
     }
