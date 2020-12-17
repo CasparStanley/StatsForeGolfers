@@ -28,6 +28,8 @@
                 </tr>
             </thead>
             <tbody>
+                @if (Model.Holes != null)
+                {
                 @foreach (var item in Model.Holes)
                 {
                     <tr>
@@ -50,6 +52,7 @@
                             </p>
                         </td>
                     </tr>
+                }
                 }
             </tbody>
         </table>

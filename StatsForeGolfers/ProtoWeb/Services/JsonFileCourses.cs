@@ -27,13 +27,14 @@ namespace ProtoWeb.Services
 
         public Dictionary<int, Hole> AllHoles(int coursesId)
         {
-            Dictionary<int, Hole> newHoles =  new Dictionary<int, Hole>();
+           
             Dictionary<int, Course> courses = AllCourses();
             if (courses.ContainsKey(coursesId))
             {
-                newHoles = courses[coursesId].Holes;
+
+                return courses[coursesId].Holes;
             }
-            return newHoles;
+            return null;
         }
         public Hole GetHole(int holeNo,int courseId)
         {
@@ -116,14 +117,7 @@ namespace ProtoWeb.Services
         public void AddCourse(Course course)
         {
             Dictionary<int, Course> courses = AllCourses();
-            try
-            {
-                courses.Add(course.Id, course);
-            }
-            catch
-            {
-                // error
-            }
+            courses.Add(course.Id,course);
             JsonHelper.WriteCourse(courses,JsonFileName);
         }
     }
