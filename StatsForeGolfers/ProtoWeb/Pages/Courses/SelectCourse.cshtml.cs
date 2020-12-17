@@ -12,11 +12,16 @@ namespace ProtoWeb.Pages.Courses
 {
     public class SelectCourseModel : PageModel
     {
+        private IStatistics statistics;
         private ICourses courses;
 
-        public SelectCourseModel(ICourses repository)
+        public SelectCourseModel(IStatistics statsRepo, ICourses repository)
         {
+            statistics = statsRepo;
             courses = repository;
+
+            // TO CREATE A NEW SHEET EVERY TIME WE START THE PROGRAM.
+            statistics.CreateSheet(new StatSheet());
         }
 
         public Dictionary<int, Course> Courses { get; private set; }
@@ -46,7 +51,8 @@ namespace ProtoWeb.Pages.Courses
 
         public IActionResult OnPostSelectCourse(int id)
         {
-            UserRepository.Instance.Get().ClubId = id;
+            UserRepository.Instance.Get().CurrentCourseId = id;
+            UserRepository.Instance.Get().CurrentHolesFilled = 1;
 
             return RedirectToPage("/Statistics/InputStats1");
         }

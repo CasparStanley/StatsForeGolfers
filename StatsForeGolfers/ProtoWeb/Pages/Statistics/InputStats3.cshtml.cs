@@ -17,12 +17,16 @@ namespace ProtoWeb.Pages.Statistics
         [BindProperty]
         public StatSheet MockSheet { get; private set; }
 
+        public int CurrentHoleId { get; private set; }
+
         public InputStats3Model(IStatistics statsRepo, ICourses courseRepo)
         {
             statistics = statsRepo;
             courses = courseRepo;
 
             MockSheet = statistics.GetSheet();
+
+            CurrentHoleId = UserRepository.Instance.Get().CurrentHolesFilled;
         }
 
         public Course CurrentCourse { get; private set; }
@@ -36,38 +40,40 @@ namespace ProtoWeb.Pages.Statistics
             return Page();
         }
 
-        public void OnPost(int btnId)
+        public IActionResult OnPostScrambleIn()
         {
-            CurrentCourse = courses.GetCourse(1);
-            Holes = courses.AllHoles(1);
-
-            switch (btnId)
-            {
-                case 0:
-                    {
-                        MockSheet.GreenMissLeft++;
-                        break;
-                    }
-                case 1:
-                    {
-                        MockSheet.GreenHit++;
-                        break;
-                    }
-                case 2:
-                    {
-                        MockSheet.GreenMissRight++;
-                        break;
-                    }
-                default:
-                    {
-                        // Error
-                        break;
-                    }
-            }
-
-            MockSheet.TotalGreenStrokes++;
-
+            MockSheet.ScrambleHit++;
+            MockSheet.TotalScrambleStrokes++;
             statistics.UpdateSheet(MockSheet);
+
+            int id = UserRepository.Instance.Get().CurrentCourseId;
+            if (courses.GetCourse(id).Holes.Count > UserRepository.Instance.Get().CurrentHolesFilled)
+            {
+                UserRepository.Instance.Get().CurrentHolesFilled++;
+                return RedirectToPage("InputStats1");
+            }
+            else
+            {
+                return RedirectToPage("../ShowResults");
+            }
+        }
+
+        public IActionResult OnPostScrambleOut()
+        {
+            MockSheet.ScrambleMiss++;
+            MockSheet.TotalScrambleStrokes++;
+            statistics.UpdateSheet(MockSheet);
+
+            int id = UserRepository.Instance.Get().CurrentCourseId;
+            if (courses.GetCourse(id).Holes.Count > UserRepository.Instance.Get().CurrentHolesFilled)
+            {
+                UserRepository.Instance.Get().CurrentHolesFilled++;
+                return RedirectToPage("InputStats1");
+            }
+            else
+            {
+                return RedirectToPage("../ShowResults");
+            }
         }
     }
 }

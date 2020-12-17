@@ -17,13 +17,15 @@
                     },
                     data: [{
                         type: "pie",
+                        showInLegend: true,
+                        legendText: "{indexLabel}",
                         startAngle: 240,
                         yValueFormatString: "##0.00\"%\"",
                         indexLabel: "{label} {y}",
                         dataPoints: [
-                            { y: @Model.FairwayHit(), label: "Hit" },
-                            { y: @Model.FairwayMiss(true), label: "Miss Left" },
-                            { y: @Model.FairwayMiss(false), label: "Miss Right" },
+                            { y: @Model.FairwayHit(), color: "#09BC8A", label: "Hit", indexLabel: "Hit" },
+                            { y: @Model.FairwayMiss(true), color: "#592941", label: "Miss Left", indexLabel: "Miss Left" },
+                            { y: @Model.FairwayMiss(false), color: "#592941", label: "Miss Right", indexLabel: "Miss Right" },
                         ]
                     }]
                 });
@@ -36,13 +38,15 @@
                     },
                     data: [{
                         type: "pie",
+                        showInLegend: true,
+                        legendText: "{indexLabel}",
                         startAngle: 240,
                         yValueFormatString: "##0.00\"%\"",
                         indexLabel: "{label} {y}",
                         dataPoints: [
-                            { y: @Model.GreenHit(), label: "Hit" },
-                            { y: @Model.GreenMiss(true), label: "Miss Left" },
-                            { y: @Model.GreenMiss(false), label: "Miss Right" },
+                            { y: @Model.GreenHit(), color: "#09BC8A", label: "Hit", indexLabel: "Hit" },
+                            { y: @Model.GreenMiss(true), color: "#592941", label: "Miss Left", indexLabel: "Miss Left" },
+                            { y: @Model.GreenMiss(false), color: "#592941", label: "Miss Right", indexLabel: "Miss Left" },
                         ]
                     }]
                 });
@@ -50,21 +54,21 @@
                 var chart3 = new CanvasJS.Chart("scChart", {
                     animationEnabled: true,
                     backgroundColor: "#FFF4EC",
-                    title:
-                    {
+                    title: {
                         text: "Scramble In and Out Percentage"
                     },
                     data:
                     [
                         {
                             type: "pie",
+                            showInLegend: true,
+                            legendText: "{indexLabel}",
                             startAngle: 240,
                             yValueFormatString: "##0.00\"%\"",
                             indexLabel: "{label} {y}",
-                            dataPoints:
-                            [
-                                { y: @Model.Scramble(true), label: "In" },
-                                { y: @Model.Scramble(false), label: "Out" }
+                            dataPoints: [
+                                { y: @Model.Scramble(true), color: "#09BC8A", label: "In", indexLabel: "In" },
+                                { y: @Model.Scramble(false), color: "#592941", label: "Out", indexLabel: "Out" }
                             ]
                         }
                     ]
@@ -140,19 +144,19 @@
                             <td>
                             </td>
                             <td>
-                                <div id="fwChart" style="height: 300px; width: 150px;"></div>
+                                <div id="fwChart" style="height: 350px; width: 150px;"></div>
                                 <script src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>
                             </td>
                             <td>
                             </td>
                             <td>
-                                <div id="grChart" style="height: 300px; width: 150px;"></div>
+                                <div id="grChart" style="height: 350px; width: 150px;"></div>
                                 <script src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>
                             </td>
                             <td>
                             </td>
                             <td>
-                                <div id="scChart" style="height: 300px; width: 150px;"></div>
+                                <div id="scChart" style="height: 350px; width: 150px;"></div>
                                 <script src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>
                             </td>
                         </tr>

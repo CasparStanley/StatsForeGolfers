@@ -1,4 +1,4 @@
-﻿@page "{btnId}"
+﻿@page
 @model ProtoWeb.Pages.Statistics.InputStats3Model
 @{
     ViewData["Title"] = "InputStats3";
@@ -6,7 +6,7 @@
 
 <div class="row justify-content-center p-4">
     <div class="col-auto">
-        <h1> Hole 1</h1>
+        <h1> Hole @Model.CurrentHoleId</h1>
         <div class="my-auto container frame">
             <form method="post">
                 <table class="text-center">
@@ -18,11 +18,11 @@
                         <td>In</td>
                     </tr>
                     <tr>
-                        <td>
-                            <input asp-page="../ShowResults" asp-route-btnId="0" type="submit" class="btn-miss" value="Out" />
+                        <td class="p-2">
+                            <input asp-page-handler="ScrambleOut" type="submit" class="btn-danger btn-miss" value="Out" />
                         </td>
-                        <td>
-                            <input asp-page="../ShowResults" asp-route-btnId="1" type="submit" class="btn-hit" value="In" />
+                        <td class="p-2">
+                            <input asp-page-handler="ScrambleIn" type="submit" class="btn-primary btn-hit" value="In" />
                         </td>
                     </tr>
                 </table>

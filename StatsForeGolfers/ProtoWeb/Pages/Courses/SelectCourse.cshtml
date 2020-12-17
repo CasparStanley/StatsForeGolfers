@@ -7,6 +7,9 @@
 <div class="row justify-content-center p-4">
     <div class="col-auto">
         <h1>Select a Course</h1>
+        <div class="img-fluid text-center">
+            <img src="img/course_icon.png" />
+        </div>
         <div class="my-auto container frame">
             <p>
                 @*<a class="link-dark" asp-page="CreateCourse">Create New Course</a>*@
@@ -19,27 +22,27 @@
             </form>
             <table class="table table-striped table-responsive p-3">
                 <thead>
-                <tr>
-                    <th>
-                        Name
-                    </th>
-                </tr>
+                    <tr>
+                        <th>
+                            Name
+                        </th>
+                    </tr>
                 </thead>
                 <tbody>
-                @foreach (var item in Model.Courses)
-                {
-                    <tr>
-                        <td>
-                            @*<a class="link-dark" asp-page="/Statistics/InputStats1" asp-route-id="@item.Key"> @item.Value.Name</a>*@
-                            <form asp-page-handler="SelectCourse" method="post">
-                                <button class="btn btn-success">@item.Value.Name</button>
-                                <input type="hidden" name="id" value="@item.Key"/>
-                            </form>
-                        </td>
-                    </tr>
-                }
+                    @foreach (var item in Model.Courses)
+                    {
+                        <tr>
+                            <td>
+                                @*<a class="link-dark" asp-page="/Statistics/InputStats1" asp-route-id="@item.Key"> @item.Value.Name</a>*@
+                                <form asp-page-handler="SelectCourse" method="post">
+                                    <button class="btn btn-success">@item.Value.Name</button>
+                                    <input type="hidden" name="id" value="@item.Key" />
+                                </form>
+                            </td>
+                        </tr>
+                    }
                 </tbody>
             </table>
-            </div>
         </div>
+    </div>
     </div>

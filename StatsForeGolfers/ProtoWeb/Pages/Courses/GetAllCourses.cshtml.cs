@@ -40,6 +40,7 @@ namespace ProtoWeb.Pages.Courses
             {
                 Courses = courses.FilterCourse(FilterCriteria);
             }
+            
 
             return Page();
         }

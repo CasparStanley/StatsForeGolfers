@@ -1,4 +1,4 @@
-﻿@page "{btnId}"
+﻿@page
 @model ProtoWeb.Pages.Statistics.InputStats2Model
 @{
     ViewData["Title"] = "InputStats2";
@@ -6,12 +6,12 @@
 
 <div class="row justify-content-center p-4">
     <div class="col-auto">
-        <h1> Hole 1</h1>
+        <h1> Hole @Model.CurrentHoleId</h1>
         <div class="my-auto container frame">
             <form method="post">
                 <table class="text-center">
                     <tr>
-                        <td colspan="3">Fairway</td>
+                        <td colspan="3">Green</td>
                     </tr>
                     <tr>
                         <td>Left</td>
@@ -19,14 +19,14 @@
                         <td>Right</td>
                     </tr>
                     <tr>
-                        <td>
-                            <input asp-for="@Model.MockSheet" asp-page="InputStats3" asp-route-btnId="0" type="submit" class="btn-miss" value="Miss" />
+                        <td class="p-2">
+                            <input asp-for="@Model.MockSheet" asp-page-handler="MissGreenLeft" type="submit" class="btn-danger btn-miss" value="Miss" />
                         </td>
-                        <td>
-                            <input asp-for="@Model.MockSheet" asp-page="InputStats3" asp-route-btnId="1" type="submit" class="btn-hit" value="Hit" />
+                        <td class="p-2">
+                            <input asp-for="@Model.MockSheet" asp-page-handler="HitGreen" type="submit" class="btn-primary btn-hit" value="Hit" />
                         </td>
-                        <td>
-                            <input asp-for="@Model.MockSheet" asp-page="InputStats3" asp-route-btnId="2" type="submit" class="btn-miss" value="Miss" />
+                        <td class="p-2">
+                            <input asp-for="@Model.MockSheet" asp-page-handler="MissGreenRight" type="submit" class="btn-danger btn-miss" value="Miss" />
                         </td>
                     </tr>
                 </table>

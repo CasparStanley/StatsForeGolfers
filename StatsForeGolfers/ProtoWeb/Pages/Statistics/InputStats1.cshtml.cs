@@ -17,16 +17,17 @@ namespace ProtoWeb.Pages.Statistics
         [BindProperty]
         public StatSheet MockSheet { get; private set; }
 
+        public int CurrentHoleId { get; private set; }
+
         public InputStats1Model(IStatistics statsRepo, ICourses courseRepo)
         {
             statistics = statsRepo;
             courses = courseRepo;
 
-            // TO CREATE A NEW SHEET EVERY TIME WE START THE PROGRAM.
-            statistics.CreateSheet(new StatSheet());
-
             // TO USE A SHEET THAT IS SAVED BETWEEN RESTARTING PROGRAM. DELETE ABOVE TO DO THIS^^
             MockSheet = statistics.GetSheet();
+
+            CurrentHoleId = UserRepository.Instance.Get().CurrentHolesFilled;
         }
 
         public Course CurrentCourse { get; private set; }
@@ -36,12 +37,34 @@ namespace ProtoWeb.Pages.Statistics
         {
             CurrentCourse = courses.GetCourse(1);
             Holes = courses.AllHoles(1);
+            statistics.UpdateSheet(MockSheet);
 
             return Page();
         }
-        public void OnPost()
+
+        public IActionResult OnPostMissFairwayLeft()
         {
+            MockSheet.FairWayMissLeft++;
+            MockSheet.TotalFairwayStrokes++;
             statistics.UpdateSheet(MockSheet);
+
+            return RedirectToPage("InputStats2");
+        }
+        public IActionResult OnPostHitFairway()
+        {
+            MockSheet.FairWayHit++;
+            MockSheet.TotalFairwayStrokes++;
+            statistics.UpdateSheet(MockSheet);
+
+            return RedirectToPage("InputStats2");
+        }
+        public IActionResult OnPostMissFairwayRight()
+        {
+            MockSheet.FairWayMissRight++;
+            MockSheet.TotalFairwayStrokes++;
+            statistics.UpdateSheet(MockSheet);
+
+            return RedirectToPage("InputStats2");
         }
     }
 }

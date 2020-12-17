@@ -69,6 +69,23 @@ a {
     border-color: #1A281F;
 }
 
+/* Stats Input buttons */
+.btn-miss, .btn-hit {
+    color: white;
+    font-weight: bold;
+    border: none;
+    border-radius: 10px;
+    padding: 10px;
+}
+
+/*.btn-miss {
+    background-color: #AA5E39;
+}
+
+.btn-hit {
+    background-color: #599532;
+}*/
+
 .nav-pills .nav-link.active, .nav-pills .show > .nav-link {
     color: #fff4EC;
     background-color: #09BC8A;
@@ -163,21 +180,6 @@ table {
     padding-left: 5px;
     padding-right: 5px;
     box-shadow: inset 0 0 5px rgba(0,0,0,0.4);
-}
-
-/* Stats Input buttons */
-.btn-miss, .btn-hit {
-    color: white;
-    font-weight: bold;
-    border: none;
-    border-radius: 10px;
-    padding: 10px;
-}
-.btn-miss {
-    background-color: #AA5E39;
-}
-.btn-hit {
-    background-color: #599532;
 }
 
 /* Sticky footer styles

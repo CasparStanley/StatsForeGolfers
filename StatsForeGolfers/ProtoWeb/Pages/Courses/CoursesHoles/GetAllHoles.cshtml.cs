@@ -22,11 +22,14 @@ namespace ProtoWeb.Pages.Courses.CoursesHoles
             courses = repository;
         }
         public Dictionary<int,Hole> Holes { get; private set; }
-
+        
         public void OnGet(int id)
         {
-            Holes = courses.AllHoles(id);
-            courseId = id;
+           
+                Holes = courses.AllHoles(id);
+                courseId = id;
+           
+           
         }
     }
 }

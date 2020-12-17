@@ -35,46 +35,17 @@ namespace ProtoWeb.Pages
         public IActionResult OnGet()
         {
             CurrentUser = UserRepository.Instance.Get();
-            CurrentCourse = courses.GetCourse(UserRepository.Instance.Get().ClubId);
-            Holes = courses.AllHoles(UserRepository.Instance.Get().ClubId);
-
-            /*CurrentUser = new User(); { CurrentUser.Name = "Caspar"; }*/ // NEEDS TO BE A REAL USER FED THROUGH USER CREATION FLOW
-            //CurrentCourse = courses.GetCourse(1); // NEEDS CORRECT ID
-            //Holes = courses.AllHoles(UserRepository.Instance.Get().ClubId); // NEEDS CORRECT ID
+            CurrentCourse = courses.GetCourse(UserRepository.Instance.Get().CurrentCourseId);
+            Holes = courses.AllHoles(UserRepository.Instance.Get().CurrentCourseId);
 
             return Page();
         }
 
-        public void OnPost(int btnId)
+        public void OnPost()
         {
             CurrentUser = UserRepository.Instance.Get();
-            CurrentCourse = courses.GetCourse(UserRepository.Instance.Get().ClubId);
-            Holes = courses.AllHoles(UserRepository.Instance.Get().ClubId);
-
-            //CurrentCourse = courses.GetCourse(1);
-            //Holes = courses.AllHoles(1);
-            //MockSheet = statistics.GetSheet();
-
-            switch (btnId)
-            {
-                case 0:
-                    {
-                        MockSheet.ScrambleMiss++;
-                        break;
-                    }
-                case 1:
-                    {
-                        MockSheet.ScrambleHit++;
-                        break;
-                    }
-                default:
-                    {
-                        // Error
-                        break;
-                    }
-            }
-
-            MockSheet.TotalScrambleStrokes++;
+            CurrentCourse = courses.GetCourse(UserRepository.Instance.Get().CurrentCourseId);
+            Holes = courses.AllHoles(UserRepository.Instance.Get().CurrentCourseId);
 
             statistics.UpdateSheet(MockSheet);
         }
