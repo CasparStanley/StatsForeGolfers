@@ -11,7 +11,8 @@
             <img src="../../../img/hole_icon.png" height="120" />
         </div>
         <p>
-            <a asp-page="CreateHoles" asp-route-id="@Model.courseId">Create Hole</a>
+            <a class="btn btn-danger" asp-page="../GetAllCourses">Back</a>
+            <a class="btn btn-primary" asp-page="CreateHoles" asp-route-id="@Model.courseId">Create Hole</a>
         </p>
 
         <table class="table">
@@ -60,6 +61,5 @@
                 }
             </tbody>
         </table>
-        <a class="btn btn-primary" asp-page="../GetAllCourses">Back</a>
     </div>
 </div>

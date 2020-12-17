@@ -11,39 +11,37 @@
             <img src="../../../../img/hole_icon.png" height="120" />
         </div>
         <div class="my-auto container frame">
-            <div class="row">
-                <div class="col-md-4">
-                    <form method="post">
-                        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-                        <input type="hidden" asp-for="@Model.Hole.HoleNo" />
-                        <div class="form-group">
-                            <label asp-for="@Model.Hole.HoleNo" class=""></label>
-                            <input asp-for="@Model.Hole.HoleNo" class="" />
-                            <span asp-validation-for="@Model.Hole.HoleNo" class="text-danger"></span>
-                        </div>
-                        <div class="form-group">
-                            <label asp-for="@Model.Hole.Par" class=""></label>
-                            <input asp-for="@Model.Hole.Par" class="" />
-                            <span asp-validation-for="@Model.Hole.Par" class="text-danger"></span>
-                        </div>
-                        <div class="form-group">
-                            <label asp-for="@Model.Hole.Length" class=""></label>
-                            <input asp-for="@Model.Hole.Length" class="" />
-                            <span asp-validation-for="@Model.Hole.Length" class="text-danger"></span>
-                        </div>
-                        <div class="form-group">
-                            <label asp-for="@Model.Hole.Handicap" class=""></label>
-                            <input asp-for="@Model.Hole.Handicap" class="" />
-                            <span asp-validation-for="@Model.Hole.Handicap" class="text-danger"></span>
-                        </div>
-                        <div class="form-group">
-                            <input type="submit" value="Save" class="btn btn-primary" />
-                        </div>
-                    </form>
-                </div>
-            </div>
-            <div>
-                <a class="link-dark" asp-page="GetAllHoles" asp-route-id="@Model.CurrentCourseId">Back to List</a>
+            <div class="col-md-4">
+                <form method="post">
+                    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                    <input type="hidden" asp-for="@Model.Hole.HoleNo" />
+                    <div class="form-group">
+                        <label asp-for="@Model.Hole.HoleNo" class=""></label>
+                        <input asp-for="@Model.Hole.HoleNo" class="" />
+                        <span asp-validation-for="@Model.Hole.HoleNo" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="@Model.Hole.Par" class=""></label>
+                        <input asp-for="@Model.Hole.Par" class="" />
+                        <span asp-validation-for="@Model.Hole.Par" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="@Model.Hole.Length" class=""></label>
+                        <input asp-for="@Model.Hole.Length" class="" />
+                        <span asp-validation-for="@Model.Hole.Length" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="@Model.Hole.Handicap" class=""></label>
+                        <input asp-for="@Model.Hole.Handicap" class="" />
+                        <span asp-validation-for="@Model.Hole.Handicap" class="text-danger"></span>
+                    </div>
+                    <div>
+                        <a class="btn btn-danger" asp-page="GetAllHoles" asp-route-id="@Model.CurrentCourseId">Cancel</a>
+                    </div>
+                    <div class="form-group pt-4">
+                        <input type="submit" value="Save" class="btn btn-primary" />
+                    </div>
+                </form>
             </div>
         </div>
     </div>

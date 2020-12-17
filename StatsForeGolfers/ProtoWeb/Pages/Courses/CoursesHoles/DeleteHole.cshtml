@@ -40,7 +40,7 @@
                     </dd>
                 </dl>
                 <button type="submit" class="btn btn-danger">Yes</button>
-                <a class="btn btn-primary" asp-page="/GetAllHoles">No</a>
+                <a class="btn btn-primary" asp-page="GetAllHoles" asp-route-id="@Model.CurrentCourseId">No</a>
             </form>
         </div>
     </div>

@@ -15,6 +15,7 @@ namespace ProtoWeb.Pages.Courses.CoursesHoles
         private ICourses courses;
         [BindProperty] 
         public Hole Hole { get; set; }
+        public int CurrentCourseId { get; set; }
 
         public DeleteHoleModel(ICourses repository)
         {
@@ -25,6 +26,8 @@ namespace ProtoWeb.Pages.Courses.CoursesHoles
         {
             Dictionary<int, Hole> holes = courses.AllHoles(id);
             Hole = holes[holeNo];
+            CurrentCourseId = id;
+
             return Page();
         }
 
