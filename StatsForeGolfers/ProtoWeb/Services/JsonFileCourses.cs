@@ -27,11 +27,9 @@ namespace ProtoWeb.Services
 
         public Dictionary<int, Hole> AllHoles(int coursesId)
         {
-           
             Dictionary<int, Course> courses = AllCourses();
             if (courses.ContainsKey(coursesId))
             {
-
                 return courses[coursesId].Holes;
             }
             return null;
