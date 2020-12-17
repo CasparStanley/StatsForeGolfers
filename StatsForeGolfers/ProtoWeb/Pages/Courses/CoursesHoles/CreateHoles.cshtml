@@ -6,10 +6,12 @@
 
 <div class="row justify-content-center p-4">
     <div class="col-auto">
+        <h1>Create Hole</h1>
+        <div class="img-fluid text-center">
+            <img src="../../../img/hole_icon.png" height="120" />
+        </div>
         <div class="my-auto container frame">
-            <h1 class="text-dark">Create Hole</h1>
             <form method="post">
-
                 <div class="form-group">
                     <label asp-for="@Model.Hole.HoleNo" class="control-label"> HoleNo </label>
                     <input asp-for="@Model.Hole.HoleNo" class="form-control" />
@@ -31,9 +33,14 @@
                     <input asp-for="@Model.Hole.Handicap" class="form-control" />
                     <span asp-validation-for="@Model.Hole.Handicap" class="text-danger"></span>
                 </div>
-                <div class="form-group">
-                    <input type="submit" id="Submit" value="Create" class="btn btn-primary" />
-                </div>
+                <dl class="row">
+                    <dt class="col-sm-2 pr-lg-5">
+                        <a class="btn btn-danger" asp-page="GetAllHoles" asp-route-id="@Model.CurrentCourseId">Cancel</a>
+                    </dt>
+                    <dt class="form-group col-sm-2 pl-lg-5">
+                        <input type="submit" id="Submit" value="Create" class="btn btn-primary" />
+                    </dt>
+                </dl>
             </form>
         </div>
     </div>
