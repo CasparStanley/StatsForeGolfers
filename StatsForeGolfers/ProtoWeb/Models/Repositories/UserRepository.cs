@@ -9,7 +9,8 @@ namespace ProtoWeb.Models
     {
         private static UserRepository _instance;
 
-        private List<User> users = new List<User>();
+        //private List<User> users = new List<User>();
+        private User userObject;
 
         private UserRepository()
         {
@@ -17,7 +18,8 @@ namespace ProtoWeb.Models
 
         public void Add(User user)
         {
-            users.Add(user);
+            //users.Add(user);
+            userObject = user;
         }
 
         public User Get()
@@ -26,14 +28,23 @@ namespace ProtoWeb.Models
              * Refactor to more specific fetching of users.
              */
 
-            if (users.Count > 0)
+            if (userObject != null)
             {
-                return users[0];
+                return userObject;
             }
             else
             {
                 return null;
             }
+
+            //if (users.Count > 0)
+            //{
+            //    return users[0];
+            //}
+            //else
+            //{
+            //    return null;
+            //}
         }
 
         public static UserRepository Instance

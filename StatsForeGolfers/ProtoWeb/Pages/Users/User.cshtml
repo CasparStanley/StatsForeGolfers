@@ -16,7 +16,7 @@
                 <div class="container-fluid">
                     <h4>What is Your Status?</h4>
                 </div>
-                <form name="formUser"  method="post">
+                <form name="formUser" method="post">
                     <div class="my-auto container frame">
                         <div style="padding-left: 1.25rem">
                             <input asp-for="@Model.UserData.Status" type="radio" name="Status" class="form-check-input" value="Amateur"/>
@@ -84,7 +84,7 @@
                             <br/>
 
                             <div class="form-group">
-                                <input type="submit" value="Create" class="btn btn-success"/>
+                                <input type="submit" value="Create" class="btn btn-success" asp-page-handler="UserCreate"/>
                             </div>
                         </div>
                     </div>

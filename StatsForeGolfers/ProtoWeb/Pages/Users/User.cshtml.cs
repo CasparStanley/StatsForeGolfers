@@ -16,21 +16,27 @@ namespace ProtoWeb.Users
 
         public IActionResult OnPost()
         {
-            UserRepository.Instance.Add(UserData);
-            
-            if (UserRepository.Instance.Get() != null)
-            {
-                Debug.WriteLine(UserRepository.Instance.Get().Name);
-                Debug.WriteLine(UserRepository.Instance.Get().HomeClub);
-            }
-
             if (!ModelState.IsValid)
             {
                 return Page();
             }
 
-            //return RedirectToPage("../Courses/CreateCourse");
+            //return RedirectToPage("/Courses/GetAllCourses");
             return Page();
+        }
+
+        public IActionResult OnPostUserCreate()
+        {
+            UserRepository.Instance.Add(UserData);
+
+            if (UserRepository.Instance.Get() != null)
+            {
+                Debug.WriteLine(UserRepository.Instance.Get().Name);
+                Debug.WriteLine(UserRepository.Instance.Get().HomeClub);
+                Debug.WriteLine("User");
+            }
+
+            return RedirectToPage("/Courses/GetAllCourses");
         }
     }
 }
