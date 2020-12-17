@@ -6,51 +6,53 @@
 
 <div class="row justify-content-center p-4">
     <div class="col-md-4">
-        <h1> Update ProStats Data</h1>
-        <form method="post">
-            <input type="hidden" asp-for="@Model.ProStats.Id" />
-            <div class="form-group">
-                <label asp-for="@Model.ProStats.Id" class="control-lable"></label>
-                <input asp-for="@Model.ProStats.Id" class="form-control" />
-                <span asp-validation-for="ProStats.Id" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="@Model.ProStats.Name" class="control-lable"></label>
-                <input asp-for="@Model.ProStats.Name" class="form-control" />
-                <span asp-validation-for="ProStats.Name" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="@Model.ProStats.ScoringAverage" class="control-lable"></label>
-                <input asp-for="@Model.ProStats.ScoringAverage" class="form-control" />
-                <span asp-validation-for="ProStats.ScoringAverage" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="@Model.ProStats.DrivingDistance" class="control-lable"></label>
-                <input asp-for="@Model.ProStats.DrivingDistance" class="form-control" />
-                <span asp-validation-for="ProStats.DrivingDistance" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="@Model.ProStats.FairwayAverage" class="control-lable"></label>
-                <input asp-for="@Model.ProStats.FairwayAverage" class="form-control" />
-                <span asp-validation-for="ProStats.FairwayAverage" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="@Model.ProStats.GreenInRegAverage" class="control-lable"></label>
-                <input asp-for="@Model.ProStats.GreenInRegAverage" class="form-control" />
-                <span asp-validation-for="ProStats.GreenInRegAverage" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="@Model.ProStats.ScramblingAverage" class="control-lable"></label>
-                <input asp-for="@Model.ProStats.ScramblingAverage" class="form-control" />
-                <span asp-validation-for="ProStats.ScramblingAverage" class="text-danger"></span>
-            </div>
+        <h1>Update ProStats Data</h1>
+        <div class="my-auto container frame">
+            <form method="post">
+                <input type="hidden" asp-for="@Model.ProStats.Id" />
+                <div class="form-group">
+                    <label asp-for="@Model.ProStats.Id" class="control-label"></label>
+                    <input asp-for="@Model.ProStats.Id" class="form-control" />
+                    <span asp-validation-for="ProStats.Id" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="@Model.ProStats.Name" class="control-label"></label>
+                    <input asp-for="@Model.ProStats.Name" class="form-control" />
+                    <span asp-validation-for="ProStats.Name" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="@Model.ProStats.ScoringAverage" class="control-label"></label>
+                    <input asp-for="@Model.ProStats.ScoringAverage" class="form-control" />
+                    <span asp-validation-for="ProStats.ScoringAverage" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="@Model.ProStats.DrivingDistance" class="control-label"></label>
+                    <input asp-for="@Model.ProStats.DrivingDistance" class="form-control" />
+                    <span asp-validation-for="ProStats.DrivingDistance" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="@Model.ProStats.FairwayAverage" class="control-label"></label>
+                    <input asp-for="@Model.ProStats.FairwayAverage" class="form-control" />
+                    <span asp-validation-for="ProStats.FairwayAverage" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="@Model.ProStats.GreenInRegAverage" class="control-label"></label>
+                    <input asp-for="@Model.ProStats.GreenInRegAverage" class="form-control" />
+                    <span asp-validation-for="ProStats.GreenInRegAverage" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="@Model.ProStats.ScramblingAverage" class="control-label"></label>
+                    <input asp-for="@Model.ProStats.ScramblingAverage" class="form-control" />
+                    <span asp-validation-for="ProStats.ScramblingAverage" class="text-danger"></span>
+                </div>
 
-            <div class="form-group">
-                <input type="submit" value="Save" class="btn btn-primary" />
+                <div class="form-group">
+                    <input type="submit" value="Save" class="btn btn-primary" />
+                </div>
+            </form>
+            <div>
+                <a class="link-dark" asp-page="ProStatistics">Back to List</a>
             </div>
-        </form>
-        <div>
-            <a asp-page="Index">Back to List</a>
         </div>
     </div>
 </div>
