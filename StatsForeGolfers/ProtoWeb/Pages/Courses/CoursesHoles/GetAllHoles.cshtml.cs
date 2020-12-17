@@ -25,11 +25,10 @@ namespace ProtoWeb.Pages.Courses.CoursesHoles
         
         public void OnGet(int id)
         {
-           
-                Holes = courses.AllHoles(id);
-                courseId = id;
-           
-           
+            Holes = courses.AllHoles(id);
+            courseId = id;
+
+            Course = courses.GetCourse(id);
         }
     }
 }

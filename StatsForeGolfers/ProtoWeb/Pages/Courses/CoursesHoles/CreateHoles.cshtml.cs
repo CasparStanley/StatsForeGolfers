@@ -13,6 +13,7 @@ namespace ProtoWeb.Pages.Courses.CoursesHoles
     {
         [BindProperty]
         public Hole Hole { get; set; }
+        public int CurrentCourseId { get; set; }
 
         private ICourses courses;
         public CreateHolesModel(ICourses repository)
@@ -20,8 +21,10 @@ namespace ProtoWeb.Pages.Courses.CoursesHoles
             courses = repository;
         }
 
-        public IActionResult OnGet()
+        public IActionResult OnGet(int id)
         {
+            CurrentCourseId = id;
+
             return Page();
         }
 
@@ -31,7 +34,8 @@ namespace ProtoWeb.Pages.Courses.CoursesHoles
             {
                 return Page();
             }
-            courses.AddHole(Hole,id);
+            courses.AddHole(Hole, id);
+
             return RedirectToPage("../GetAllCourses");
         }
     }

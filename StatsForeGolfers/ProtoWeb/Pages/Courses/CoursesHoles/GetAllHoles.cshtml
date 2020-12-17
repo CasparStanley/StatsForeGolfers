@@ -6,6 +6,10 @@
 
 <div class="row justify-content-center p-4">
     <div class="col-auto">
+        <h1>All Holes - @Model.Course.Name</h1>
+        <div class="img-fluid text-center">
+            <img src="../../../img/hole_icon.png" height="120" />
+        </div>
         <p>
             <a asp-page="CreateHoles" asp-route-id="@Model.courseId">Create Hole</a>
         </p>
@@ -30,31 +34,32 @@
             <tbody>
                 @if (Model.Holes != null)
                 {
-                @foreach (var item in Model.Holes)
-                {
-                    <tr>
-                        <td>
-                            @item.Value.HoleNo
-                        </td>
-                        <td>
-                            @item.Value.Par
-                        </td>
-                        <td>
-                            @item.Value.Length
-                        </td>
-                        <td>
-                            @item.Value.Handicap
-                        </td>
-                        <td>
-                            <p>
-                                <a class="link-dark" asp-page="EditHole" asp-route-holeNo="@item.Key" asp-route-id="@Model.courseId">Edit</a> |
-                                <a class="link-dark" asp-page="DeleteHole" asp-route-HoleNo="@item.Key" asp-route-id="@Model.courseId">Delete</a>
-                            </p>
-                        </td>
-                    </tr>
-                }
+                    @foreach (var item in Model.Holes)
+                    {
+                        <tr>
+                            <td>
+                                @item.Value.HoleNo
+                            </td>
+                            <td>
+                                @item.Value.Par
+                            </td>
+                            <td>
+                                @item.Value.Length
+                            </td>
+                            <td>
+                                @item.Value.Handicap
+                            </td>
+                            <td>
+                                <p>
+                                    <a class="link-dark" asp-page="EditHole" asp-route-holeNo="@item.Key" asp-route-id="@Model.courseId">Edit</a> |
+                                    <a class="link-dark" asp-page="DeleteHole" asp-route-HoleNo="@item.Key" asp-route-id="@Model.courseId">Delete</a>
+                                </p>
+                            </td>
+                        </tr>
+                    }
                 }
             </tbody>
         </table>
+        <a class="btn btn-primary" asp-page="../GetAllCourses">Back</a>
     </div>
 </div>
