@@ -15,7 +15,7 @@ namespace ProtoWeb.Pages.Statistics
         private ICourses courses;
 
         [BindProperty]
-        public StatSheet MockSheet { get; private set; }
+        public StatSheet MyStatSheet { get; private set; }
 
         public int CurrentHoleId { get; private set; }
 
@@ -24,7 +24,7 @@ namespace ProtoWeb.Pages.Statistics
             statistics = statsRepo;
             courses = courseRepo;
 
-            MockSheet = statistics.GetSheet();
+            MyStatSheet = statistics.GetSheet();
 
             CurrentHoleId = UserRepository.Instance.Get().CurrentHolesFilled;
         }
@@ -40,36 +40,41 @@ namespace ProtoWeb.Pages.Statistics
 
         public IActionResult OnPostMissGreenLeft()
         {
-            MockSheet.GreenMissLeft++;
-            MockSheet.TotalGreenStrokes++;
-            statistics.UpdateSheet(MockSheet);
+            MyStatSheet.GreenMissLeft++;
+            MyStatSheet.TotalGreenStrokes++;
+            statistics.UpdateSheet(MyStatSheet);
 
             return RedirectToPage("InputStats3");
         }
 
         public IActionResult OnPostHitGreen()
         {
-            MockSheet.GreenHit++;
-            MockSheet.TotalGreenStrokes++;
-            statistics.UpdateSheet(MockSheet);
+            MyStatSheet.GreenHit++;
+            MyStatSheet.TotalGreenStrokes++;
+            statistics.UpdateSheet(MyStatSheet);
 
             int id = UserRepository.Instance.Get().CurrentCourseId;
             if (courses.GetCourse(id).Holes.Count > UserRepository.Instance.Get().CurrentHolesFilled)
             {
                 UserRepository.Instance.Get().CurrentHolesFilled++;
-                return RedirectToPage("InputStats1");
+
+                // If the current holes par is more than 3, we go to the fairway. Otherwise, we skip the fairway shot.
+                if (courses.GetCourse(id).Holes[UserRepository.Instance.Get().CurrentHolesFilled].Par > 3)
+                    return RedirectToPage("InputStats1");
+                else
+                    return RedirectToPage("InputStats2");
             }
             else
             {
-                return RedirectToPage("../ShowResults");
+                return RedirectToPage("InputStats4");
             }
         }
 
         public IActionResult OnPostMissGreenRight()
         {
-            MockSheet.GreenMissRight++;
-            MockSheet.TotalGreenStrokes++;
-            statistics.UpdateSheet(MockSheet);
+            MyStatSheet.GreenMissRight++;
+            MyStatSheet.TotalGreenStrokes++;
+            statistics.UpdateSheet(MyStatSheet);
 
             return RedirectToPage("InputStats3");
         }

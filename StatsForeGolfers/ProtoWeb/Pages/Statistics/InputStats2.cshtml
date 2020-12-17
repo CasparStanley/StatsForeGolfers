@@ -20,13 +20,13 @@
                     </tr>
                     <tr>
                         <td class="p-2">
-                            <input asp-for="@Model.MockSheet" asp-page-handler="MissGreenLeft" type="submit" class="btn-danger btn-miss" value="Miss" />
+                            <input asp-for="@Model.MyStatSheet" asp-page-handler="MissGreenLeft" type="submit" class="btn-danger btn-miss" value="Miss" />
                         </td>
                         <td class="p-2">
-                            <input asp-for="@Model.MockSheet" asp-page-handler="HitGreen" type="submit" class="btn-primary btn-hit" value="Hit" />
+                            <input asp-for="@Model.MyStatSheet" asp-page-handler="HitGreen" type="submit" class="btn-primary btn-hit" value="Hit" />
                         </td>
                         <td class="p-2">
-                            <input asp-for="@Model.MockSheet" asp-page-handler="MissGreenRight" type="submit" class="btn-danger btn-miss" value="Miss" />
+                            <input asp-for="@Model.MyStatSheet" asp-page-handler="MissGreenRight" type="submit" class="btn-danger btn-miss" value="Miss" />
                         </td>
                     </tr>
                 </table>
@@ -34,21 +34,35 @@
         </div>
         <br />
         <div class="my-auto container frame">
-            <div>
-                <br />
-                <p class="text-dark">
-                    Debug:
-                </p>
-                <p class="text-dark">
-                    Fairway misses left: @Model.MockSheet.FairWayMissLeft
-                </p>
-                <p class="text-dark">
-                    Fairway hits: @Model.MockSheet.FairWayHit
-                </p>
-                <p class="text-dark">
-                    Fairway misses right: @Model.MockSheet.FairWayMissRight
-                </p>
-            </div>
+            <p class="text-dark">
+                Your Statistics:
+            </p>
+            <p class="text-dark">
+                Fairway misses left: @Model.MyStatSheet.FairWayMissLeft
+            </p>
+            <p class="text-dark">
+                Fairway hits: @Model.MyStatSheet.FairWayHit
+            </p>
+            <p class="text-dark">
+                Fairway misses right: @Model.MyStatSheet.FairWayMissRight
+            </p>
+            <br />
+            <p class="text-dark">
+                Green misses left: @Model.MyStatSheet.GreenMissLeft
+            </p>
+            <p class="text-dark">
+                Green hits: @Model.MyStatSheet.GreenHit
+            </p>
+            <p class="text-dark">
+                Green misses right: @Model.MyStatSheet.GreenMissRight
+            </p>
+            <br />
+            <p class="text-dark">
+                Scramble outs: @Model.MyStatSheet.ScrambleMiss
+            </p>
+            <p class="text-dark">
+                Scramble ins: @Model.MyStatSheet.ScrambleHit
+            </p>
         </div>
     </div>
 </div>

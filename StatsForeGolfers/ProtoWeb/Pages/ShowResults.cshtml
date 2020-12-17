@@ -99,30 +99,41 @@
                     <thead>
                         <tr>
                             <th>
+
+                            </th>
+                            <th>
                                 Handicap
                             </th>
                             <th>
-                                Fairway Hit
+                                Total Score
                             </th>
                             <th>
-                                Fairway Miss Left/Right
+                                Fairway Average
                             </th>
                             <th>
-                                Green Hit
+                                Fairway Miss Left/Right Average
                             </th>
                             <th>
-                                Green Miss Left/Right
+                                Green In Reg. Average
                             </th>
                             <th>
-                                Scramble In/Out
+                                Green Miss Left/Right Average
+                            </th>
+                            <th>
+                                Scramble In/Out Average
                             </th>
                         </tr>
                     </thead>
                     <tbody>
                         <tr>
                             <td>
-                                @*@Model.CurrentUser.Handicap*@
-                                User HCP
+                                Your Stats
+                            </td>
+                            <td>
+                                @Model.CurrentUser.Handicap
+                            </td>
+                            <td>
+                                @Model.MyStatSheet.TotalScore
                             </td>
                             <td>
                                 @Model.FairwayHit()%
@@ -141,6 +152,35 @@
                             </td>
                         </tr>
                         <tr>
+                            <td>
+                                Pro Stats
+                            </td>
+                            <td>
+                            </td>
+                            <td>
+                                @Model.CurrentProStatsShown.ScoringAverage
+                            </td>
+                            <td>
+                                @Model.CurrentProStatsShown.FairwayAverage%
+                            </td>
+                            <td>
+                                
+                            </td>
+                            <td>
+                                @Model.CurrentProStatsShown.GreenInRegAverage%
+                            </td>
+                            <td>
+                                
+                            </td>
+                            <td>
+                                @Model.CurrentProStatsShown.ScramblingAverage%
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                            </td>
+                            <td>
+                            </td>
                             <td>
                             </td>
                             <td>
@@ -165,33 +205,33 @@
                 <br />
                 <div class="my-auto container frame">
                     <p class="text-dark">
-                        Debug:
+                        Your Statistics:
                     </p>
                     <p class="text-dark">
-                        Fairway misses left: @Model.MockSheet.FairWayMissLeft
+                        Fairway misses left: @Model.MyStatSheet.FairWayMissLeft
                     </p>
                     <p class="text-dark">
-                        Fairway hits: @Model.MockSheet.FairWayHit
+                        Fairway hits: @Model.MyStatSheet.FairWayHit
                     </p>
                     <p class="text-dark">
-                        Fairway misses right: @Model.MockSheet.FairWayMissRight
-                    </p>
-                    <br />
-                    <p class="text-dark">
-                        Green misses left: @Model.MockSheet.GreenMissLeft
-                    </p>
-                    <p class="text-dark">
-                        Green hits: @Model.MockSheet.GreenHit
-                    </p>
-                    <p class="text-dark">
-                        Green misses right: @Model.MockSheet.GreenMissRight
+                        Fairway misses right: @Model.MyStatSheet.FairWayMissRight
                     </p>
                     <br />
                     <p class="text-dark">
-                        Scramble in: @Model.MockSheet.ScrambleHit
+                        Green misses left: @Model.MyStatSheet.GreenMissLeft
                     </p>
                     <p class="text-dark">
-                        Scramble out: @Model.MockSheet.ScrambleMiss
+                        Green hits: @Model.MyStatSheet.GreenHit
+                    </p>
+                    <p class="text-dark">
+                        Green misses right: @Model.MyStatSheet.GreenMissRight
+                    </p>
+                    <br />
+                    <p class="text-dark">
+                        Scramble in: @Model.MyStatSheet.ScrambleHit
+                    </p>
+                    <p class="text-dark">
+                        Scramble out: @Model.MyStatSheet.ScrambleMiss
                     </p>
                 </div>
             </div>

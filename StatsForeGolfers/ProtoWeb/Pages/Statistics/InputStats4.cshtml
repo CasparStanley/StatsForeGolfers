@@ -1,35 +1,30 @@
 ﻿@page
-@model ProtoWeb.Pages.Statistics.InputStats1Model
+@model ProtoWeb.Pages.Statistics.InputStats4Model
 @{
-    ViewData["Title"] = "InputStats1";
+    ViewData["Title"] = "InputStats4";
 }
 
 <div class="row justify-content-center p-4">
     <div class="col-auto">
-        <h1> Hole @Model.CurrentHoleId</h1>
-        <div class="my-auto container frame">
+        <div class="form-check">
+            <div class="container-fluid">
+                <h4>Hole @Model.CurrentHoleId - Total Score</h4>
+            </div>
             <form method="post">
-                <table class="text-center">
-                    <tr>
-                        <td colspan="3">Fairway</td>
-                    </tr>
-                    <tr>
-                        <td>Left</td>
-                        <td></td>
-                        <td>Right</td>
-                    </tr>
-                    <tr>
-                        <td class="p-2">
-                            <input asp-for="@Model.MyStatSheet.FairWayMissLeft" asp-page-handler="MissFairwayLeft" type="submit" class="btn-danger btn-miss" value="Miss" />
-                        </td>
-                        <td class="p-2">
-                            <input asp-for="@Model.MyStatSheet.FairWayHit" asp-page-handler="HitFairway" type="submit" class="btn-primary btn-hit" value="Hit" />
-                        </td>
-                        <td class="p-2">
-                            <input asp-for="@Model.MyStatSheet.FairWayMissRight" asp-page-handler="MissFairwayRight" type="submit" class="btn-danger btn-miss" value="Miss" />
-                        </td>
-                    </tr>
-                </table>
+                <div class="my-auto container frame">
+                    <div style="padding-left: 1.25rem">
+                        @*<h4 class="text-dark">Total Score</h4>*@
+                        <input asp-for="@Model.TotalScoreValue" type="number" name="TotalScoreValue" class="form-check-input textField" value="Your Total Score" />
+                        <label asp-for="@Model.TotalScoreValue" class="control-label">
+                            Your Total Score
+                        </label>
+                        <span asp-validation-for="@Model.TotalScoreValue" class="text-danger"></span>
+
+                        <div class="form-group pt-4">
+                            <input type="submit" value="Create" class="btn btn-primary" asp-page-handler="TotalScore" />
+                        </div>
+                    </div>
+                </div>
             </form>
         </div>
         <br />

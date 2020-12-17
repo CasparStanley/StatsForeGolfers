@@ -9,7 +9,7 @@ using ProtoWeb.Models;
 
 namespace ProtoWeb.Pages.Statistics
 {
-    public class InputStats1Model : PageModel
+    public class InputStats4Model : PageModel
     {
         private IStatistics statistics;
         private ICourses courses;
@@ -17,14 +17,16 @@ namespace ProtoWeb.Pages.Statistics
         [BindProperty]
         public StatSheet MyStatSheet { get; private set; }
 
+        [BindProperty]
+        public int TotalScoreValue { get; set; }
+
         public int CurrentHoleId { get; private set; }
 
-        public InputStats1Model(IStatistics statsRepo, ICourses courseRepo)
+        public InputStats4Model(IStatistics statsRepo, ICourses courseRepo)
         {
             statistics = statsRepo;
             courses = courseRepo;
 
-            // TO USE A SHEET THAT IS SAVED BETWEEN RESTARTING PROGRAM. DELETE ABOVE TO DO THIS^^
             MyStatSheet = statistics.GetSheet();
 
             CurrentHoleId = UserRepository.Instance.Get().CurrentHolesFilled;
@@ -37,34 +39,24 @@ namespace ProtoWeb.Pages.Statistics
         {
             CurrentCourse = courses.GetCourse(1);
             Holes = courses.AllHoles(1);
-            statistics.UpdateSheet(MyStatSheet);
 
             return Page();
         }
 
-        public IActionResult OnPostMissFairwayLeft()
+        public IActionResult OnPost()
         {
-            MyStatSheet.FairWayMissLeft++;
-            MyStatSheet.TotalFairwayStrokes++;
-            statistics.UpdateSheet(MyStatSheet);
+            CurrentCourse = courses.GetCourse(1);
+            Holes = courses.AllHoles(1);
 
-            return RedirectToPage("InputStats2");
+            return Page();
         }
-        public IActionResult OnPostHitFairway()
+
+        public IActionResult OnPostTotalScore()
         {
-            MyStatSheet.FairWayHit++;
-            MyStatSheet.TotalFairwayStrokes++;
+            MyStatSheet.TotalScore = TotalScoreValue;
             statistics.UpdateSheet(MyStatSheet);
 
-            return RedirectToPage("InputStats2");
-        }
-        public IActionResult OnPostMissFairwayRight()
-        {
-            MyStatSheet.FairWayMissRight++;
-            MyStatSheet.TotalFairwayStrokes++;
-            statistics.UpdateSheet(MyStatSheet);
-
-            return RedirectToPage("InputStats2");
+            return RedirectToPage("../ShowResults");
         }
     }
 }
