@@ -34,18 +34,26 @@ namespace ProtoWeb.Pages
 
         public IActionResult OnGet()
         {
-            CurrentUser = new User(); { CurrentUser.Name = "Caspar"; } // NEEDS TO BE A REAL USER FED THROUGH USER CREATION FLOW
-            CurrentCourse = courses.GetCourse(1); // NEEDS CORRECT ID
-            Holes = courses.AllHoles(1); // NEEDS CORRECT ID
+            CurrentUser = UserRepository.Instance.Get();
+            CurrentCourse = courses.GetCourse(UserRepository.Instance.Get().ClubId);
+            Holes = courses.AllHoles(UserRepository.Instance.Get().ClubId);
+
+            /*CurrentUser = new User(); { CurrentUser.Name = "Caspar"; }*/ // NEEDS TO BE A REAL USER FED THROUGH USER CREATION FLOW
+            //CurrentCourse = courses.GetCourse(1); // NEEDS CORRECT ID
+            //Holes = courses.AllHoles(UserRepository.Instance.Get().ClubId); // NEEDS CORRECT ID
 
             return Page();
         }
 
         public void OnPost(int btnId)
         {
-            CurrentCourse = courses.GetCourse(1);
-            Holes = courses.AllHoles(1);
-            MockSheet = statistics.GetSheet();
+            CurrentUser = UserRepository.Instance.Get();
+            CurrentCourse = courses.GetCourse(UserRepository.Instance.Get().ClubId);
+            Holes = courses.AllHoles(UserRepository.Instance.Get().ClubId);
+
+            //CurrentCourse = courses.GetCourse(1);
+            //Holes = courses.AllHoles(1);
+            //MockSheet = statistics.GetSheet();
 
             switch (btnId)
             {
