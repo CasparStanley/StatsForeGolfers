@@ -17,16 +17,17 @@ namespace ProtoWeb.Pages.Statistics
         [BindProperty]
         public StatSheet MockSheet { get; private set; }
 
+        public int CurrentHoleId { get; private set; }
+
         public InputStats1Model(IStatistics statsRepo, ICourses courseRepo)
         {
             statistics = statsRepo;
             courses = courseRepo;
 
-            // TO CREATE A NEW SHEET EVERY TIME WE START THE PROGRAM.
-            statistics.CreateSheet(new StatSheet());
-
             // TO USE A SHEET THAT IS SAVED BETWEEN RESTARTING PROGRAM. DELETE ABOVE TO DO THIS^^
             MockSheet = statistics.GetSheet();
+
+            CurrentHoleId = UserRepository.Instance.Get().CurrentHolesFilled;
         }
 
         public Course CurrentCourse { get; private set; }

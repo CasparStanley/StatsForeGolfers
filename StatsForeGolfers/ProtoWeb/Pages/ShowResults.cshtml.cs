@@ -35,8 +35,8 @@ namespace ProtoWeb.Pages
         public IActionResult OnGet()
         {
             CurrentUser = UserRepository.Instance.Get();
-            CurrentCourse = courses.GetCourse(UserRepository.Instance.Get().ClubId);
-            Holes = courses.AllHoles(UserRepository.Instance.Get().ClubId);
+            CurrentCourse = courses.GetCourse(UserRepository.Instance.Get().CurrentCourseId);
+            Holes = courses.AllHoles(UserRepository.Instance.Get().CurrentCourseId);
 
             return Page();
         }
@@ -44,8 +44,8 @@ namespace ProtoWeb.Pages
         public void OnPost()
         {
             CurrentUser = UserRepository.Instance.Get();
-            CurrentCourse = courses.GetCourse(UserRepository.Instance.Get().ClubId);
-            Holes = courses.AllHoles(UserRepository.Instance.Get().ClubId);
+            CurrentCourse = courses.GetCourse(UserRepository.Instance.Get().CurrentCourseId);
+            Holes = courses.AllHoles(UserRepository.Instance.Get().CurrentCourseId);
 
             statistics.UpdateSheet(MockSheet);
         }
