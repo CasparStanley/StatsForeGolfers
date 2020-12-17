@@ -116,7 +116,14 @@ namespace ProtoWeb.Services
         public void AddCourse(Course course)
         {
             Dictionary<int, Course> courses = AllCourses();
-            courses.Add(course.Id,course);
+            try
+            {
+                courses.Add(course.Id, course);
+            }
+            catch
+            {
+                // error
+            }
             JsonHelper.WriteCourse(courses,JsonFileName);
         }
     }
