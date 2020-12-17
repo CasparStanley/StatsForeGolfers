@@ -36,7 +36,7 @@ namespace ProtoWeb.Users
                 Debug.WriteLine("User");
             }
 
-            return RedirectToPage("/Courses/GetAllCourses");
+            return RedirectToPage("/Courses/SelectCourse");
         }
     }
 }

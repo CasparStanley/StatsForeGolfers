@@ -29,7 +29,6 @@ namespace ProtoWeb.Pages.Courses
             {
                 Courses = courses.FilterCourse(FilterCriteria);
             }
-            Debug.WriteLine("GetAll OnGet");
 
             return Page();
         }
@@ -40,19 +39,6 @@ namespace ProtoWeb.Pages.Courses
             if (!string.IsNullOrEmpty(FilterCriteria))
             {
                 Courses = courses.FilterCourse(FilterCriteria);
-            }
-            Debug.WriteLine("GetAll OnPost");
-
-            return Page();
-        }
-
-        public IActionResult OnPostUserCreate()
-        {
-            if (UserRepository.Instance.Get() != null)
-            {
-                Debug.WriteLine(UserRepository.Instance.Get().Name);
-                Debug.WriteLine(UserRepository.Instance.Get().HomeClub);
-                Debug.WriteLine("GetAllCOurses");
             }
 
             return Page();

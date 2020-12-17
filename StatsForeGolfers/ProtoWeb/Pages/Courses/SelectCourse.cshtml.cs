@@ -29,7 +29,6 @@ namespace ProtoWeb.Pages.Courses
             {
                 Courses = courses.FilterCourse(FilterCriteria);
             }
-            Debug.WriteLine("GetAll OnGet");
 
             return Page();
         }
@@ -41,21 +40,15 @@ namespace ProtoWeb.Pages.Courses
             {
                 Courses = courses.FilterCourse(FilterCriteria);
             }
-            Debug.WriteLine("GetAll OnPost");
 
             return Page();
         }
 
-        public IActionResult OnPostUserCreate()
+        public IActionResult OnPostSelectCourse(int id)
         {
-            if (UserRepository.Instance.Get() != null)
-            {
-                Debug.WriteLine(UserRepository.Instance.Get().Name);
-                Debug.WriteLine(UserRepository.Instance.Get().HomeClub);
-                Debug.WriteLine("GetAllCOurses");
-            }
+            UserRepository.Instance.Get().ClubId = id;
 
-            return Page();
+            return RedirectToPage("/Statistics/InputStats1");
         }
     }
 }

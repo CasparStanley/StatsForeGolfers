@@ -30,7 +30,11 @@
                 {
                     <tr>
                         <td>
-                            <a class="link-dark" asp-page="CoursesHoles/GetAllHoles" asp-route-id="@item.Key"> @item.Value.Name</a>
+                            @*<a class="link-dark" asp-page="/Statistics/InputStats1" asp-route-id="@item.Key"> @item.Value.Name</a>*@
+                            <form asp-page-handler="SelectCourse" method="post">
+                                <button>@item.Value.Name</button>
+                                <input type="hidden" name="id" value="@item.Key"/>
+                            </form>
                         </td>
                     </tr>
                 }

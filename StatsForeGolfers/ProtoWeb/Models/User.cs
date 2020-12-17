@@ -12,7 +12,7 @@ namespace ProtoWeb.Models
         public int MemberId { get; set; }
         public double Handicap { get; set; }
         public string Status { get; set; }
-
+        public int ClubId { get; set; }
     }
 
     
