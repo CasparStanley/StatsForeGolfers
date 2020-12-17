@@ -4,7 +4,6 @@
 @{
     ViewData["Title"] = "ProStatistics";
 }
-<h1>ProStatistics</h1>
 
 <div class="row justify-content-center p-4">
     <div class="col-auto">
@@ -58,7 +57,7 @@
                             @item.ScramblingAverage
                         </td>
                             <td>
-                                <a asp-page="EditProStats" asp-route-id="@item.Id">Update Stats</a>
+                                <a class="link-dark" asp-page="EditProStats" asp-route-id="@item.Id">Update Stats</a>
                             </td>
                     </tr>
                 }
