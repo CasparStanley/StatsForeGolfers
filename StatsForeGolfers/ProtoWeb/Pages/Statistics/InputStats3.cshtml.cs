@@ -36,38 +36,22 @@ namespace ProtoWeb.Pages.Statistics
             return Page();
         }
 
-        public void OnPost(int btnId)
+        public IActionResult OnPostScrambleIn()
         {
-            CurrentCourse = courses.GetCourse(1);
-            Holes = courses.AllHoles(1);
-
-            switch (btnId)
-            {
-                case 0:
-                    {
-                        MockSheet.GreenMissLeft++;
-                        break;
-                    }
-                case 1:
-                    {
-                        MockSheet.GreenHit++;
-                        break;
-                    }
-                case 2:
-                    {
-                        MockSheet.GreenMissRight++;
-                        break;
-                    }
-                default:
-                    {
-                        // Error
-                        break;
-                    }
-            }
-
-            MockSheet.TotalGreenStrokes++;
-
+            MockSheet.ScrambleHit++;
+            MockSheet.TotalScrambleStrokes++;
             statistics.UpdateSheet(MockSheet);
+
+            return RedirectToPage("../ShowResults");
+        }
+
+        public IActionResult OnPostScrambleOut()
+        {
+            MockSheet.ScrambleMiss++;
+            MockSheet.TotalScrambleStrokes++;
+            statistics.UpdateSheet(MockSheet);
+
+            return RedirectToPage("../ShowResults");
         }
     }
 }

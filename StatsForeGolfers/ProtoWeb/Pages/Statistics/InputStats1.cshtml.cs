@@ -36,12 +36,34 @@ namespace ProtoWeb.Pages.Statistics
         {
             CurrentCourse = courses.GetCourse(1);
             Holes = courses.AllHoles(1);
+            statistics.UpdateSheet(MockSheet);
 
             return Page();
         }
-        public void OnPost()
+
+        public IActionResult OnPostMissFairwayLeft()
         {
+            MockSheet.FairWayMissLeft++;
+            MockSheet.TotalFairwayStrokes++;
             statistics.UpdateSheet(MockSheet);
+
+            return RedirectToPage("InputStats2");
+        }
+        public IActionResult OnPostHitFairway()
+        {
+            MockSheet.FairWayHit++;
+            MockSheet.TotalFairwayStrokes++;
+            statistics.UpdateSheet(MockSheet);
+
+            return RedirectToPage("InputStats2");
+        }
+        public IActionResult OnPostMissFairwayRight()
+        {
+            MockSheet.FairWayMissRight++;
+            MockSheet.TotalFairwayStrokes++;
+            statistics.UpdateSheet(MockSheet);
+
+            return RedirectToPage("InputStats2");
         }
     }
 }

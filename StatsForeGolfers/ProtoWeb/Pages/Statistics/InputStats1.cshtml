@@ -20,13 +20,13 @@
                     </tr>
                     <tr>
                         <td class="p-2">
-                            <input asp-for="@Model.MockSheet.FairWayMissLeft" asp-page="InputStats2" asp-route-btnId="0" type="submit" class="btn-danger btn-miss" value="Miss" />
+                            <input asp-for="@Model.MockSheet.FairWayMissLeft" asp-page-handler="MissFairwayLeft" type="submit" class="btn-danger btn-miss" value="Miss" />
                         </td>
                         <td class="p-2">
-                            <input asp-for="@Model.MockSheet.FairWayHit" asp-page="InputStats2" asp-route-btnId="1" type="submit" class="btn-primary btn-hit" value="Hit" />
+                            <input asp-for="@Model.MockSheet.FairWayHit" asp-page-handler="HitFairway" type="submit" class="btn-primary btn-hit" value="Hit" />
                         </td>
                         <td class="p-2">
-                            <input asp-for="@Model.MockSheet.FairWayMissRight" asp-page="InputStats2" asp-route-btnId="2" type="submit" class="btn-danger btn-miss" value="Miss" />
+                            <input asp-for="@Model.MockSheet.FairWayMissRight" asp-page-handler="MissFairwayRight" type="submit" class="btn-danger btn-miss" value="Miss" />
                         </td>
                     </tr>
                 </table>

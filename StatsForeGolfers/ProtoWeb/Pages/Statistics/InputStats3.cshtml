@@ -1,4 +1,4 @@
-﻿@page "{btnId}"
+﻿@page
 @model ProtoWeb.Pages.Statistics.InputStats3Model
 @{
     ViewData["Title"] = "InputStats3";
@@ -19,10 +19,10 @@
                     </tr>
                     <tr>
                         <td class="p-2">
-                            <input asp-page="../ShowResults" asp-route-btnId="0" type="submit" class="btn-danger btn-miss" value="Out" />
+                            <input asp-page-handler="ScrambleOut" type="submit" class="btn-danger btn-miss" value="Out" />
                         </td>
                         <td class="p-2">
-                            <input asp-page="../ShowResults" asp-route-btnId="1" type="submit" class="btn-primary btn-hit" value="In" />
+                            <input asp-page-handler="ScrambleIn" type="submit" class="btn-primary btn-hit" value="In" />
                         </td>
                     </tr>
                 </table>
