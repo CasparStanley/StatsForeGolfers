@@ -57,7 +57,12 @@ namespace ProtoWeb.Pages.Statistics
             if (courses.GetCourse(id).Holes.Count > UserRepository.Instance.Get().CurrentHolesFilled)
             {
                 UserRepository.Instance.Get().CurrentHolesFilled++;
-                return RedirectToPage("InputStats1");
+
+                // If the current holes par is more than 3, we go to the fairway. Otherwise, we skip the fairway shot.
+                if (courses.GetCourse(id).Holes[UserRepository.Instance.Get().CurrentHolesFilled].Par > 3)
+                    return RedirectToPage("InputStats1");
+                else
+                    return RedirectToPage("/Statistics/InputStats2");
             }
             else
             {
